@@ -1,0 +1,31 @@
+\begin{df}
+Sea $X_d$ un espacio métrico compacto. Definimos a la métrica de la convergencia uniforme como;
+
+d(f,g)= \max_{x \in X}\{d(f(x),g(x)) \}
+\end{df}
+
+donde $f$ y $g$ son funciones cotinuas. 
+
+
+Ahora vamos a evitar desarrollar una parte de la teoría. Queremos solo usar una equivalencia entre la topología compacto abierta y la generada por la métrica uniforme. Para ello sugerimos revisar **Munkres página 321 hasta 325, tambien Willard 278 hasta la página 284. Esto con la intensión de complementar un texto de otro. Para revisar la referencia de Willar, es necesario tener en cunta el capitulo 10, el libro de Munkres es adecuado para una introducción al tema, pero no con el detalle como lo hace Willard.
+
+\begin{df}
+Sean $(Y,d)$ un espacio métrico y $X$ un espacio topológico. Sea $f\in Y^X$, $C$ sub espacio compacto de $X$ y $\varepsilon > 0$. Definidmos a $B_C(f, \varepsilon)$ com ola familia de funciones $g \ in Y ^X$ para los cuales
+$$\sup \{d(f(x),g(x))|x \in C \} < \varepsilon$$
+Las familias  $B_C(f,\varepsilon)$ forman una base para una topología sobre $Y^X$ la cual será llamada la topología de la convergencia compacta.  
+\end{df}
+
+
+\begin{te}
+Sean $X$ un espacio toplógico e $Y_d $ métrico. Para el espacio de funciones $Y^X$ se tiene la siguiente inclusión de topologías:
+
+$$\text{(uniforme)} \subset \text{(convergencia compacta)}$$ 
+Si $X$ es compacto entonces las topologías coinciden. 
+\end{te}
+
+Este teorema puede estudiarse en munkres como teorema 46.8 o en Willar como teo 43.7
+
+\begin{te}
+Sean $X$ un espacio toplógico e $Y_d $ métrico. Sobre el sub-espacio de funciones continuas la topología de la convergencia compacta y de la convegencia uniforme coinciden. 
+\end{te}
+

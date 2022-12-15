@@ -1,0 +1,407 @@
+%Archivo para subfiles.
+%
+\documentclass{subfiles} 
+
+% Preambulo: \include{pre/pre-1}
+
+
+\begin{document}
+
+
+%%%%%%%%%%%%   Conjunto de Cantor
+
+\chapter{Conjunto de Cantor}
+
+El conjunto de Cantor, llamado así por su descubridor Georg Ferdinand Ludwig Philipp Cantor es un ejemplo muy útil en análisis por mencionar algunas coss importantes, en el conjunto de Cantor nos es posible definir dos funciones Lebesgue medibles cuya composición no es Lebesgue medible o definir un conjunto Lebesgue medible que no es Borel medible, además es un conjunto infinito no numerable de medida de Lebesgue cero, pero con una modificación que se conoce como el conjunto de Cantor-Smell-Volterra obtenemos un conjunto de medida positiva. También es de destacar de una propiedad universal del conjunto de Cantor, esto es, tiene propiedades topológicas las cuales permiten clasificar espacios con homeomorfismos al conjunto de Cantor. 
+
+\subsubsection{Construcción}
+Vamos a definir conjuntos de manera recursiva, para el primer paso  sean $I:=[0,1]$ y $J_1=J(I):=(1/3,2/3)$. Definimos los conjuntos
+
+\begin{enumerate}
+\item $F_{11} := [0,1/3]$ y $F_{12} := [2/3,1]$. Notemos que la longitud de estos intervalos es 1/3.
+\item $C_1 := I \setminus J_1$. 
+\end{enumerate} 
+
+En el primer paso, al intervalo unitario $I$ lo dividimos en tres y  le hemos quitado el intervalo de en medio identificado como $J_1$.
+Para el segundo paso, en los intervalos $F_{11}$ y $F_{12}$ quitaremos los intervalos $J(F_{11})=(1/3^2,2/3^2)$ y $J(F_{12})=(7/3^2,8/3^2)$. Definimos a los intervalos
+
+\begin{enumerate}
+\item $J_2$=$J(F_{11}) \cup J(F_{12})$,
+\item $F_{21}=[0,1/3^2]$,  $F_{22}=[2/3^2,3/3^2]$, $F_{23}=[6/3^2,7/3^2]$ y $F_{24}=[8/3^2,1]$, notemos que la longitud de estos intervalos es $1/3^2$.
+\item $C_2=I \setminus J_2$. 
+\end{enumerate}
+
+En el segundo paso, para los dos intervalos restantes del paso anterior, $F_{11}$ y $F_{12}$, dividimos sendo intervalo en tres y retiramos el intervalo de en medio. A $F_{12}$ le quitamos el intervalo $J(F_{11})$ obteniendo ahora dos intervalos $F_{21}$ y $F_{22}$. Para el intervalo $F_{22}$ le hemos quitado el intervalo $J(F_{22})$ de este modo tenemos dos intervalos $F_{23}$ y $F_{24}$.
+
+
+La notación representa lo siguiente, $F_{ij}$ se define como el $j$-ésimo componente restante obtenida en el paso $i$. Repitiendo de manera infinita, obtenemos sucesiones de conjuntos $(J_n)_{n=1}^\infty$ y $(C_n)_{n=1}^\infty$. La familia de intervalos $J_n$ es la unión disjunta de $2^{n-1}$ intervalos abiertos y $C_n$ es una sucesión decreciente de intervalos cerrados, donde cada $C_n$ es unión disjunta de $2^n$ intervalos cerrados. La longitud de cada $J_n$ y $C_n$ es $1/3^n.$
+
+Consideremos finalmente a $J=\bigcup_{n }^{\infty}  J_n$ definimos al \textbf{conjunto Cantor ternario} como $$C=\bigcap_{n=1}^\infty C_n=I \setminus J.$$ 
+
+En lo siguiente veremos que el conjunto de Cantor es un espacio topológico con una propiedad de clasificación. 
+
+\subsection*{Topología del conjunto de Cantor}
+
+El intervalo $I$ es un conjunto compacto por el teorema de Hein-Borel. Cada conjunto $F_{ij}$ es un subintervalo cerrado y acotado de $I$ por tanto es compacto. Además cada $C_n$ es una unión finita de conjuntos compactos en consecuencia cada conjunto $C_n$ es un conjunto compacto para cada $n \in \mathbb{N}$. Por construcción se cumple que, dados $n < m $ índices, $C_m \subset C_n$. Tenemos por tanto que los $C_n$ forman una familia de conjuntos compactos, no vacíos y anidados. 
+
+\begin{lm}
+La intersección anidada de conjuntos compactos anidados es no vacía. 
+\end{lm} 
+
+
+
+ El conjunto de Cantor también cumple ser totalmente disconexo, \cite{top_willd} example 26.13.b. En otras palabras, para cada $x \in C$ $Q(x)=\{x\}$. El siguiente teorema es importante, el conjunto de Cantor tiene una propiedad de clasificación.  Una demostración se encuentra en \cite{top_willd} en la página 216.
+
+\begin{te}\label{te:Cantor_universal}
+El conjunto de Cantor es el único espacio métrico, totalmente disconexo, compacto y perfecto. (Salvo homeomorfismo.)
+\end{te}
+
+
+Para finalizar este resumen de propiedades del conjunto de Cantor tenemos el resultado de dimensión. 
+
+\begin{df}
+Un espacio $X$ es de dimensión 0, si para cada punto $x$ de $X$ existe un sistema de vecindades de $x$ de abiertos y cerrados.
+\end{df}
+
+Concluimos con el ejemplo de \cite{top_willd} example 29.8 pagina 211 que el conjunto de Cantor tiene dimensión cero. Veremos ahora que con el trabajo de Anderson en \cite{ander} el grupo de homeomorfismos del Cantor es simple. 
+
+\section{Definiciones importantes}
+A partir de ahora, $X$ será un espacio $T_2$ y  $Hom_0(X)$ denotará al subgrupo de los homeomorfismos $h:X \to X$ tales que existe $U$ abierto en $X$ tal que 
+
+\begin{align*}
+h|_U=Id_U.
+\end{align*}
+
+
+
+\begin{df}
+Sean $X$ espacio topológico. Denotamos a $2^X$ la colección de los subconjuntos cerrados y no vacíos de $X$.  Sea $\mathcal{K} \subset 2^X$ tal que;
+ 	
+	\begin{enumerate}
+	\item los elementos de $\mathcal{K}$ son no degenerados y homeomorfos unos con otros,
+	\item para cada $U$ abierto de $X$ existe $K \in \mathcal{K}$ tal que $K \subset U,$
+	\item para $K \in \mathcal{K}$, $Cl(K^c) \in \mathcal{K}.$
+	\end{enumerate}
+
+diremos que $\mathcal{K}$ es una \textbf{estructura de rotación} para $X$ o que $X$ tiene una $\mathcal{K}$  \textbf{estructura de rotación}.
+\end{df}
+
+Para un ejemplo sencillo tenemos 29.8 example de \cite{top_willd}, donde se menciona lo siguiente
+
+\begin{ob}
+El conjunto de Cantor tiene dimensión cero.
+\end{ob}
+
+Vamos a usar esta propiedad de la dimensión del conjunto de Cantor, existe una base $\mathcal{K}$ de conjuntos abiertos y cerrados, notemos que las propiedades 2 y 3 de la definición se satisfacen por ser base para una topología. Resta ver la primera parte y tan solo el hecho de que son homeomorfos. Dados $K$ y $W$ conjuntos en $\mathcal{K}$ notemos que cada conjunto es cerrado y por tanto son compactos, se hereda la total disconexión y perfección como subespacios también son métricos, por el teorema \ref{te:Cantor_universal} existe $f:K \to W$ homeomorfismo.
+
+Notemos que los argumentos son aplicables a $\mathcal{C} \setminus K$ y  $\mathcal{C} \setminus W$, por tanto existe un homeomorfismo $h:\mathcal{C} \setminus K \to \mathcal{C} \setminus W$ del lema del pegado de funciones tenemos que existe un homeomorfismo $f \cup h: \mathcal{C} \to \mathcal{C}$ y que  manda a $K$ en $W.$  Se tiene que el conjunto de Cantor tiene una $\mathcal{K}$ estructura de rotación. 
+
+
+\begin{ob}\label{ob:hom_sop_en_Ks}
+Sea $g \in Hom_0(X)$ distinto de la identidad entonces existe un abierto $U$ en $X$ tal que $g|_U=id_U$, por la definición de $\mathcal{K}$ estructura existe un conjunto $K_1 \in \mathcal{K}$ tal que $K_1 \subset U$ y tomando complementos de esto último se tiene que 
+
+	\begin{align*}
+	Sup(g) \subset X \setminus U \subset X \setminus K_1
+	\end{align*}
+
+al tomar la cerradura de cada conjunto tenemos que,
+
+	\begin{align*}
+	X \setminus U \subset \overline{ X \setminus K_1}
+	\end{align*}
+
+puesto que $X \setminus U$ es cerrado, por la tercera condición de $\mathcal{K}$ estructura se sigue que $\overline{ X \setminus K_1} \in \mathcal{K}$ y por tanto $g$ está soportando en un elemento $K = \overline{ X \setminus K_1}$.
+\end{ob}
+
+
+
+\begin{lm}\label{lm:K_separado_por_h}
+Sea $h \in Hom(X)$ distinto de la identidad, entonces existe $k \in \mathcal{K}$ tal que $h(K) \cap K = \emptyset.$
+\end{lm}
+
+\begin{proof}
+Como $h$ es distinto de la identidad, existe $x \in X$ tal que $h(x) \neq x$. Más aún, como $X$ es un espacio Hausdorff sin pédida de generalidad existen $U(x)$ y $V(h(x))$ tales que 
+
+	\begin{align*}
+    U \cap V  = \emptyset,
+	\end{align*}
+	
+por la continuidad de $h$ se cumple que $h(U) \subset V$, de la definición de $\mathcal{K}$ estructura, existe $K$ tal que $K \subset U$ y por tanto $h(K) \subset V$ tenemos así que,
+
+	\begin{align*}
+    K \cap h(K) = \emptyset.
+	\end{align*}
+
+\end{proof}
+
+\begin{ob}
+Del lema anterior notemos que aplicando la función $h^{-1}$, la inversa de la función $h$, tenemos que
+
+	\begin{align*}
+    K \cap h^{-1}(K) = \emptyset,
+	\end{align*}
+
+teniendo así  que 
+
+	\begin{align*}
+    K \cap (h^{-1}(K) \cup h(K)) = \emptyset.
+	\end{align*}
+	
+\end{ob}
+
+
+\begin{df}\label{df:Suc_rot}
+Sea $X$ un espacio con $\mathcal{K}$ estructura de rotación. Si existe una sucesión de conjuntos $(K_i)_{i\in \mathbb{Z}} \subset \mathcal{K}$ tal que,
+
+	\begin{enumerate}
+	\item $(K_i)_{i\in \mathbb{Z}}$ es una sucesión de conjuntos disjuntos. 
+	\item Existe $U$ abierto en $X$ tal que $\bigcup_{i\in \mathbb{Z}} K_i \subset U$.
+	\item $Cl(\bigcup \mathcal{K})- \bigcup \mathcal{K}=\{p \}$ con $p \in X$ y es tal que para cualquier vecindad $U(p)$ contiene todas excepto una cantidad finita de elementos de $\mathcal{K}.$
+	\end{enumerate}
+
+Decimos que $X$ tiene una \textbf{sucesión de rotación} y a $(K_i)_{i\in \mathbb{Z}}$ le diremos una \textbf{sucesión de rotación} en $X$.
+\end{df}
+
+\begin{ej} 
+Sea $\mathcal{C}$ un conjunto de Cantor sea $\mathcal{K}$ una base de abiertos y cerrados para $\mathcal{C}$. Definiremos a una familia de conjuntos, 
+	
+	\begin{enumerate}
+		\item Sea $F_{24}$ de la construcción del Cantor, como $\mathcal{K}$ es base existe $K_0 \subset \mathcal{C} \cap F_{24}$.
+		\item  Consideremos también los conjuntos $F_{22}$ y $F_{23}$ nuevamente, como $\beta$ es base existen $K_1$ y $K_{-1}$ tales que $K_1 \subset \mathcal{C} \cap F_{22}$ y $K_{-1} \subset \mathcal{C} \cap F_{23}$.
+\item Por este proceso existen $K_{i}$ y $K_{-i} $ conjuntos abiertos y cerrados tales que $K_i \subset F_{i2}$ y $K_{-i} \subset F_{i3}$.
+	\end{enumerate}
+Sea $p=0$, es claro que $p \in \mathcal{C}$, la familia de conjuntos $(K_i)_{i \in \mathbb{Z}}$ es una sucesión de rotación para el conjunto de Cantor. En efecto, las primeras dos condiciones son por construcción y por que los conjuntos son abiertos y cerrados. Resta ver $0 \in Cl(\bigcup_i K_i)$. 
+
+Sea $r >0 $ y consideremos a $B_r(0) \subset \mathcal{C}$. Como la sucesión $1/3^n \to 0$ cuando $n \to \infty$ existe $N \in \mathbb{N}$ tal que $1/3^n < r$ para $n \geq N$, por tanto existen $F_{n2}$ y $F_{n3}$ tales que los extremos derechos de estos intervalos son menores que $r$ y en consecuencia $K_{n}$ y $K_{-n}$ están contenidos en $B_r(0)$ para $n \geq N.$ De esta manera se tiene que $Cl(\bigcup \mathcal{K})- \bigcup \mathcal{K}=\{0\}$ tenemos que $\mathcal{C}$ tiene una sucesión de rotación. 
+\end{ej}
+
+\begin{df}
+Sean $X$ un espacio con una $\mathcal{K}$ estructura y $G$ un subgrupo de $Hom(X)$. Decimos que $X$ tiene \textbf{rotación}-$(G,\mathcal{K})$ si para cualquier $K \in \mathcal{K}$ existe una sucesión de rotación $(K_i)_{i \in \mathbb{Z}}$ tal que 
+
+	\begin{enumerate}
+	\item $\bigcup_{i \in \mathbb{Z}} K_i \subset K$ y
+	\item existen $h_1$, $h_2 \in G_0$ con soporte en $K$ tales que;  
+
+		\begin{enumerate}
+		\item $h_1(K_i)=K_{i+1}$ para cada $i$.
+		\item $h_2|_{K_0}=h_1|_{K_0}$, $h_2|_{K_{2i}}=(h_1^2)^{-1}|_{K_{2i}}$, para toda $i >0$ y $h2|_{K_{2i-1}}=h_1^2|_{K_{2i-1}}$ para toda $i >0$.
+		\item Si para cada $i$, $f_i \in Hom_0(X)$ soportado en $K_i$, entonces existe $f \in Hom_0(X)$ soportado en $\bigcup K_i$ tal que $f|_{K_i}=f_i|_{K_i}$ para cada $i$.
+		\item Para cualquier $K' \in \mathcal{K}$ existe $\varphi \in Hom(X)$ tal que $\varphi(K')=K.$
+
+		\end{enumerate}
+
+	\end{enumerate}
+\end{df}
+
+Usaremos en muchas ocasiones el lema \ref{lm:obs_A} que vimos anteriormente. 
+
+\begin{lm}\label{lm:obs_A_2}
+Sean $K \subset X$ y $g \in Hom_0(X)$ soportado en $K$. Para cualquier $h \in Hom(X)$ se tiene que,
+ 
+	\begin{enumerate}
+	\item  $g^{[h^{-1}]}$ está soportado en $h^{-1}(K)$.
+	\item Si $h^{-1}(K) \cap K = \emptyset$ y $h^{-1}(K) \cup K \neq X$  entonces
+		\begin{enumerate}
+		\item $[h^{-1},g^{-1}]$ está soportado en $h^{-1}(K) \cup K$,
+		\item $[h^{-1},g^{-1}]|_K=g|_K$ y 
+		\item $[h^{-1},g^{-1}]|_{h^{-1}(K)}=g^{[h^{-1}]}|_{h^{-1}(K)}$
+		\end{enumerate}	
+	\end{enumerate}
+\end{lm}
+
+y la observación siguiente
+
+\begin{ob}\label{ob:efecto_soporte_2}
+La composición de funciones con soportes ajenos. Sean $f$, $g$ dos homemorfismos tales que $K_f$ y $K_g$ son conjuntos de soporte respectivamente y tales que  $K_f \cap K_g = \emptyset$ y $K_f \cup K_g \neq X$ entonces para $h=fg$ se cumple que, $h=g$ en  $ K_g$, $h=K_f$ en $K_f$ y $h$ tiene soporte en $K_f \cup K_g$.
+\end{ob}
+\begin{lm}\label{lm:lema_1}
+Sea $X$ un espacio con rotación $(G,\mathcal{K})$ y $h \in Hom(X)$ no trivial, existe $K_0 \in \mathcal{K}$ tal que para todo $g \in G_0$ soportando en $K_0$ se tiene que $g$ es el producto de cuatro conjugados de $h$ y $h^{-1}$. 
+\end{lm}
+
+\begin{ob}
+Cuando nos referimos que $g$ es el producto de cuatro conjugados de $h$ y $h^{-1}$ esto se tiene salvo el orden. 
+\end{ob}
+
+\begin{proof}
+Sea $K \in \mathcal{K}$ del lema \ref{lm:K_separado_por_h}. Como $X$ tiene rotación- $(G, \mathcal{K})$ existen una sucesión de rotación $(K_i)_{i \in \mathbb{Z}}$, tal que,
+
+\begin{align*}
+\cup_{i \in \mathbb{Z}} K_i \subset K,
+\end{align*}
+y homeomorfismos $\phi_1$, $\phi_2$ soportados en $K$. Afirmamos que el conjunto $K_0$ de la sucesión es el conjunto que cumple con el lema, sea $g_0$ un homeomorfismo soportado en $K_0$. Vamos a construir un homeormorfismo auxiliar $w$. Consideremos los homeomorfismos, 
+
+\begin{align*}
+f_i=g_0^{[\phi_1^i]},
+\end{align*}
+para $i \geq 0$ y para $i<0$ sean $f_i=id$. Del lema \ref{lm:obs_A_2}, $f_i$ está soportado en $\phi_1^i(K_0)=K_i$, de la definición de rotacionalidad, existe un homeomorfismo $f$ tal que
+
+\begin{enumerate}
+	\item $f$ está soportado en $\bigcup_i K_i$,
+	\item $f |_{K_i}=f_i|_{K_i},$
+\end{enumerate}
+
+Sea $\tilde{f}=[h^{-1},f^{-1}]=h^{-1}f^{-1}hf$,  por el lema \ref{lm:obs_A_2} tiene soporte en el conjunto
+
+\begin{align*}
+ Y= \left(\bigcup_i h^{-1}(K_i) \right)\cup \left(\bigcup_i K_i \right)
+\end{align*}
+
+Por otro lado definamos a 
+
+\begin{align*}
+\tilde{h}=\phi_2^{[h^{-1}]}\phi_1^{-1}
+\end{align*}
+
+por el lema \ref{lm:obs_A_2} $\phi_2^{[h^{-1}]}$ tiene soporte en $h^{-1}(K)$. Notemos además que $\phi_1$ tiene soporte en $K$. De la observación \ref{ob:efecto_soporte} tenemos que $\tilde{h}$ tiene soporte en $Y.$ Finalemente vamos a definir a $w$ como,
+
+\begin{align*}
+w & = [\tilde{h}^{-1},\tilde{f}^{-1}]=\tilde{h}^{-1}\tilde{f}^{-1}\tilde{h}\tilde{f} \\
+& = \tilde{h}^{-1} (f^{-1}h^{-1}fh)^{-1}\tilde{h}(h^{-1}f^{-1}hf)\\
+& = (\tilde{h}^{-1} f^{-1}h^{-1}f \tilde{h})(\tilde{h}^{-1} h\tilde{h})(h^{-1})(f^{-1}hf)\\
+& = (h^{-1})^{[\tilde{h}^{-1} f^{-1}]}h^{[\tilde{h}^{-1} ]}(h^{-1})^{[Id]}h^{[f^{-1}]}
+\end{align*}
+
+
+Notemos que $w$ es el producto de cuatro conjugados de $h$ y $h^{-1}$ en orden alterno. Además por el lema \ref{lm:obs_A_2} tenemos que
+
+\begin{align*}
+w =\tilde{h}^{-1}\tilde{f}^{-1}\tilde{h}\tilde{f}
+\end{align*}
+
+Para terminar nuestros argumentos es suficiente que $w \equiv g_0$. Para ello vamos a usar la observación \ref{ob:efecto_soporte_2}. En el caso $\bigcup K_i$, para $\tilde{f}$ del lema \ref{ob:efecto_soporte_2} tenemos que  
+
+\begin{align*}
+\tilde{f}|_{\bigcup_i K_i} = f|_{\bigcup_i K_i}
+\end{align*}
+
+más aún, $\tilde{f}|_{K_i} = f_i|_{K_i}$ y  para $\tilde{h}$ tenemos que,
+
+\begin{align*}
+\tilde{h}|_{\bigcup_i K_i}=\phi_1^{-1}|_{\bigcup_i K_i}
+\end{align*}
+
+de la observación \ref{ob:efecto_soporte_2},
+
+
+\begin{align*}
+w|_{\bigcup_i K_i} = \phi_1f^{-1}\phi_1^{-1}f|_{\bigcup_i K_i}.
+\end{align*}
+
+En particular para $K_0$,
+
+\begin{align*}
+f_0|_{K_0}=g_0|_{K_0}
+\end{align*}
+pero $g_0(K_0)=K_0$ y $\phi_1f^{-1}\phi_1^{-1}(K_0)=\phi_1Id\phi_1^{-1}(K_{0})=Id(K_0)$. De esta manera tenemos que $w|_{K_0}=g_0|_{K_0}.$ Más aún, para $i>0$ se tiene que,
+
+\begin{align*}
+w|_{K_i} & = \phi_1f^{-1}\phi_1^{-1}f|_{ K_i}=\phi_1f_i^{-1}\phi_1^{-1}f_i|_{ K_i} \\
+& = \phi_1(g_0^{[\phi_1^i]})^{-1}\phi_1^{-1}(g_0^{[\phi_1^i]})|_{ K_i}\\
+& = \phi_1(g_0^{-1})^{[\phi_1^i]}\phi_1^{-1}(g_0^{[\phi_1^i]})|_{ K_i}=Id
+\end{align*} 
+tenemos que $w|K=g_0|_K.$ Veamos ahora en el conjunto $h^{-1}(K)$, del lema \ref{lm:obs_A_2}
+
+\begin{align*}
+\tilde{f}|_{\bigcup_i h^{-1}(K_i)} = (f^{-1})^{[h^{-1}]}|_{\bigcup_i h^{-1}(K_i)}.
+\end{align*}
+
+y por la observación \ref{ob:efecto_soporte_2}  para $\tilde{h}$ tenemos que,
+
+\begin{align*}
+\tilde{h}|_{\bigcup_i h^{-1}(K_i)}=\phi_2^{[h^{-1}]}|_{\bigcup_i h^{-1}(K_i)}
+\end{align*}
+tenemos entonces que $w|_{\bigcup_i h^{-1}(K_i)}= (\phi_2^{-1})^{[h^{-1}]}(f)^{[h^{-1}]}\phi_2^{[h^{-1}]}(f^{-1})^{[h^{-1}]}|_{\bigcup_i h^{-1}(K_i)}$, pero 
+
+\begin{align*}
+(\phi_2^{-1})^{[h^{-1}]}(f)^{[h^{-1}]}\phi_2^{[h^{-1}]}(f^{-1})^{[h^{-1}]}=(\phi_2^{-1} f \phi_2 f^{-1})^{[h^{-1}]}
+\end{align*}
+
+entonces resta ver que ocurre con  $\phi_2^{-1} f \phi_2 f^{-1}$ en $h^{-1}(K)$. De lo anterior $f^{-1}|_{K_0}=g_0^{-1}|_{K_0}$ y para $i>0 $ $f^{-1}|_{K_i}=f_i^{-1}|_{K_i}=(g_0^{-1})^{[\phi_1^i]}|_{K_i}$. Vamos a separar los casos en pares e impares en los indices. Para $K_{2i}$ tenemos que
+
+\begin{align*}
+\phi_2^{-1}f\phi_2f^{-1}|_{K_{2i}} = \phi_1^2(\phi_1^{2i-2}g_0\phi_1^{-2i+2})\phi_1^{-2}(\phi_1^{2i}g_0\phi_1^{-2i})|_{K_{2i}}=Id|_{K_{2i}}
+\end{align*}
+
+y para $K_{2i-1}$
+
+\begin{align*}
+\phi_2^{-1}f\phi_2f^{-1}|_{K_{2i-1}}= \phi_1^{-2}(\phi_1^{2i+1}g_0 \phi_1^{-2i-1})\phi_1^2(\phi_1^{2i-1}g_0^{-1}\phi_1^{-2i+1})|_{K_{2i-1}}=Id|_{K_{2i-1}}
+\end{align*}
+
+y para $K_0$ tenemos que,
+
+\begin{align*}
+\phi_2^{-1}f\phi_2f^{-1}|_{K_0} = \phi_1^{-1}(\phi_1 g_0 \phi_1^{-1})\phi_1(g_0^{-1})|_{K_0}=Id|_{K_{2i}}
+\end{align*}
+
+\end{proof}
+
+Este resultado se encuentra en \cite{ander} como propertie (B).
+
+\begin{ob}\label{ob:numero_conjugados}
+Cualquier conjugado del producto de conjugados de producto de $h$ y $h^{-1}$ tiene el mismo numero de conjugados de $h$ y $h^{-1}$. Si $f=(g_1 h^{-1} g_1^{-1}) \cdots(g_n h g_n^{-1})$ entonces para cualquier $g$ en $Hom(X)$ se tiene que
+\begin{align*}
+g f g^{-1} & = g(g_1 h^{-1} g_1^{-1}) \cdots (g_n h g_n^{-1})g^{-1}\\
+&= (gg_1 h^{-1} g_1^{-1}g^{-1})\cdots(gg_n h g_n^{-1}g^{-1}).
+\end{align*} 
+\end{ob}	  
+ 
+Con este lema vamos a demostrar el siguiente resultado, que se encuentra como \cite{ander} Theorem 1.
+
+\begin{te}
+Sea $X$ un espacio con rotación $(G,\mathcal{K})$ y $h \in Hom(X)$ no trivial. Para todo $g \in G_0$ se tiene que $g$ es el producto de cuatro conjugados de $h$ y $h^{-1}$.
+\end{te}
+
+
+
+\begin{proof}
+Sean $g \in Hom_0(X)$ soportado en $K \in \mathcal{K}$ y $K_0$ como en las hipótesis del lema, como $X$ tiene rotación-$(G,\mathcal{K})$  existe $\varphi \in G$ tal que 
+
+\begin{align*}
+    \varphi(K) = K_0.
+\end{align*}
+
+Tomando a $g_0= g^{[\varphi]}$ por el lema \ref{lm:obs_A_2} se tiene que $g_0$ está soportando en $\varphi(K)=K_0$, del lema  \ref{lm:lema_1} $g_0$ es producto de cuatro conjugados de $h$ y $h^{-1}$,
+
+\begin{align*}
+g_0= h^{[g_1]}(h^{-1})^{[g_2]}h^{[g_3]}(h^{-1})^{[g_4]}
+\end{align*}
+
+ entonces
+ 
+\begin{align*}
+ g= \left( h^{[g_1]}(h^{-1})^{[g_2]}h^{[g_3]}(h^{-1})^{[g_4]} \right)^{[\varphi^{-1}]}
+\end{align*}
+ de la observación \ref{ob:numero_conjugados} se tiene que $g$ es producto de cuatro conjugados, es decir, 
+ 
+ \begin{align*}
+ g= h^{[\varphi^{-1}g_1]}(h^{-1})^{[\varphi^{-1}g_2]}h^{[\varphi^{-1}g_3]}(h^{-1})^{[\varphi^{-1}g_4]} .
+\end{align*}
+\end{proof}
+
+\end{document}
+\bibliography{biblio.bib}
+\bibliographystyle{plain}
+
+
+
+
+
+%
+%\begin{df}
+%Sea $X$ un espacio con rotación-$(G,\mathcal{K})$, decimos que $X$ es $(G,\mathcal{K})$-**homogéneo** si
+%	
+%	
+%- para cualquier $K \in \mathcal{K}$ y $h \in Hom(X)$ tal que $h(K)\cap K = \emptyset$ entonces existe $K' \in \mathcal{K}$ y $\psi \in G_0$, $\psi$ con soporte en $K'$ tal que $\psi|_K=h|_K$.
+%- Para cualesquiera $K_1$, $K_2$, $K_3$ y $K_4 \in Im_G(\mathcal{K})$ con $K_1 \cap K_2=K_3 \cap K_4 = \emptyset$, $K_1 \cup K_2 \neq X \neq K_3 \cup K_4$, existe $\varphi \in Hom(X)$ tal que $\varphi(K_1)=K_3$ y $\varphi(K_2) =K_4.$
+%
+
+
+\begin{cn}
+$Im_G(2^X)$ denotará la colección de todas las imágenes de elementos de $2^X$ bajo los elementos de $G \subset Hom(X)$, esto es, para una famlia de conjuntos $\mathcal{K} \subset 2^X$ se tiene que,
+	
+	\begin{align*}
+	Im_G(\mathcal{K})=\{g(K): K \in \mathcal{K}  \text{ y } g \in G \}.
+	\end{align*}
+
+\end{cn}	 

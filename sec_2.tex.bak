@@ -1,0 +1,209 @@
+%Archivo para subfiles.
+%\documentclass{subfiles} 
+
+% Preambulo
+\include{pre/pre-1}
+
+
+\begin{document}
+	
+\section*{Simplicidad del grupo $Hom(S^1)$}
+
+ En 1999 E. Ghys en su trabajo +++ dio una adaptación del trabajo de Epstein +++ para el grupo de homeomorfismos que preservan orientación. Para nuestros fines esto es adecuado pues el trabajo de Epstein contempla variedades y es un tema que estamos omitiendo.
+ 
+ 
+\begin{cn}
+En esta sección vamos hacer el abuso de notación.
+	\begin{itemize}
+	\item A partir de ahora y lo que resta de la sección, $Hom(S^1)$ denotará al grupo $\{h: S^1 \to S^1 | h \text{ es homeomorfismo y preserva orientación} \}$.
+	\item A los subcojuntos cerrados conexos y no degenerados de  $S^1$ serán llamados \textbf{sub-intervalos} de $S^1.$
+	\end{itemize}
+\end{cn}
+ 
+  En el ejemplo \ref{ej:Cir_un_coc} hablamos de un espacio cociente que es homemorfo a la circunferencia. Anteriormente vimos que el grupo de homeomorfismos de la circunferencia es un grupo topológico, estudiaremos ahora que el grupo es conexo.
+  
+  Consideremos a $S^1$ como el cociente $\mathbb{R} / \mathbb{Z}$.Sean $\tilde{f},$ $\tilde{g} \in Hom(S^1)$ existen $f,$ $g: \mathbb{R} \to \mathbb{R}$ monótonas y parcialmente lineales sea 
+
+\begin{align*}
+H(x,t)=tg(x)+(1-t)f(x),
+\end{align*}
+
+notemos que existe un intervalo entero y un punto tal que 
+
+\begin{align*}
+H(x+1,t) & = tg(x+1)+(1-t)f(x+1)= tg(x)+t+(1-t)f(x)+(1-t) \\
+& = tg(x+1)+(1-t)f(x+1) + t +(1-t)= H(x,t)+1
+\end{align*} 
+
+por tanto tenemos una homotopía entre $g$ y $f$ por tanto $Hom(S^1)$ es grupo conexo.
+
+El siguiente lema nos será útil en la demostración de la simplicidad del grupo de homeomorfismos de la circunferencia que preservan orientación. 
+
+
+\begin{lm}
+Sea $N$ subgrupo normal  de $Hom(S^1)$. Dado $n_0 \in N$ un homemorfismo distinto de la identidad entonces existen $J$ un subintervalo de $S^1$ y un homeomorfismo $n$ tal que 
+
+\begin{align*}
+n(J) \cap J = \emptyset.
+\end{align*}
+\end{lm}
+
+\begin{proof}
+Como $n_0$ no es la identidad, existe $x \in S^1$ tal que $n_0(x) \neq x$, de la continuidad de $n_0$ existe $U(x)$ intervalo abierto de $S^1$ tal que $n_0(U)$ no es la identidad.
+
+Por otro lado, como el espacio $S^1$ es espacio métrico sin pérdida de generalidad existe un abierto $V(n_0(x)) $ tal que $V \cap U = \emptyset. $ 
+
+Como $Hom(S^1)$ actúa de manera transitiva sobre intervalos de $S^1$ existe un homeomorfismo $h$ tal que $h(U)=V$, en particular, como $h$ es homeomorfismo, se tiene que 
+
+\begin{align*}
+\overline{V}=\overline{h(U)}=h(\overline{U})
+\end{align*}
+
+\end{proof}
+
+
+\begin{lm}\label{lm:homeo_separador_de_intervalos}
+Sea $N$ subgrupo normal  de $Hom(S^1)$. Dado $f \in Hom(S^1)$ soportado en un subintervalo $I$ de $S^1$ existe $n \in N$ tal que $n(I) \cap I = \emptyset.$
+\end{lm}
+
+\begin{proof}
+Sean  $n_0 \in N$ distinto de la identidad $Id: S^1 \to S^1$ por tanto existen $x$ y $U(x)$ un sub-intervalo abierto de $S^1$ tal que 
+
+\begin{align*}
+n_0(\overline{U}) \cap \overline{U} =\emptyset.
+\end{align*}
+
+Como $Hom(S^1)$ actúa transitivamente en los subintervalos de  $S^1$ existe $h$ en $Hom(S^1)$ tal que $h(\overline{U}) =J$, como $h$ es un homeomorfismo al tomar la función inversa de $h$ se obtiene que $J=h^{-1}(I)$, sustituyendo esto en la parte previa se obtiene que,
+
+$$n_0(h^{-1}(I)) \cap J= \emptyset,$$
+
+del hecho de que $h$ es biyectiva, tomando ahora la imagen directa bajo $h$ se tiene que,
+
+$$h(n_0(h^{-1}(I)) \cap J)=h(n_0(h^{-1}(I))) \cap h(J)= \emptyset,$$
+
+es decir 
+$$h(n_0(h^{-1}(I))) \cap I= \emptyset.$$
+
+Consideremos a $n=hn_0h^{-1}$, tenemos que $n$ es un homeomorfismo que preserva orientación y por lo anterior cumple la propiedad deseada. Finalmente de la  definición de grupo normal tenemos que $hn_0h^{-1}$ es un elemento de  $N$.
+
+%, además del lema \ref{lm:obs_a} tenemos que $f=g$ en $I$ y  $f=h^{-1}f^{-1}h$ en $h^{-1}(I)$.
+
+\end{proof}
+
+\begin{ob}
+De la demostración del lema \ref{lm:homeo_separador_de_intervalos}
+también existe $n_2 \in N$ tal que $n_2(I) \cap n(I)= \emptyset$, repetiremos una parte de la prueba anterior. Como los homeomorfismos que preservan orientación actuan transitivamente en los sub intervalos, existe $h: S^1 \to S^1$ tal que $h(n(I))=I$
+
+\begin{align*}
+hn_2h(n(I))\cap n(I)
+\end{align*}
+\end{ob}
+En resumen, dado un homeomorfismo soportando un sub intervalo $I$, podemos encontrar un homeomorfismo tal que podemos separa los  puntos de $I$. La ténica de considerar cojugados será muy usada en este texto.  
+
+\begin{ob}
+Sean $N$ subgrupo normal de un grupo $G$ y $n \in N$.
+\begin{enumerate}
+	\item Para cualquier $g \in G$ el elemento $gn^{-1}g^{-1}$ es un elemento de $N$ por la normalidad. Más aún $[n,g]=ngn^{-1}g^{-1}$ es un elemento de $N$ por ser cerrado como subgrupo.
+\end{enumerate}
+\end{ob}
+
+
+%Lema dos para la simplicidad del círculo. 
+
+\begin{lm}
+Sea $N$ un subgrupo normal de  $Hom(S^1)$. Se tiene que el conmutador de dos elementos de  $Hom(S^1)$ soportados en un mismo intervalo es un elemento de $N$.
+\end{lm}
+
+\begin{proof}	
+Sean $f_1$ y $f_2 \in Hom(S^1)$  soportados en $I$, un sub intervalo de $S^1$, luego por el lema \ref{lm:homeo_separador_de_intervalos} existen  $n_1$, $n_2 \in N$ tales que $I,$ $n_1^{-1}(I)$ y $n_2^{-1}(I)$ son conjuntos disjuntos. Definimos a  $g_1=[n_1^{-1},f_1^{-1}]$ y a $g_2=[h_2^{-1},f_2^{-1}]$ que por  normalidad  son elementos de  $N$. Además por el lema \ref{lm:obs_a} se tiene que,
+
+    \begin{enumerate}
+        \item $g_1=f_1$  y $g_2=f_2$ en puntos de $I$, 
+        \item $g_1$ está soportando en $n_1(I) \cup I$ y que 
+        \item  $g_2$ está soportando en $n_2(I) \cup I$.
+    \end{enumerate} 
+
+Como $I$, $n_1(I)$ y $n_2(I)$ son conjuntos ajenos, dado $x \in n_1(I)$ se cumple que, 
+
+$$[g_1,g_2](x)=[n_1^{-1}f_1^{-1}n_1,id_{S^1}](x)=id_{S^1}(x)$$
+
+y $$[f_1,f_2](x)=id_{S^1}(x).$$
+
+El caso es análogo si $x \in n_2(I)$ concluimos que $[g_1,g_2]=[f_1,f_2]$.
+\end{proof}
+
+\begin{ob}
+Si un grupo $G$ es generado por un subconjunto $X$, su primer grupo derivado $G'$ es generado por conjugados de conmutadores de elementos de $X$.
+
+Para ello, recordemos que $G'=\langle\{[g,h]: g, h \in G \} \rangle$. Supongamos que $G=\langle X \rangle.$ Veremos que $G'= \langle\{g[x,y]g^{-1}: x, y \in X \text{ y } g \in G \} \rangle$.
+
+Por la observación \ref{ob:pr_de_los_conmutadores}, tenemos que
+$$g[x,y]g^{-1}=[gxg^{-1},gyg^{-1}] \in G'$$
+de donde tenemos la contensión 
+$$ \{g[x,y]g^{-1}: x, y \in X \text{ y } g \in G \} \subset G'.$$
+por la construcción de grupo generado tenemos que 
+$$ \langle\{g[x,y]g^{-1}: x, y \in X \text{ y } g \in G \} \rangle \subset G'.$$
+\end{ob}
+
+El siguiente teorema es presentado en **cita** como  Teorema 4.3 páginas 265-318.
+
+\begin{te}
+El grupo $Hom_+(S^1)$ de homeomorfismos que preservan la orientación es simple.
+\end{te}
+\begin{proof}
+Sea $I_1$, $I_2$ e $I_3$ intervalos que cubren a $S_1$ con  $I_1 \cap I_2 \cap I_3=\emptyset$ pero no vacía dos a dos y consideremos a  $G_1$, $G_2$ $G_3$ los subgrupos generados por los elementos que tienen soporte $I_j$ respectivamente.
+	
+		
+Afirmamos que $Hom(S^1)=\langle G_1 \cup G_2 \cup G_3 \rangle.$ De la observación $\langle G_1 \cup G_2 \cup G_3 \rangle$ es generado por los conjugados de los conmutadores de $G_1\cup G_2 \cup G_3$. Por tanto, tenemos que $\langle G_1 \cup G_2 \cup G_3 \rangle \subset N$.
+
+Sean $x$, $y$ y $z$ en $I_1 \cap I_2$, $I_2 \cap I_3$ y $I_3 \cap I_1$ respectivamente y $f \in N$ tal que $f(x)$, $f(y)$ y $f(z)$ estén en los interiores de  $I_1 \cap I_2$, $I_2 \cap I_3$ y $I_3 \cap I_1$ respectivamente. 
+
+Como antes podemos encontrar $g_1$, $g_2$ y $g_3 \in Hom(S^1)$ tal que tienen soporte en  $I_1 \cap I_2$, $I_2 \cap I_3$ y $I_3 \cap I_1$ respectivamente y son $f$ en vecindades de $x$, $y$ y $z.$
+\end{proof} 
+ Por el lema anterior tenemos que $$[Hom(S^1),Hom(S^1)] \subset H$$ y $$G \subset [Hom,Hom]$$
+%%%%%%%%%%%%   Conjunto de Cantor
+
+\section{Conjunto de Cantor}
+
+El conjunto de Cantor, llamado así por Georg Ferdinand Ludwig Philipp Cantor, es un ejemplo muy útil en análisis por mencionar algunas propiedades, es un conjunto infinito no numerable de medida de Lebesgue cero, pero con una modificación que se conoce como el conjunto de Cantor-Smell-Volterra obtenemos un conjunto de medida positiva. También es de destacar de una propiedad universal del conjunto de Cantor esto es, tiene propiedades topológicas las cuales permiten clasificar espacios con homeomorfismos al conjunto de Cantor. 
+
+
+\subsubsection{Construcción}
+
+Sean $I:=[0,1]$ y $J_1:=(1/3,2/3)$. Definimos los conjuntos
+\begin{enumerate}
+\item $F_{11} := [0,1/3]$ y $F_{12} := [2/3,1]$. Notemos que la longitud de estos intervalos es 1/3.
+\item $C_1 := I \setminus J_1$. 
+\end{enumerate} 
+
+En el segundo paso, en los intervalos $F_{11}$ y $F_{12}$ quitaremos los intervalos $J_2(F_{11})=(1/9,2/9)$ y $J_2(F_{12})=(6/9,7/9)$. 
+Definimos a los intervalos
+\begin{enumerate}
+\item $J_2$=$J_2(F_{11}) \cup J_2(F_{12})$,
+\item $F_{21}=[0,1/3^2]$,  $F_{22}=[6/9,7/9]$, $F_{23}=[6/3^2,7/3^2]$ y $F_{24}=[8/3^2,1]$, notemos que la longitud de estos intervalos es $1/3^2$.
+\item $C_2=I \setminus (J_1 \cup J_2)$. 
+\end{enumerate} 
+
+
+En el primer paso, al intervalo unitario $I$ le hemos quitado el intervalo de en medio identificado  como $J_1$. En el segundo paso identificamos a los dos intervalos restantes del paso anterior, $F_{11}$ y $F_{12}$ luego, a cada intervalo que restaban se repite el argumento tomando a cada uno como en el primer paso. 
+
+A $F_{12}$ le quitamos el intervalo $J_2(F_{11})$ obteniendo ahora dos intervalos $F_{21}$ y $F_{22}$. Para el intervalo $F_{12}$ le hemos quitado el intervalo $J_2(F_{12})$ de este modo tenemos dos intervalos $F_{23}$ y $F_{24}$.
+
+
+La notación es la siguiente en $F_{ij}$ se define en el $i$-éismo paso en en $j$-ésimo intervalo obtenido en el paso $i-1$. El indice $i$ indica el paso y el $j$ el intervalo obtenido. Repitiendo de manera infinita, obtenemos sucesiones de conjuntos $(J_n)_{n=1}^\infty$ y $(C_n)_{n=1}^\infty$.
+
+La familia de intervalos $J_n$ es la unión disjunta de  $2^{n-1}$ intervalos abiertos. $C_n$ es una sucesión decreciente de intervalos cerrados, donde cada $C_n$ es unión disjunta de $2^n$ intervalos cerrados. La longitud de cada $J_n$ y $C_n$ es $1/3^n.$ Consideremos finalmente a $J=\bigcup_{n }^{\infty}  J_n$ definimos al \textbf{conjunto Cantor} como $$C=\bigcap_{n=1}^\infty C_n=I \setminus J.$$ 
+
+El conjunto $C$ también es conocido como el Cantor ternario.
+
+\subsection*{Topología del conjunto de Cantor}
+
+El intervalo $I$ es un conjunto compacto por el teorema de Hein-Borel. Cada conjunto $F_{ij}$ es un subintervalo cerrado por tanto es compacto. Además cada $C_n$ es una unión finita de conjuntos compactos en consecuencia cada conjunto $C_n$ es un conjunto compacto para cada $n \in \mathbb{N}$. Por construcción se cumple que, dados $n < m $ índices, $C_m \subset C_n$. Tenemos por tanto que los $C_n$ forman una familia de conjuntos compactos, no vacíos y anidados. 
+
+\begin{lm}
+La intersección de conjuntos compactos anidados es no vacía. 
+\end{lm} 
+
+El conjunto de Cantor también cumple ser totalmente disconexo, en otras palabras, para cada $x \in C$ $Q(x)=\{x\}$. 
+ 
+\end{document} 

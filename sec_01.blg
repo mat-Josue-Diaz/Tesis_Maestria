@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2022)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: sec_01.aux
+The style file: plain.bst
+Database file #1: biblio.bib
+Warning--I didn't find a database entry for "Baz"
+You've used 13 entries,
+            2118 wiz_defined-function locations,
+            572 strings with 5319 characters,
+and the built_in function-call counts, 3233 in all, are:
+= -- 300
+> -- 123
+< -- 0
++ -- 53
+- -- 38
+* -- 176
+:= -- 566
+add.period$ -- 37
+call.type$ -- 13
+change.case$ -- 51
+chr.to.int$ -- 0
+cite$ -- 13
+duplicate$ -- 141
+empty$ -- 298
+format.name$ -- 38
+if$ -- 671
+int.to.chr$ -- 0
+int.to.str$ -- 13
+missing$ -- 18
+newline$ -- 66
+num.names$ -- 26
+pop$ -- 86
+preamble$ -- 1
+purify$ -- 45
+quote$ -- 0
+skip$ -- 86
+stack$ -- 0
+substring$ -- 142
+swap$ -- 13
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 38
+warning$ -- 0
+while$ -- 32
+width$ -- 15
+write$ -- 134
+(There was 1 warning)

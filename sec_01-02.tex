@@ -1,0 +1,1050 @@
+% Linea para usar la libreria subfiles.
+%\documentclass{subfiles} 
+
+% Préambulo	
+\include{pre/pre-1}
+	
+
+\begin{document}
+	
+\chapter{Introducción}
+
+A lo largo de este texto utilizaremos las nociones de espacios topológicos y de grupos. Nuestra primera parte consta de introducir notación y teoremas correspondientes a espacios topológicos, conexidad y homemorfismos. De grupos, hablaremos de morfismos de grupos y grupos simples. Nuestra bibliografía es estándar, esto es, libros de cursos o libros que son reconocidos como base para algunos cursos. 
+
+%%%%%% Espacios topológicos %%%%%%
+
+\section*{Espacios topológicos}
+
+ Vamos a usar la notación estándar de conjuntos. La pertenencia de un elemento $x$ a un conjunto $X$ se denota por $x \in X$. Dados dos conjuntos $A$ y $B$ denotaremos la contención del conjunto $A$ en el conjunto $B$ por $A \subset B$ y la igualdad de conjuntos $A=B$ representa que se dan las contenciones $A \subset B$ y $B \subset A$.
+
+La unión del conjunto $A$ con $B$ se representa por $A \cup B$, la intersección del conjunto $A$ con el conjunto $B$ se representa por $A \cap B$. $A \setminus B$ representa el conjunto de los elementos que están en $A$ pero que no están en $B$ en particular a $X\setminus B$ le diremos el complemento de $B$ en $X$,  finalmente $2^X$ representa el conjunto potencia de $X$, es decir, la familia $2^X=\{A: A \subset X\}$.  Sean $X$, $Y$ conjuntos y $f:X \to Y$ una función, para cualquier $A \subset X$ el conjunto,
+ 
+ \begin{align*}
+ f(A)=\{y \in Y : \text{ existe }x \in A \text{ de manera que } f(x)=y\}
+ \end{align*}
+
+será llamado imagen directa de $A$ bajo $f$, análogamente dado $B \subset Y$ el conjunto 
+
+\begin{align*}
+f^{-1}(B)=\{x \in X :\text{ tal que } f(x) \in B \}
+\end{align*}
+
+será llamado la imagen inversa del conjunto $B$ bajo $f$. 
+
+\begin{ej}
+Sea $f:\{1,2,3,4\} \to \{1,2,3,4\}$ dada por, $f(1)=f(3)=1$, $f(2)=f(4)=3$. Esta función no es inyectiva ni sobreyectiva. Consideremos a $\{1,4\}$, notemos que $f^{-1}(\{1,4\})=\{1,3\}$ pero $f(f^{-1}(\{1,4\}))=\{1\}$. Por otro lado, consideremos a $\{1,2\}$ y notemos que $f(\{1,2\})=\{1,3\}$  pero que $f^{-1}(\{1,3\})=\{1,2,3,4\}$.
+\end{ej}
+
+\begin{ob}
+En general tomar la imagen inversa de una imagen directa o en orden alterno, no se obtiene como resultado el mismo conjunto. Pero se tiene que
+	
+	\begin{align*}
+	f(f^{-1}(B)) \subset B \\
+	A \subset f^{-1}(f(A)) .
+	\end{align*}
+
+La primera contención es igualdad si $f$ es sobreyectiva y la segunda contención es igualdad si $f$ es inyectiva, es claro que si $f$ es biyectiva tenemos las dos igualdades. 
+\end{ob}
+
+En la práctica es usual no indicarse el dominio e imagen de una función pues implícitamente se da a entender que el lector no tiene inconveniente o que es  claro del contexto. 
+
+\begin{df}
+Sea $X$ un conjunto y $\tau \subset 2^X$ una familia de subconjuntos de $X$. Decimos que $\tau$ es una \textbf{topología} para $X$ si cumple que;
+
+	\begin{enumerate}
+		\item $\emptyset$, $X$ son elementos de  $\tau.$
+		\item Para cada subfamilia finita de $\tau$, $\{A_i\}_{i=1}^n$ se tiene que $\bigcap_{i=1}^n A_i$ es un elemento de $\tau.$ 
+		\item Para cada subfamilia $\{A_i\}_{i \in J}$ donde $I$ es un familia de índices arbitrario, se tiene que $\bigcup_{i \in I} A_i$ es un elemento de $\tau$.
+	\end{enumerate}
+
+Por \textbf{espacio topológico} nos referimos a un par $(X,\tau)$ donde $X$ es un conjunto y $\tau$ es una topología para $X$. Denotaremos al espacio $(X, \tau)$ por $X_{\tau}$. A los elementos $U$ de $\tau$  les llamaremos \textbf{conjuntos abiertos}. Un conjunto $V$ se dice \textbf{cerrado} si es complemento de un conjunto abierto es decir existe $U$ conjunto abierto tal que $V=X \setminus U$.  
+\end{df}
+
+\begin{nt}
+La segunda condición se conoce como \textbf{cerradura bajo intersecciones finitas} o que \textbf{familia es cerrada bajo intersecciones finitas.} La tercera condición se conoce como \textbf{cerradura bajo uniones arbitrarias} o que \textbf{la familia es cerrada bajo uniones arbitrarias.}
+\end{nt}
+
+\begin{ej}
+Sea $X$ un conjunto y consideremos la familia $2^X$, el espacio topológico formado por $(X, 2^X)$ es llamado \textbf{espacio discreto}. Por otro lado sea $\tau=\{\emptyset, X\}$, esta familia cumple la definición de topología, el espacio $(X, \tau)$ es llamado \textbf{espacio indiscreto}.
+\end{ej}
+
+Además si $X$ contiene mas de un punto, las familias $2^X$ y $\tau$ del ejemplo anterior son distintas pero se da la contención  $\tau \subset 2^X$. En consecuencia un conjunto puede tener mas de una topología y distintas. 
+
+La topología guarda información importante del conjunto $X$ que nos puede ayudar a distinguir propiedades de este conjunto. En el ejemplo, los espacios discreto e indiscreto no distinguen mucho sobre $X$, estas dos topologías en este aspecto son triviales.
+
+\begin{cn}
+Cuando el contexto sea claro sobre el espacio topológico vamos prescindir de la notación de la topología y simplemente diremos que $X$ es espacio topológico. 
+\end{cn}
+
+Ahora, un resultado que nos permitirá hablar de espacios topológicos en en subconjuntos, esto nos permitirá de hablar sin ambigüedades respecto a los ejemplos concretos que estudiaremos. 
+
+\begin{te}
+Sea $X$ un espacio topológico $Y \subset X$ entonces $\tau_Y =\{A \cap U: U \in \tau\}$ es una topología para $Y$. Por \textbf{subespacio} $Y$ de $X$ nos referimos al espacio $(Y, \tau_Y)$.
+\end{te}
+
+\begin{cn}
+El tema que no vamos a detallar es el de sistema des vecindades y bases. Para estos temas tenemos en la bibliografía \cite{top_prieto} capitulo 2, página 58 para bases de vecindades y capitulo 3, página 73 para bases para una topología.
+\end{cn}
+
+\begin{ej}
+Sea $X= \{(x,y) \in \mathbb{R}^2: y \geq 0 \}$. Definimos una familia de conjuntos mediante las siguientes condiciones; dado $(x,y) \in X$ y $r>0$ si $y > 0$ definimos el conjunto,
+
+\begin{align*}
+B_r((x,y),r)=\{(w,z) \in X : \parallel (x,y)-(w,z) \parallel < r \},
+\end{align*}
+
+donde indicamos que es la norma usual de $\mathbb{R}^2$ y $z \neq 0$. Por otro lado si $y=0$ tomamos el conjunto 
+
+\begin{align*}
+\beta((x,0))=B_r((x,r),r) \cup \{(x,0)\}.
+\end{align*}
+
+Hemos definido familias de conjuntos en torno a cada punto, esta familia de conjuntos es una base para una topología sobre $X$ y el espacio es conocido como \textbf{plano de Moore}.
+
+Notemos que en este espacio $\mathbb{R} \times \{0\} \subset X$, pero la restricción al subespacio $\mathbb{R} \times \{0\}$ nos da un conjunto discreto mientras que la restricción al plano $\{(x,y)\in X :y > 0 \}$ es el plano positivo en $\mathbb{R}^2.$
+\end{ej}
+
+
+Para operadores topológicos utilizaremos la siguiente notación. 
+
+\begin{df}
+Sea $X$ un espacio topológico y $U$ subconjunto de $X$.
+
+\begin{itemize}
+	\item Diremos que $U$ es \textbf{vecindad} de un punto $x$ denotado por $U(x)$ si, $x \in U$ y $U \in \tau$. A la familia de conjuntos $U(x)$ de vecindades de un punto $x$ la denotaremos mediante $\mathcal{N}(x)$.
+ 
+ \item Al conjunto \textbf{interior} de $A$ en $X$ lo denotaremos por 
+ 
+  $$Int_X(A):=\{x \in A: \text{existe } U(x) \text{ de manera que } U \subset A\}.$$
+  
+
+ \item  Al conjunto  \textbf{clausura} de $A$ en $X$ lo denotaremos por, 
+  
+$$Cl_X(A):=\{x \in A: \text{para toda } U(x) \text{ se cumple  que } U \cap A \neq \emptyset\}.$$
+ 
+ \item Denotaremos por  $Fr_X(A)$ al conjunto $\overline{A^c} \cap \overline{A} $ a este conjunto le llamaremos la 
+  \textbf{frontera} de $A$ en $X$.
+ \end{itemize}
+\end{df}
+
+\begin{cn}
+Cuando el contexto lo permita simplemente denotaremos por $Int(A)$ al interior, $Cl(A)$ la clausura y  $Fr(A)$ a la frontera de $A$ en $X$.
+\end{cn}
+
+
+En topología general nos interesa clasificar espacios mediante las propiedades de sus topologías la manera de hacerlos es por funciones llamadas homemorfismos. Esto nos permite pensar que un espacio es como uno similar usar las propiedades conocidas. Esto se suele hacer cuando un autor meciona frases como salvo homeomorfismo.
+
+\begin{df}
+Sea $X$ espacio topológico y una función $h:X \to X$. 
+\begin{enumerate}
+
+	\item Dado $B$ subconjunto de $X$, $h|_B$ denotará la restricción $h:B \to h(B)$ de $h$ a $B$. 
+	
+	\item  Decimos que $h$ es \textbf{continua} si para cada conjunto abierto $U$ se cumple que $h^{-1}(U)$ es un conjunto abierto.
+	
+	\item  Sea $h$ una función continua y biyectiva. Decimos que $h$ es un \textbf{homeomorfismo} si la función inversa de $h$, $h^{-1}:X \to X$ es continua. 	
+\end{enumerate}
+\end{df}
+
+
+\begin{ej}
+Sean $X$ un conjunto con mas de un punto y las topologías $2^X$ y $\tau=\{\emptyset, X\}$. Consideremos la función $$Id_X:X_{\tau} \to X_{2^X}$$ dada por $$Id_X(x)=x.$$
+Notemos que para cada $x \in X$ el conjunto $\{x\}$ es un conjunto abierto en $X_{2^X}$, pero $Id_X^{-1}(\{x\})= \{x\}$ no lo es en $X_\tau$. Sin embargo reescribiendo  la función anterior de la siguiente manera,  $$Id_X:X_{2^X} \to X_{\tau}$$ dada por $$Id_X(x)=x,$$
+si es continua pues $Id_X^{-1}(X)=X$ el cual es un conjunto abierto, el caso $\emptyset$ es trivial. En particular, una función continua y biyectiva no siempre tiene inversa continua. 
+\end{ej}
+
+\subsection*{Invariantes topológicos}
+
+Los invariantes topológicos, son propiedades que una topología tiene y que estas se preservan mediante homeomorfismos. Esto es sean $X$, $Y$ espacios y $\mathcal{P}$ una propiedad topológica tal que $X$ posee a $\mathcal{P}$ se dice que $\mathcal{P}$ es un \textbf{invariante topológico} si para todo homemorfismo $h:X \to Y$,  $Y$ tiene la propiedad $\mathcal{P}$.
+
+
+Además es importante mencionar el hecho de que un espacio pueda tener una propiedad $\mathcal{P}$ para una topología en particular y no poseer la propiedad con otra topología definida en el mismo conjunto. Veremos dos que son de las mas conocidas y de las mas importantes para el análisis moderno. 
+
+\subsubsection*{Compacidad}
+\begin{df}
+Sea $X$ un espacio topológico. Una familia de abiertos $\{U_i\}_{i \in I}$ se dice ser una \textbf{cubierta abierta} para un conjunto $A$ si 
+	
+\begin{align*}
+A \subset \bigcup_i U_i.
+\end{align*}
+
+Por \textbf{subcubierta abierta} nos referimos a una subfamilia $$\{U_{i_j}\}_{j \in J} \subset \{U_i\}_{i \in I}$$ tal que;
+
+$$ A \subset \bigcup_j U_{i_j}.$$
+
+Decimos que $X$ es \textbf{compacto} si para toda cubierta abierta de $X$ existe una subcubierta finita que cubre a $X$. Decimos que un subconjunto $A \subset X$ es compacto si lo es como subespacio.
+
+
+\end{df}
+
+Un teorema importante respecto a funciones continuas y conjuntos compactos es el siguiente.
+ 
+\begin{te}
+Sea $C$ un subconjunto compacto de $X$, para toda función continua $f:X \to X$ el conjunto $f(C)$ es un conjunto compacto.
+\end{te}
+
+Una demostración puede encontrarse en \cite{top_prieto} VIII.1.22 Teorema. En palabras simples, la imagen continua de un conjunto compacto es compacta. Otro resultado que es importante.
+
+Para el tema de funciones continuas Una demostración de este teorema se puede encontrar en capitulo 2, Teorema 2.5
+
+\begin{te}
+Sean $f:A \subset \mathbb{R}^n \to \mathbb{R}^m$ y $K \subsetA$. Si $f$ es una función continua y $K$ es un conjunto compacto entonces $f$ es uniformemente continua sobre $K$.
+
+\end{te}
+\subsubsection*{Conexidad}
+ Decimos que $X$ es \textbf{disconexo} si existe abiertos $U$ y $V$ ajenos y no vacíos tales que $X = U \cup V$. Decimos que un espacio $X$ es \textbf{conexo} si no es disconexo. Un subconjunto $Y \subset X$ es conexo (o disconexo) si lo es como subespacio.
+	
+
+teo 26.3 Willard.
+
+\begin{te}
+Sean $X$, $Y$ espacios topológicos y $f:X \to Y$ una función continua. Dado $C$ un subconjunto conexo de $X$ se tiene que $f(C)$ es un conjunto conexo.
+\end{te}
+
+
+\subsection*{Topología métrica}
+Un \textbf{espacio métrico} es un par $(X, d)$ donde $X$ es un conjunto y $d:X \times X \to [0, \infty)$ es una función que satisface las siguientes condiciones;
+
+\begin{enumerate}
+\item $d(x,y)=0$ si y sólo si $x=y$,
+\item $d(x,y)=d(y,x)$
+\item $d(x,y) \leq d(x,z)+d(y,z)$
+\end{enumerate}
+
+
+A la función $d$ le llamamos una \textbf{métrica} para $X$. Al par $(X,d)$ le denotaremos por $X_d$. 
+
+\begin{ob}
+La notación $X_d$ hacemos énfasis es que $X$ es el conjunto con métrica $d$, más adelante veremos que un espacio métrico es un espacio topológico por lo que $X_d$ es el equivalente a $X_\tau$ donde $\tau$ es la generada por la métrica salvo que ahora indicamos la cualidad métrica de esta topología.  
+\end{ob}
+
+\begin{ej}
+ Dados $\vec{a}$, $\vec{b} \in \mathbb{R}^{n}$, la norma euclidiana,
+$$d(\vec{a},\vec{b}):=\parallel \vec{a}-\vec{b} \parallel$$
+define una métrica en $\mathbb{R}^{n}$.
+\end{ej}
+
+\begin{ej}
+ Sean $X$ un conjunto no vacío y $d : X \times X \to\mathbb{R}$ definida mediante:
+$$d(a,b)=\left\{
+\begin{array}{lcc}
+1, & si & a \neq b; \\
+0, & si & a=b. \\
+\end{array}
+\right.$$
+
+$d$ es conocida como la \textbf{métrica discreta} y  $X_{d}$ como \textbf{espacio métrico discreto}.
+\end{ej}
+
+\begin{ej}\label{ejem:metrica-acotada}
+- Sea $X_{d}$ espacio métrico. Definimos,
+$$\bar{d}(a,b)=\left\{
+\begin{array}{lcc}
+1 & si & 1 < d(a,b);   \\
+d(a,b) & si & d(a,b)<1. \\
+\end{array}
+\right.
+$$
+$\bar{d}$ es una métrica para $X$ con $\bar{d}(a,b)\leq 1$ para cuales quiera $a$, $b \in X.$ 
+\end{ej}
+
+\label{def:top-espacios-metricos}
+\begin{df}
+Sean $\varepsilon > 0$ y $x\in X_d$. Definimos a la \textbf{bola abierta} de centro $x$ y radio $\varepsilon$  como
+
+$$B_{d}(x,\varepsilon)=\{ y \in X: d(x,y)< \varepsilon \}.$$
+
+De manera parecida definimos a la \textbf{bola cerrada} de centro $x$ y radio $\varepsilon$  como
+$$\overline{B}_{d}(x,\varepsilon)=\left\lbrace y \in X: d(x,y)\leq \varepsilon \right\rbrace.$$
+\end{df}
+
+Para diferenciar la métrica que $X$ pueda tener (y por tanto las bolas de $X$) denotaremos $B_{d}(x,\varepsilon)$ y diremos que es una \textbf{d-bola.} En caso de que no haya confusión simplemente denotaremos $B(x,\varepsilon)$. Tenemos los conceptos necesarios para definir una topología para un espacio métrico.
+
+\begin{pr}\label{prp:bolas-bse}
+Sea $X$ espacio métrico. La familia $\lbrace B_{d}(x,\varepsilon): x \in X, \varepsilon > 0\rbrace$ de todas las d-bolas es base para una topología sobre $X$.
+\end{pr}
+
+%\cite[sección 4.3 lema 1]{irri}
+
+\begin{te}
+Si $x$, $y \in X_{d}$ con $ x\neq y $ entonces existen vecindades $U(x)$ y $V(y)$ tales que $U \cap V=\emptyset$.
+\end{te}
+
+\begin{ob}\label{obs:espacios-metricos-son-hausdorff}
+El teorema anterior nos dice que los espacios métricos son espacios Hausdorff.
+\end{ob}
+
+Terminamos esta parte con la siguiente definición que es muy usada en los articulos de \cite{kras}, Wjyburn y Moore
+
+\begin{df}
+Decimos que $X$ es un \textbf{continuo} si es un espacio métrico, compacto y conexo.
+\end{df}
+
+Al estudiar espacios métricos nos vemos en la opción de no estudiar los axiomas de separación, que es una parte muy importante de la topología general. De nuevo, recomendamos el siguiente texto donde se puede profundizar este tema. Es claro que no hablar de este tema nos deja un estudio sesgado, pero usaremos solo un axioma de separación hasta la parte de la topología del grupo de homeomorfismos de la circunferencia. Incluso, solo es necesario concordar el tercer axioma separación. Un espacio topológico es regular si dados un punto y un conjunto cerrado existen dos abierts ajenos cada uno conteniendo al punto y al cerrado, un espacio es $T_3$ si es regular y es $T_0$ o espacio de Kolmogorov. 
+
+
+\subsection*{Topología conciente}
+
+En topología se estudia distintas maneras de obtener espacios topológicos una manera es el subespacio, otras mas complejas son las topologías generadas por funciones o familia de funciones, en sí es obtener un espacio topológico donde una función o una familia de funciones son continuas. Recomendamos acudir al texto Salicrup, donde se explica de manera adecuada esta técnica. 
+
+Sea $X$ un espacio y $A \subset X$, consideremos a $Y=(X\setminus A) \cup \{A\}$, el subespacio $A$ ha sido colapsado a un punto $\{A\}$; sea
+
+\begin{align*}
+q(x)= \begin{cases}
+x \text{ si } x \in X\setminus A \\
+A \text{ si } x \in A.
+\end{cases}
+\end{align*}
+
+la topología final inducida por $q$ es llamada la \textbf{topología cociente}; el espacio resultante se llama \textbf{espacio cociente} y se denota por $X/A$, a $q$ se le llama \textbf{proyección o función cociente}.
+
+\begin{ej}
+Consideremos a $\mathbb{Z}$ como subespacio de $\mathbb{R}$ y al cociente $\mathbb{R}/\mathbb{Z}$, este espacio cociente tiene un subespacio homeomorfo a $S^1$ por cada intervalo $[n,n+1]$ colapsando los números enteros a un punto. A este espacio se le conoce como \textbf{ariete hawaiano}
+\end{ej}
+
+Un ejemplo mas complejo es el siguiente. Recordemos que una relación de equivalencia induce una partición de un conjunto en subconjuntos ajenos que son las clases de equivalencia, las cuales se definen por $[x]=\{y \in X : x \sim y\}$. La familia de las clases de equivalencia es denotado por $X/ \sim$ ie, $$X/ \sim=\{[x]: x \in X\}.$$  
+
+\begin{ej}\label{ej:Cir_un_coc}
+Nuevamente, consideremos a $\mathbb{Z}$ como subespacio de $\mathbb{R}$ y la relación; $x \sim y$ si $x-y \in \mathbb{Z}$. Esta relación es de equivalencia. En efecto, 
+
+	\begin{enumerate}
+	\item $x-x=0 $ para todo $x \in \mathbb{R}$,
+	\item Supongamos que $x-y=z$ y $z \in \mathbb{Z}$ claramente $-z \in \mathbb{Z}$ y por tanto $y \sim x$
+	\item Si $x-y \in \mathbb{Z}$ y $y-z \in \mathbb{Z}$ resta notar que $$x-z=x-y+y-z$$
+el cual es un numero entero. Por tanto $x \sim z$.  
+	\end{enumerate}
+
+La función  $\pi: \mathbb{R} \to \mathbb{R}/ \sim$ dada por
+$\pi (x)=[x]$ está bien definida y es una función cociente. Definimos a $Hom(\mathbb{R})$ los homeomorfismos monótonos crecientes de la recta que cumplen la propiedad, 
+
+$$\tilde{f}(x+1)= \tilde{f}(x)+1.$$
+
+Este homeomorfismo induce un homeomorfismo de 
+$$f:\mathbb{R}/ \sim \to  \mathbb{R}/ \sim$$
+
+dado por 
+ 
+$$f=\pi(\tilde{f}).$$
+
+ Esta composición está bien definida. Dada $y \in [x]$ tenemos que existe $r \in \mathbb{Z}$ tal que $y=x+r$, luego consideremos que 
+ $$f([y])=\pi(\tilde{f}(y))=\pi(\tilde{f}(x+r))=\pi(\tilde{f}(x)+r)=[\tilde{f}(x)+r]=[\tilde{f}(x)]=\pi(\tilde{f}(x))$$
+
+
+El espacio cociente $\mathbb{R}/ \sim$, es  homeomorfo a $S^1$. Notemos que de esto se induce un homeomorfismo de la circunferencia en la circunferencia $f:Hom_1(S^1) \to Hom(S^1)$.
+\end{ej}
+
+
+Epstein en su trabajo de ***, del cual nos hemos basado en parte, trabajó en variedades (espacios muy parecidos a un espacio $\mathbb{R}^m$) sugerimos para ese tema las definiciones de ***. En una sección utilizaremos el trabajo de Epstein para ver la simplicidad del grupo de homeomorfismos del círculo.
+
+
+\section*{Grupos}
+
+En este texto estudiaremos nociones de álgebra moderna, para ello planteamos la notación necesaria para desarrollar dichos temas. Para el desarrollo de esto temas recomendamos la siguiente literatura donde nos hemos basado ***
+
+	\begin{df}
+Sea $G$ un conjunto no vacío. Por grupo nos referimos a una terna $(G, \circ, e)$ con $\circ:G \times G \to G$ una operación en $G$ y $e$ un elemento de $G$ tales que
+
+	\begin{enumerate}
+		\item La operación $\circ$ es asociativa.
+		\item para cada $g \in G$ existe $h \in G$ tal que $ \circ (g,h)= \circ(h ,g)=e$. A $h$ se le llamara un inverso de $g$. 
+		\item Para todo $g \in G$ se cumple que $\circ(g ,e) =  \circ(e,g) = g.$
+	\end{enumerate}
+	\end{df}
+
+	\begin{cn}
+Para evitar entrar en resultados interesantes que no usaremos de manera explícita recurrimos a completar el tema con los teoremas que hablan de la unicidad de los elementos $e$ y $g$ como en \cite{grove}. A partir de ahora denotaremos simplemente por $gh$ a la operación $\circ(g,h)$, en otras palabras, hacemos el abuso de notación,  $\circ(g,h):=gh.$
+	\end{cn}
+	
+	\begin{df}
+	Sea $G$ un grupo y subconjunto $H$ de $G$. Decimos que $H$ es \textbf{subgrupo} de $G$ denotado por $H \leq G$, si la operación $\circ:H \times H \to G$ es una operación cerrada en $H$.	
+		\end{df}
+		
+\begin{ob}	
+Sea $X \subset G$ denotemos por $\langle X \rangle$ a la intersección de subgrupos de $G$ que contiene a $X$. $\langle X \rangle$ es un subgrupo de $G$ que contiene a $X$. Dicho grupo es llamado el \textbf{grupo generado por $X$}. Si $X$ es finito, $X=\{ a_1, \cdots , a_n\}$ entonces $\langle X \rangle$ es denotado por $\langle a_1, \cdots, a_n \rangle$. Más aún si $X=\emptyset$ notemos que $\langle X \rangle=\{e_G\}$ el grupo trivial.
+\end{ob}
+
+El siguiente resultado es tomado de --- como prop 3.3.1
+\begin{pr}
+Si $H$ es un subgrupo que contiene a $X$ entonces $\langle X \rangle \subset H$.
+\end{pr}
+La proposición anterior nos da una propiedad minimal respecto a la contención de $X$. En otras palabras	$\langle X \rangle$ es el minimo subgrupo que contiene a $X$.
+
+\begin{df}
+Sea $G$ un  grupo y $X \subset G$ no vacío. Una palabra en $X$ es un elemento $w \in G$ de la forma
+\begin{align*}
+w=x_1^{a_i} \cdots x_n^{a_n},
+\end{align*}
+donde $n \in \mathbb{Z}^+$, $x_i \in X$ y $a_i \in \mathbb{Z}$ para toda i. Denotamos por $\mathbf{W}(X)$ el conjunto de todas la palabras de  $X$. Observemos que $X \subset \mathbf{W}(X)$ además nos es conveniente definir a $\mathbf{W}(\emptyset) :=\{e_G\}$.
+\end{df}
+El siguiente resultado puede encontrarse en %imate pág 85 3.3.4
+
+\begin{te}
+Sea $X \subset G$ se tiene que $\langle X \rangle= \mathbf{W}(X)$.
+\end{te}
+De esta manera tenemos una descripción de los elementos de $\langle X \rangle$ es decir, para cada $w \in \langle X \rangle$ se tiene una representación mediante, 
+
+\begin{align*}
+w=x_1^{a_i} \cdots x_n^{a_n}
+\end{align*}
+incluso se puede tomar a los elementos $a_i \in \{-1,1\}$ en algunos caso es importante tener la simetría de $X$, el conjunto $X^-=\{x^{-1}| x \in X \}$ pero dependerá de la utilidad de la descripción. Ahora estableceremos la notación para clases laterales que nos permitirá desarrollar el resto de nuestro trabajo. 	
+	
+\begin{df}
+Sea $G$ un grupo y subconjuntos $H$, $K$ de $G$.
+\begin{enumerate}
+		
+		\item El conjunto $KH$ se define como  $KH=\{kh: k \in K \text{ y } h \in H \}$. En particular cuando $K$ conste de un solo punto, $K=\{k\}$ denotaremos al conjunto $KH$ por $kH$.	
+		
+		\item Para todo $g \in G$ el conjunto $gH=\{gh:h \in H \}$ le llamaremos \textbf{clase lateral izquierda}; análogamente por \textbf{clase lateral derecha} nos referimos al conjunto $Hg=\{hg:h \in H\}$ . A la familia  $G/H_{der}=\{gH:g \in G\}$
+le llamaremos la familia de clases laterales derechas de $H$ y análogamente a $G/H_{izq}=\{Hg:g \in G\}$
+le llamaremos la familia de clases laterales derechas de $H$. 
+	\end{enumerate} 
+\end{df}	
+	
+
+	
+\begin{ob}
+	De la definición anterior tenemos unas observaciones interesantes. 
+	\begin{enumerate}
+	
+	\item Las clases de un conjunto forma una partición de $G$ y por tanto las clases inducen una relación de equivalencia.
+	
+	\item Más aún existe una correspondencia entre clases laterales. 
+ Sea 
+
+\begin{align*}
+\varphi:G/H_d & \to G/H_i \\
+gH & \mapsto Hg^{-1}
+\end{align*} 
+ 
+  esta función cambia una clase lateral derecha a una izquierda. Veamos que es una función biyectiva. La función es sobre, pues para $g \in G$ y para el elemento $Hg$ tenemos que $g^{-1}$ es tal que $\varphi(g^{-1}H)=Hg$. Resta ver que es inyectiva, sean $g_1H$ y $g_1H$ clases derechas y supongamos que
+	
+	 $$Hg_1^{-1}=\varphi(g_1H)=\varphi(g_2H)=Hg_2^{-1}$$ 
+	
+	Sea $g_1h_1 \in g_1H$ notemos que
+
+	\begin{align*}
+	g_1h_1(h_1^{-1}g_1^{-1})=e	
+	\end{align*}
+	
+	como $Hg_2^{-1}=Hg_1^{-1}$ existe $h_2$ tal que $h_2g_2^{-1}=h_1^{-1}g_1^{-1}$, así en la ecuación previa tenemos que, 
+	
+	\begin{align*}
+	g_1h_1(h_2g_2^{-1})=e	
+	\end{align*} 
+	es decir, $g_1h_1=g_2h_2^{-1}$ dando la contención $g_1H \subset g_2H$, la contención recíproca es idéntica se obtiene que $g_1H=g_2H$. Concluimos que $\varphi$ es biyectiva. 
+	
+	Sin embargo, esta correspondencia no deja en claro que $gH=Hg$ un ejemplo de esto se puede encontrar en 111 imate.
+	
+	 \item Dado $g \in G$ y $h \in H$ si $ghg^{-1} \in H$ entonces existe $h_1 \in H$ tal que $ghg^{-1}=h_1$ es decir, $gh=h_1g$  que de acuerdo con la notación de clases, cada elemento de una clase izquierda es un elemento de la correspondiente clase derecha, de manera precisa $gH=Hg$.
+	 \end{enumerate}
+	\end{ob}
+	
+	La situación anterior es sorprendente y no solo es una curiosidad matemática, esto nos da la estructura de como clasificar grupos. 
+	
+\begin{df}
+	Sea $G$ un grupo y $H$ subgrupo de $G$.
+\begin{enumerate}
+	\item  Decimos que $g$ \textbf{normaliza} a $H$ si $gHg^{-1} \subset H.$ Al conjunto $N_G(H)=\{g \in G: gH=Hg\}$ le llamamos el \textbf{normalizador } de $H$ en $G$.
+	\item Si $G=N_G(H)$ decimos que $H$ es \textbf{normal} en $G$ y denotaremos esto por $H \unlhd G.$
+		
+\end{enumerate}
+\end{df}
+	
+	Una manera de construir nuevos grupos por grupos establecidos es por medio de los cocientes. 	113 imate
+	
+	\begin{te}
+	Sea $H$ subrupo normal de  $G$ entones el conjunto $G/H$ es un grupo.
+	\end{te}
+	
+	También, es necesario establecer las funciones entre grupos que preservan estructura de grupo en si mismo.
+	
+	\begin{df}
+	Sea $G$ un grupo. 
+	\begin{enumerate}
+	\item Una función $\varphi:G \to G$ es un \textbf{morfismo} de grupos si $$\varphi(gh)=\varphi(g) \varphi(h).$$
+	\item Definimos al \textbf{Kernel} de $\varphi$ al conjunto $Ker(\varphi)=\{ g \in G: \varphi(g)=e\}$.
+	\item Diremos que un morfismo de grupos $\varphi$ es:
+	\begin{itemize}
+	\item \textbf{Monomorfismo:} si $\varphi$ es inyectiva.
+	\item \textbf{Epimorfismo:} si $\varphi$ es sobreyectiva
+	\item \textbf{Isomorfismo:} si $\varphi$ es biyectiva.
+	\end{itemize}
+	\end{enumerate}				\end{df}
+	
+Una parte de la teoría de cubrientes nos permite definir el siguiente morfismo de grupos.
+
+\begin{ej}
+Del ejemplo \ref{ej:Cir_un_coc} consideremos a $S^1=\mathbb{R}/\sim$ y al subgrupo de homeomorfismos que preservan orientación que vamos a de notarlo por $Hom_+(S^1)$. De la teoría de cubrientes para $f: S^1 \to S^1$ un homeomorfismo que preserva la orientación se tiene que existe una función $\tilde{f}:\mathbb{R} \to \mathbb{R}$ tal que $\pi(\tilde{f})=f$, esto es $f([x])=[\tilde{f}(x)]$ y que satisface la relación,
+
+$$\tilde{f}(x+1)=\tilde{f}(x)+1.$$
+
+Recíprocamente toda función  $\tilde{f}:\mathbb{R} \to \mathbb{R}$ estrictamente  creciente que satisface la relación anterior induce un homeomorfismo en $S^1.$
+
+
+ Las funciones de este tipo preservan la orientación esto es  Además, en el grupo $Hom(S^1)$ de los homeomorfismos que preservan orientación, se tiene que todo elemento 
+\end{ej}
+	
+	Los siguientes términos son importantes, tanto desde la historia del estudio de los grupos, como para definir a las acciones sobre conjuntos.	
+	
+	\begin{df}
+	Sea $X$ un conjunto no vacío y $G$ un grupo.
+	\begin{enumerate}
+	\item A la familia $S_X=\{f:X \to X| f \text{ es biyectiva } \}$ le llamaremos el \textbf{grupo simétrico} de $X$. Si $X$ es finito de cardinalidad $n$ denotamos a $S_X$ por $S_n$.
+	\item Decimos que $G$ \textbf{actúa} sobre $X$ si existe un morfismo de grupos $\varphi:G \to S_X$.  Si $G$ actúa sobre $X$ entonces diremos que $X$ es un $G$-conjunto.
+	\end{enumerate}
+	
+	\end{df}
+	
+	\begin{nt}
+	$S_X$ es un grupo con la composición de funciones. 
+	\end{nt}	
+	El resultado siguiente es equivalente a la definición de acción, puede consultar esto en 
+	\begin{te}
+	Sea $X$ un $G$ conjunto, entonces existe una función $\alpha:G \times X \to X$ que satisface
+	\begin{enumerate}
+	\item $\alpha(e,x)=x$
+	\item $\alpha(g,\alpha(h,x))=\alpha(gh,x)$
+	\end{enumerate}
+	A dicha función le llamaremos una \textbf{acción} de $G$ sobre $X$.
+	\end{te}
+	
+	\begin{nt}
+	De manera recíproca al teorema, si existe una acción de $G$ sobre $X$ entonces existe un morfismo de grupos $\varphi:G \to S_X$.  
+	\end{nt}
+	
+\subsection*{Grupos conmutadores, grupos derivados}
+
+El --- 
+\begin{df}
+Sea $G$ un grupo y $g$, $h \in G$. Definimos al \textbf{conmutador} de $g$ y $h$ como el elemento 
+
+\begin{align*}
+[g,h]=ghg^{-1}h^{-1}.
+\end{align*}
+
+Dados dos subconjutos $H$ y $K$ de $G$, definimos al grupo $[H,K]$ como el grupo generado por los elementos $\{[h,k]:h \in H \text{ y }k \in K \in G \}$.
+
+ En particular al grupo $[G,G]$ le denotaremos por $G'$ y llamaremos el \textbf{primer grupo derivado} de $G$. Además, cuando $ G' = G $ diremos que el grupo $G$ es \textbf{perfecto}, en este caso, todo elemento de $G$ es producto de un numero finito de conmutadores. 
+\end{df}
+	
+\begin{ob}\label{ob:pr_de_los_conmutadores}
+Haremos unas observaciones de la definición anterior. Sean $G$ un grupo y $g$, $x$, $y \in G$ con $[x,y]$ su conmutador.
+
+\begin{enumerate}
+	\item El inverso de un conmutador,
+	\begin{align*}
+	[x,y]^{-1} & =(xyx^{-1}y^{-1})^{-1} \\
+	& = (yx^{-1}y^{-1})^{-1}x^{-1} \\
+	& = (x^{-1}y^{-1})^{-1}y^{-1}x^{-1} \\
+	& = (y^{-1})^{-1}xy^{-1}x^{-1} \\
+	& = yxy^{-1}x^{-1} = [y,x] .
+	\end{align*}
+	\item El conjugado de un conmutador, 
+	\begin{align*}
+	g[x,y]g^{-1} & = g(xyx^{-1}y^{-1})g^{-1} \\
+	& = (gxg^{-1})(gyg^{-1})(gx^{-1}g^{-1})(gy^{-1}g^{-1}) \\
+	& =  [gyg^{-1},gxg^{-1}].
+	\end{align*}
+	
+	\item El conmutador bajo homeomorfismos. Sea $\phi:G \to G$ un morfismo de grupos, notemos que,
+	\begin{align*}
+	\phi([x,y]) & = \phi(xyx^{-1}y^{-1})\\
+	& = \phi(x)\phi(y)\phi(x^{-1})\phi(y^{-1}) \\
+	& = \phi(x)\phi(y)\phi(x)^{-1}\phi(y)^{-1} \\
+	& =  [\phi(x),\phi(y)],     
+	\end{align*}
+	más aún sea $x \in [G,G]$ es decir existen $a_i$, $b_i \in G$, $i=1, \cdots n$ tales que
+	\begin{align*}
+	x=[a_1,b_1]^{m_1} \cdots[a_n,b_n]^{m_n},
+	\end{align*}
+	notemos que para todo morfismo de grupos, $\phi$ se cumple que
+	\begin{align*}
+	\phi(x)=[\phi(a_1),\phi(b_1)]^{m_1} \cdots[\phi(a_n),\phi(b_n)]^{m_n} \in [G,G].
+	\end{align*}
+	 Por tanto $\phi([G,G]) \subset [G,G]$.
+	\item $[G,G]$ es normal en $G$. Sea $g \in G$ y consideremos el automorfismo interno 
+	
+	\begin{align*}
+	\gamma_g:G \to G \\
+	x \mapsto gxg^{-1}
+	\end{align*}	 
+	
+	claramente se tiene que $\gamma_g([G,G])=g[G,G]g^{-1}$ y por el inciso anterior $g[G,G]g^{-1}=\gamma_g([G,G]) \subset [G,G]$, concluimos así la normalidad.
+\end{enumerate}
+\end{ob}
+
+\begin{pr} \label{pr:Derivados_y_generadores}
+
+Sea $G$ un grupo  generado por un conjunto $X$ entonces para $G'$ el primer subgrupo conmutador es generado por conjugados de conmutadores de elementos de $X$. Esto es
+$$G'=\langle\{ g[x,y]g^{-1}: g \in G \text{ y } x,y \in X \} \rangle$$
+\end{pr}
+
+\begin{proof}
+
+Sea $W=\langle\{ g[x,y]g^{-1}: g \in G \text{ y } x,y \in X \}$. 
+Notemos que para $x$, $y \in X$ y $g \in g$ se tiene que 
+
+$$g[x,y]g^{-1}=[gxg^{-1},gyg^{-1}]$$
+
+$G'$ es un grupo que contiene al conjunto generador de $W$ por tanto
+
+$$W \subset  G'.$$
+
+Para la otra parte, sean $a, b \in G$ estudiaremos la cantidad de factores de  $a$, esto es, como $X$ genera a $G$, existen $s_1 \cdots s_n \in X$ tales que $a= s_1^{\alpha_1} \cdots s_n^{\alpha_n}$ con $\alpha_i \in \{1, -1\}$. Supongamos el caso en que $b \in X$. Por inducción fuerte sobre $n$ veremos el resultado. 
+
+Notemos que $n=1$ es directo, supongamos el caso $n=2$,
+
+\begin{align*}
+[s_1^{\alpha_1}s_2^{\alpha_2},b] & =(s_1^{\alpha_1}s_2^{\alpha_2})b(s_2^{-\alpha_2}s_1^{-\alpha_1})b^{-1}\\
+& = (s_1^{\alpha_1}s_2^{\alpha_2})b(s_2^{-\alpha_2}b^{-1}bs_1^{-\alpha_1})b^{-1}s_1^{\alpha_1}s_1^{-\alpha_1} \\
+& = s_1^{\alpha_1}(s_2^{\alpha_2}bs_2^{-\alpha_2}b^{-1})(bs_1^{-\alpha_1}b^{-1}s_1^{\alpha_1})s_1^{-\alpha_1} \\
+& = (s_1^{\alpha_1}[s_2^{\alpha_2},b]s_1^{-\alpha_1})(s_1^{\alpha_1}[b,s_1^{-\alpha_1}]s_1^{-\alpha_1}) 
+\end{align*}
+
+
+
+El cual es un producto de conjugados de elementos de $X$ por 
+tanto $[a,b] \in W.$ Para el caso $n=3$ tenemos que 
+
+\begin{align*}
+[s_1^{\alpha_1}s_2^{\alpha_2}s_3^{\alpha_3},b] & =(s_1^{\alpha_1}s_2^{\alpha_2}s_3^{\alpha_3})b(s_3^{-\alpha_3}s_2^{-\alpha_2}s_1^{-\alpha_1})b^{-1} \\
+& = (s_1^{\alpha_1}s_2^{\alpha_2}s_3^{\alpha_3})b(s_3^{-\alpha_3}s_2^{-\alpha_2}b^{-1}bs_1^{-\alpha_1})b^{-1}s_1^{\alpha_1}s_1^{-\alpha_1} \\
+& = s_1^{\alpha_1}(s_2^{\alpha_2}s_3^{\alpha_3}bs_3^{-\alpha_3}s_2^{-\alpha_2}b^{-1})(bs_1^{-\alpha_1}b^{-1}s_1^{\alpha_1})s_1^{-\alpha_1} \\ 
+& = s_1^{\alpha_1}[s_2^{\alpha_2}s_3^{\alpha_3},b][b,s_1^{-\alpha_1}]s_1^{-\alpha_1}
+\end{align*}
+
+notemos que por el paso anterior tenemos que
+
+\begin{align*}
+[s_2^{\alpha_2}s_3^{\alpha_3},b]=(s_2^{\alpha_2}[s_3^{\alpha_3},b]s_2^{-\alpha_2})(s_2^{\alpha_2}[b,s_2^{-\alpha_2}]s_2^{-\alpha_2})
+\end{align*}
+
+De esta manera tenemos que 
+
+\begin{align*}
+[s_1^{\alpha_1}s_2^{\alpha_2}s_3^{\alpha_3},b] & = s_1^{\alpha_1}(s_2^{\alpha_2}[s_3^{\alpha_3},b]s_2^{-\alpha_2})(s_2^{\alpha_2}[b,s_2^{-\alpha_2}]s_2^{-\alpha_2})([b,s_1^{-\alpha_1}]s_1^{-\alpha_1}),  \\
+& = (s_1^{\alpha_1}s_2^{\alpha_2}[s_3^{\alpha_3},b]s_2^{-\alpha_2}s_1^{\alpha_21})(s_1^{-\alpha_1}s_2^{\alpha_2}[b,s_2^{-\alpha_2}]s_2^{-\alpha_2}s_1^{-\alpha_1})*\\ &  (s_1^{\alpha_1}[b,s_1^{-\alpha_1}]s_1^{-\alpha_1}),  \\
+\end{align*}
+
+nuevamente tenemos que $[a,b] \in W.$ Por inducción fuerte, supongamos que se cumple para $1, \cdots, n-1$ veremos el caso $n$,
+
+\begin{align*}
+[s_1^{\alpha_1} \cdots s_n^{\alpha_n},b] & =(s_1^{\alpha_1} \cdots s_n^{\alpha_n})b(s_n^{-\alpha_n} \cdots s_1^{-\alpha_1})b^{-1} \\
+& = (s_1^{\alpha_1} \cdots s_n^{\alpha_n})b(s_n^{-\alpha_n} \cdots s_2^{-\alpha_2 }b^{-1}b s_1^{-\alpha_1})b^{-1}s_1^{\alpha_1}s_1^{-\alpha_1} \\
+& = s_1^{\alpha_1}( s_2^{-\alpha_2 } \cdots s_n^{\alpha_n})b(s_n^{-\alpha_n} \cdots s_2^{-\alpha_2 })b^{-1}(b s_1^{-\alpha_1}b^{-1}s_1^{\alpha_1})s_1^{-\alpha_1} \\
+& = (s_1^{\alpha_1}[ s_2^{-\alpha_2 } \cdots s_n^{\alpha_n},b]s_1^{-\alpha_1})(s_1^{\alpha_1}[b,s_1^{-\alpha_1}]s_1^{-\alpha_1})
+\end{align*}
+
+
+
+por hipótesis de indicción tenemos que $[ s_2^{-\alpha_2 } \cdots s_n^{\alpha_n},b]$ es producto de conjugados de conmutadores de $X$, a saber
+
+\begin{align*}\label{eq:induccion}
+[s_1^{\alpha_1} \cdots s_n^{\alpha_n},b]= & (s_1^{\alpha_2 } \cdots s_{n-1}^{\alpha_{n-1}})[s_n,b]s_{n-1}^{-\alpha_{n-1}} \cdots s_1^{-\alpha_1 })* \\ &(s_1^{\alpha_1 } \cdots s_{n-1}^{\alpha_{n-1}})[b,s_{n-1}]s_{n-1}^{-\alpha_{n-1}} \cdots s_1^{-\alpha_1 })* \\
+& (s_1^{\alpha_1 } \cdots s_{n-2}^{\alpha_{n-2}})[b,s_{n-2}](s_{n-2}^{-\alpha_{n-2}} \cdots s_2^{-\alpha_2 })* \\
+& (s_1^{\alpha_1 } \cdots s_{n-3}^{\alpha_{n-3}})[b,s_{n-3}](s_{n-3}^{-\alpha_{n-3}} \cdots s_1^{-\alpha_1 })* \\
+\vdots \\
+&  s_1[b,s_1^{-1}]s_1^{-1}
+\end{align*}
+
+Por tanto tenemos que cada factor es un conjugado  de un conmutador de elementos de $X$ tenemos que $[a,b] \in W$ y terminamos la hipótesis de inducción.
+
+ En general si $b=t_1^{\alpha_1} \cdots t_m^{\alpha_m}$ notemos que en la expresión anterior están los términos $[s_j,b]$ con $s_j \in X$. Por lo previo cada $[s_j,t_1^{\alpha_1} \cdots t_m^{\alpha_m}]$ es producto de conjugado de conmutadores de elementos de $X$, los conjugados de conjugados de $[s_j,b]$ son  conjugados de conmutadores de elementos de $X$ tenemos que $[a,b] \in W.$ Dando así la igualdad de grupos. 
+
+\end{proof}
+
+
+\section*{Grupos topológicos}
+La estructura matemática que resulta  de considerar una topología en un grupo es muy interesante, para nuestros fines no abundaremos en ello, simplemente hacemos mención acerca de ciertas propiedades de grupos topológicos que usaremos.  
+
+\begin{df}
+	Sea $X$ un grupo decimos que $X$ es un \textbf{grupo topológico} si existe una topología en $X$ de manera que las funciones 
+	\begin{enumerate}
+	\item  Multiplicación,
+	\begin{align*}
+	\circ : X \times X & \to X \\
+	(x,y) & \mapsto xy
+	\end{align*}
+	
+	\item Inversión
+	\begin{align*}
+	^{-1} : X & \to X \\
+	x & \mapsto x^{-1}
+	\end{align*}		
+	 
+	\end{enumerate}
+son continuas.	
+	\end{df}
+	
+\subsection*{Topología compacto abierta}	
+Sean $X,$ $Y$ espacios topológicos, $Y^X$ la familia de funciones $f:X \to Y$. Para cada $A \subset X$ y $B \subset Y$ denotamos a $$\mathcal{U}(A,B)=\{f \in Y^X|f(A)\subset B \}$$ en caso de que $A=\{a\}$ denotamos  simplemente por $\mathcal{U}(a,B)=\{f \in Y^X|f(a) \in B\}$.
+
+%\cite{} pág 107 topo T18
+
+Tomamos el resultado siguiente de 
+
+\begin{pr}
+	La colección de las familias de la forma $\mathcal{U}(K,B)$ donde $K$ es un compacto de $X$ y $U$un abierto de $Y$ es una subbase para una topología en $Y^X$. Dicha topología será llamada \textbf{topolgía compacto-abierta}.
+\end{pr}
+
+\begin{ob}
+Un hecho interesante es que la topología compacto abierta es mas fina que la topología producto y es mas gruesa que la topología caja, pero en el caso finito la tres topologias coinciden.
+\end{ob}
+
+Un resultado que tomamos de --- sobre una relación entre los axiomas de separación  $Y$ y de $Y^X$.
+
+\begin{pr}
+Sean $X$, $Y$ espacios, entonces $Y$ es Hausdorff si y solo si $Y^X$ es Hausdorff.
+\end{pr}
+
+
+\subsection*{Topología compacto abierta para el circulo}
+
+Denotaremos por $S^1$ al conjunto $\{x \in\mathbb{R}^2:|x|=1 \}$ y a cualquier espacio topológico homeomorfo a $S^1$ le llamaremos curva cerrada simple.
+
+
+	\begin{nt} $Hom(X)$ denotará el grupo de homeomorfismos $h:X \to X$ y la función identidad $Id_X:X \to X$ denotará el neutro de $Hom(X)$. Notemos que $Hom(X)$ es un grupo con la composición de funciones.
+	\end{nt}
+	
+		\begin{proof}
+	El resultado es directo que la composición de funciones biyectivas es biyectiva y que composición de funciones continuas es continua. 
+	\end{proof}
+	
+
+ Veremos un ejemplo de la topología compacto abierta en el espacio $S^1$. Esto con el fin de ver que la terna $(Hom(S^1),\circ, \tau_{CA})$ es un grupo topológico. 
+
+
+\begin{df}
+Sea $X_d$ un espacio métrico compacto. Definimos a la métrica de la convergencia uniforme como;
+
+$$d(f,g)= \max_{x \in X}\{d(f(x),g(x)) \}$$
+donde $f$ y $g$ son funciones continuas. 
+\end{df}
+
+
+Ahora vamos a evitar desarrollar una parte de la teoría. Queremos solo usar una equivalencia entre la topología compacto abierta y la generada por la métrica uniforme. Para ello sugerimos revisar **Munkres página 321 hasta 325, también Willard 278 hasta la página 284. Esto con la intensión de complementar un texto de otro. Para revisar la referencia de Willard, es necesario tener en cuenta el capitulo 10, el libro de Munkres es adecuado para una introducción al tema, pero no con el detalle como lo hace Willard.
+
+\begin{df}
+Sean $(Y,d)$ un espacio métrico y $X$ un espacio topológico. Sea $f \in Y^X$, $C$ sub-espacio compacto de $X$ y $\varepsilon > 0$. Definimos a $B_C(f, \varepsilon)$ como la familia de funciones $g \in Y ^X$ para las cuales,
+
+$$\sup \{d(f(x),g(x))|x \in C \} < \varepsilon.$$
+
+Las familias  $B_C(f,\varepsilon)$ forman una base para una topología sobre $Y^X$ la cual será llamada la \textbf{topología de la convergencia compacta}.  
+\end{df}
+El siguiente resultado puede consultarse en Willar 43.7 pàg 284 o Munkres 46.8 pá 325.
+
+\begin{te}
+Para un espacio de funciones, $X^Y$ donde $X$ es compacto, la topología de la convergencia compacta es la topología compacto abierta. 
+\end{te}
+
+
+El siguiente teorema puede encontrarse en Munkres como teorema 46.7
+
+\begin{te}
+Sean $X$ un espacio topológico e $Y_d $ métrico. Para el espacio de funciones $Y^X$ se tiene la siguiente inclusión de topologías:
+
+$$\text{(uniforme)} \subset \text{(convergencia compacta)}$$ 
+
+Si $X$ es compacto entonces las topologías coinciden. 
+\end{te}
+
+Este teorema puede estudiarse en Munkres como teorema 46.8 o en Willar como teo 43.7
+
+\begin{te}
+Sean $X$ un espacio toplógico e $Y_d $ métrico. Sobre el sub-espacio de funciones continuas de $X$ a $Y$ se tiene que la topología de la convergencia compacta y de la convergencia uniforme coinciden. 
+\end{te}
+
+Veremos ahora que el grupo de homeomorfismos del cículo es un grupo topológico con la topología compacto abierta (o métricas como según nos convenga) y la composición de funciones como operación de grupo.
+
+\subsection*{El grupo topológico $Hom(S^1)$}
+
+Veremos que las operaciones  
+
+\begin{align*}
+g \mapsto g^{-1}
+\end{align*}
+
+y 
+
+\begin{align*}
+(gh) \mapsto gh
+\end{align*}
+
+son funciones continuas en la topología compacto abierta. Para el caso de la función inversión usaremos la equivalencia métrica. Observemos que: 
+\begin{itemize}
+	\item Si $g$ es una función continua en un espacio compacto entonces $g$ es uniformemente continua, además si $g$ es un homeomorfismo tenememos que la función $g^{-1}$ es uniformemente continua. 
+\end{itemize}
+
+Sean $\varepsilon >0$, $h,$ $g \in Hom(S^1)$. Veremos que existe $\delta >0$ tal que si $d(g,h) < \delta$  se implica que
+
+$$d(g^{-1},h^{-1}) < \varepsilon,$$
+
+en la métrica de la convergencia uniforme.  De la observación tenemos de la continuidad uniforme de $g^{-1}$  que, para todo $x \in S^1$ existe $\delta >0$ tal que si $|x-y|< \delta$ entonces
+$$|g^{-1}(x)-g^{-1}(y)| < \varepsilon.$$
+
+Consideremos la bola $B_d(h,\delta)$ y $x_0$ fijo. Como $h$ es biyectiva existe $z_0 \in S^1$ tal que $z= h^{-1}(x)$, por la definición de la métrica uniforme se cumple que,
+
+$$|h(z_0)-g(z_0)| \leq d(h,g) < \delta $$
+
+junto de la continuidad de $g^{-1}$ se tiene que,
+
+$$|g^{-1}(h(z_0))-g^{-1}(g(z_0))| < \varepsilon,$$
+
+pero notemos que 
+
+$$ |g^{-1}(x_0)-h^{-1}(x_0)|=|g^{-1}(h(z_0))-z_0| < \varepsilon, $$
+
+para $x_0$ fijo. Luego, tomando el máximo tenemos que 
+
+$$d(g,h) < \varepsilon$$
+
+de esta manera la función inversión es un  función continua. Veremos ahora la continuidad de la multiplicación mediante la topología compacto abierta. Antes, hacemos mención de un resultado que no demostraremos pero que nos será de utilidad. Willar lm 43.3
+
+\begin{lm}
+En un espacio regular, si un conjunto $F$ es compacto, $U$ es un abierto y $F \subset U$ entonces existe un conjunto abierto $V$ tal que $F \subset V \subset \overline{V} \subset U.$
+\end{lm}
+
+Afirmamos que la operación composición 
+$$\circ:Hom(S^1) \times Hom(S^1) \to Hom(S^1)$$ dada por 
+$$\circ(g,h):=gh,$$
+es continua en la topología compacto abierta. Sean $g,$ $h \in Hom(S^1)$ y consideremos un abierto básico en la topología compacto abierta que sea vecindad de $gh$, explícitamente sean $K$ compacto de $S^1$ y $U$ abierto en $S^1$ tal que
+
+$$\mathcal{U}(K,U)(gh)=\{f \in Hom(S^1): f(K) \subset U\}$$
+
+es claro que $gh(K) \subset U$ y como $g$ es biyectiva,  componiendo con la función $g^{-1}$ se tiene que; 
+
+$$h(K) \subset g^{-1}(U),$$
+
+notemos que $g$ y $h$ son homeomorfismos por tanto $h(K)$ es compacto y $g^{-1}(U)$ es abierto, como $S^1$ es un espacio normal, existe $V$ abierto en $S^1$ tal que 
+
+$$h(K) \subset V \subset \overline{V} \subset g^{-1}(U),$$
+vamos a considerar al básico de   $Hom(S^1) \times Hom(S^1)$ dado por  
+$$\mathcal{W}:=\mathcal{U}(\overline{V},U) \times \mathcal{U}(K,V).$$
+
+Como $\overline{V} \subset g^{-1}(U)$ componiendo con la función $g$ se sigue que $g(\overline{V}) \subset U$ y como $h(K) \subset V$ tenemos que $(g,h) \in \mathcal{W}$. Veremos que la imagen de $\mathcal{W}$ bajo la operación $\circ$ está contenida en $\mathcal{U}(K,U)$.
+
+
+Sea $(f_1,f_2) \in \mathcal{W}$, tenemos las siguientes contenciones,  
+
+\begin{align*}
+f_1(\overline{V})\subset U \\
+f_2(K)\subset V 
+\end{align*}
+
+componiendo la primera contención por $f_1^{-1}$ se sigue que
+
+$$f_2(K) \subset V \subset \overline{V} \subset f_1^{-1}(U)$$
+
+finalmente resta notar que las contenciones anteriores se mantienen si componemos con $f_1$ esto es;
+
+$$f_1f_2(K) \subset U,$$
+de esta manera $f_1f_2 \in \mathcal{U}(K,U)(gh)$, es decir la función $\circ$ es continua. Concluimos que $(Hom(S^1), \tau_{CA})$ es un grupo topológico. 
+
+
+\section*{Lemas y observaciones}
+	
+\begin{ob}
+	Sea $G$ un grupo topológico.
+	
+	\begin{enumerate}
+	\item Sea $Q(e)$ la componente conexa de la identidad. Como la función multiplicación es continua se sigue que, para toda $h \in G$ el conjunto $hQ(e)$ es conexo y contiene al elemento $h$.
+
+ \item $g \in Q(e)$ si y solo si $e \in Q(g).$ En particular $Q(g)=Q(e)$.
+ 
+ \item  Si $h \in Q(e)$ entonces $e \in Q(h^{-1})$. En particular $h \in Q(e)$ si y solo si $h^{-1}\in Q(e)$.
+	\end{enumerate}
+ \end{ob}	
+ 
+ \begin{proof}
+ Sea $g \in Q(e)$, notemos que $Q(e)$ es un conjunto conexo que tiene a $g$ por tanto $Q(e) \subset Q(g)$, en particular $e \in Q(g).$ El recíproco es idéntico y se omite. 
+ % sea $e \in Q(g)$ entonces $Q(g)$ es un conjunto conexo que tiene a $e$ por tanto $Q(g) \subset Q(e),$ en particular tenemos que $g \in Q(e).$
+ 
+ 
+Para la otra parte, notemos que $h^{-1}Q(e)$ es un conjunto conexo que tiene a $h^{-1}$ por tanto $h^{-1}Q(e) \subset Q(h^{-1})$, como $h \in Q(e)$ se sigue que el elemento
+
+$$h^{-1}h \in h^{-1}Q(e)$$
+
+y así $e \in Q(h^{-1})$.  
+\end{proof}
+
+\begin{lm}\label{lm:Q(e) es grupo}
+La componente conexa de la identidad es un grupo.
+\end{lm}
+
+
+\begin{proof}
+ Veremos que el conjunto $Q(e)$ es cerrado bajo la operación de $G$. Sean $g$, $h \in Q(e)$, por la observación previa resta ver que $e \in Q(gh)$. Tenemos que $ ghQ(e) \subset gQ(h) \subset Q(gh)$ por otro lado notemos que, 
+ \begin{align*}
+ gh(h^{-1}) \in  ghQ(e)
+ \end{align*}
+ y así $g \in ghQ(e)$, por tanto tenemos la contención $ghQ(e) \subset Q(g)=Q(e)$, concluimos que $gh \in Q(e).$
+ \end{proof}	
+	
+	
+	
+\begin{lm}\label{lm:gU_es_abierto}
+Sea $(X,\tau, \circ)$ grupo topológico y $U$ abierto en $X$, para todo $h \in X$ el conjunto $hU$ es abierto.
+\end{lm}
+
+\begin{proof}
+Sea $h$ en $X$, las siguientes funciones
+
+\begin{align*}
+\varphi_h:X \to X \\
+g \mapsto hg
+\end{align*}
+y 
+\begin{align*}
+\phi_h:X \to X \\
+g \mapsto h^{-1}g
+\end{align*}
+ son continuas e inversas una de otra. Resta notar que $\varphi_h(U)=hU$ y  la imagen directa de $\varphi$ es la imagen inversa de su función inversa  $\varphi_h(U)=\phi_h^{-1}(U)$ que por continuidad es un conjunto abierto.  Tenemos así que $hU$ es un conjunto abierto.
+
+\end{proof}
+
+% Una vecindad de la identidad genera un grupo conexo. 
+\begin{pr} \label{pr:vec_de_la_id_gen}
+Sea $(X, \tau, \circ)$ un grupo topológico conexo. Para toda $U(e)$ se cumple que $\langle U\rangle=X.$
+\end{pr}
+	
+\begin{proof}
+Sea $U \in \mathcal{N}(e)$, resta ver que $G \subset \langle U \rangle$. Para ello veremos que $\langle U \rangle$ es un conjunto abierto y cerrado en $X$ por la conexidad de $X$ se da la igualdad.
+
+ Sea $g \in \langle U \rangle$, por definición de subgrupo generado, para todo subgrupo $H$ de $X$ que contiene a $U$ se cumple  que 
+\begin{enumerate}
+	\item $g \in H$,
+	\item al ser cerrado como subgrupo tenemos que, para toda $u \in U$ el elemento $gu$ está en $H$, por tanto
+ 
+ $$gU \subset H,$$
+ 
+ \item Por el lema \ref{lm:gU_es_abierto} el conjunto $gU$ es abierto.
+\end{enumerate} 
+ 
+ 
+Más aún, $g=ge \in gU$, de esta manera se que tiene que  $gU(g)$ junto con la contención $gU \subset H$ de la definición de grupo generado tenemos que  $gU \subset \langle U(e) \rangle$ y por tanto $\langle U(e) \rangle$ es un conjunto abierto.
+
+Para ver que $\langle U \rangle$ es cerrado, sea $h \in \overline{\langle U \rangle}$ y consideremos al conjunto $hU$ que, por el lema \ref{lm:gU_es_abierto} es abierto y en particular es vecindad de $h$, $hU(h)$ y por definición del conjunto cerradura tenemos que, 
+
+$$hU \cap \langle U \rangle \neq \emptyset.$$
+
+ De esta manera, sea $g \in hU\cap \langle U \rangle$ ent particular, como $g \in hU$ existe $u \in U$ tal que $g=hu$ y consideremos lo siguiente, 
+
+\begin{align*}
+h=gu^{-1} \in  \langle U \rangle U =\langle U \rangle
+\end{align*} 
+ 
+ por tanto $\overline{\langle U \rangle} \subset \langle U \rangle.$ Tenemos que $\langle U(e) \rangle$ es un conjunto cerrado a abierto en un espacio conexo, entonces o $\langle U \rangle=\emptyset$ o $\langle U \rangle=X$ como $e \in \langle U \rangle$ concluimos que $\langle U(e) \rangle = X.$
+\end{proof}
+
+
+
+\begin{df}
+Sea $K \subset X$ y $h:X \to X$ un homeomorfismo. Decimos que $h$ está  \textbf{soportado} en $K$ si,
+\begin{enumerate}
+	\item $X \setminus K$ es no vacío y
+	\item $h|_{X \setminus K}=id|_{X \setminus K}$.
+\end{enumerate}	
+ Al conjunto $$Sup(h)=\overline{\{x \in X : h(x)\neq x \}},$$  le llamaremos el \textbf{soporte} de $h$. Al subgrupo de homeomorfismos, $g:X \to X$, para los cuales existe $U \in \tau$ tal que $g|_U=e|_U$ le denotaremos por $Hom_0(X)$.
+\end{df}
+
+\begin{ob} \label{ob:sop_fun_inversa}
+Si $g:X \to X$ un homeomorfismo que está soportado en $K$, para la función inversa $g^{-1}:X \to X$ tenemos que 
+
+$$id|_{X \setminus K}=g^{-1}|_{g(X \setminus K)}=g^{-1}|_{X \setminus K}.$$
+
+ Es decir, $g^{-1}$ está soportando en $g(K).$
+\end{ob}
+El siguiente lema será usado en las secciones posteriores, es importante para el desarrollo del trabajo de Anderson y Epstein en \textbf{referencia}
+
+\begin{lm}\label{lm:obs_a}
+ Sean $K \subset X$ y $g \in Hom_0(X)$ soportado en $K$.
+ 
+	\begin{enumerate}
+		\item Para cualquier $h \in Hom(X)$ se tiene que $h^{-1}gh$ está soportado en $h^{-1}(K)$.
+		\item Si $h^{-1}(K) \cap K = \emptyset$ entonces
+			\begin{enumerate}
+				\item $[h,g]$ está soportado en $h^{-1}(K) \cup K$,
+				\item $[h,g]|_K=g|_K$ y 
+				\item $[h,g]|_{h^{-1}(K)}=h^{-1}g^{-1}h|_{h^{-1}(K)}$
+			\end{enumerate}	
+	\end{enumerate}
+\end{lm}
+	
+\begin{proof}
+Para el primer inciso. Sea $x \in X \setminus h^{-1}(K)= h^{-1}( X \setminus K)$ de donde $h(x) \in X \setminus K$, como $K$  es el soporte de $g$ tenemos que,
+
+\begin{align*}
+g(h(x))=h(x)
+\end{align*}
+
+de esta manera al componer con la función $h^{-1}$ por la izquierda obtenemos lo siguiente,
+
+	\begin{align*}
+	h^{-1}gh(x)=x
+	\end{align*}
+
+tenemos que
+ $$h^{-1}gh(x)|_{X \setminus h^{-1}(K)}=id_{X \setminus h^{-1}(K)}$$ 
+ y por definición concluimos que $h^{-1}gh(x)$ está soportado en $h^{-1}(K).$
+
+Ahora veremos el segundo inciso. Supongamos que $h^{-1}(K) \cap K = \emptyset$. Sea $x \in (X \setminus h^{-1}(K)) \cap (X \setminus K)$, como como $g$ está soportando en $K$ tenemos que $$h(g(x))=h(x),$$  más aún como en el inciso anterior tenemos $h(x)\in X \setminus K$ junto con que $g^{-1}|_{X \setminus K}=id$ (observación \ref{ob:sop_fun_inversa}) se sigue que
+ 
+  $$g^{-1}(h(x))=h(x)$$ 
+  
+ finalmente componiendo con $h^{-1}$ por la izquierda tenemos que  $$ [h^{-1},g^{-1}](x)=h^{-1}g^{-1}hg(x)=x$$
+ 
+ es decir, 
+\begin{align*}
+ [h^{-1},g^{-1}]|_{(X \setminus h^{-1}(K)) \cap (X \setminus K) }=id,
+\end{align*}
+ por tanto $[h^{-1},g^{-1}]$ está soportado en $h^{-1}(K) \cup K.$ Finalmente, de la observación \ref{ob:sop_fun_inversa} el homeomorfismo $g^{-1}$ está soportado en $g(K)$ del primer inciso tenemos que $h^{-1}g^{-1}h$ está soportado en $h^{-1}(g(K))$ y de esta manera
+	\begin{align*}
+	h^{-1}g^{-1}h(h^{-1}(g(K)))=h^{-1}(K),
+	\end{align*}	  
+  de donde tenemos que
+   
+\begin{align*}
+  [h^{-1},g^{-1}]|_{h^{-1}(K)}=h^{-1}(K).
+\end{align*}  
+	 Además, notemos $h^{-1}g^{-1}h[g(K)]=id$ entonces  $$g(K) \subset sup(h^{-1}g^{-1}h)^c.$$
+\end{proof}
+
+
+
+\begin{ob}
+Cualquier conjugado del producto de conjugados de producto de $h$ y $h^{-1}$ tiene el mismo numero de conjugados de $h$ y $h^{-1}$.
+\end{ob}	 
+
+\begin{proof}
+Si $f=(g_1 h^{-1} g_1^{-1}) \cdots(g_n h g_n^{-1})$ entonces para cualquier $g$ en $Hom(X)$ se tiene que
+\begin{align*}
+g f g^{-1} & = g(g_1 h^{-1} g_1^{-1}) \cdots (g_n h g_n^{-1})g^{-1}\\
+&= (gg_1 h^{-1} g_1^{-1}g^{-1})\cdots(gg_n h g_n^{-1}g^{-1}).
+\end{align*} 
+\end{proof} 
+
+Finalizamos este capitulo recordando que nuestra introducción pudiera no abarcar todos los resultados que vamos a mencionar, sin embargo mencionamos los libros que hemos consultado donde pudiera  estar la demostración detallada  o bien un estudio profundo de dicho tema. \cite{Baz}
+
+\include{biblio.tex}
+
+%%%%% Fin del documento
+\end{document} 
+
+
+ \begin{ob}
+ \begin{enumerate}
+ \item  $f_1gf_1^{-1} \in K$ por la normalidad de $K$.
+ \item Como $g^{-1}(U)\cap U= \emptyset$, tenemos que $g(u) \not \in U.$ Por tanto $f^{-1}(g(u))=g(u)$ y así $g^{-1}f^{-1}g(u)=u$ y por tanto $g_1=f_1$ en puntos $u \in U.$
+ \end{enumerate}
+ \end{ob}
+
+ Luego, consideremos a $f_0=f_2ff_2^{-1}$, salvo homeomorfismo (por $f$ ) $f_0$ tiene soporte $W_0$, luego notemos que si $f_0 \in K$ se sigue que todo conjugado de $f_0$ está en $K$, por tanto $f \in K.$ Resta ver que $f_0 \in K$, consideremos a
+ \begin{align*}
+ h(x)=\left\lbrace \begin{array}{ccc}
+ f_0(x)& \text{ si } & x \in W_0 \\
+ g^{n}_1f_0g_1^{-n}(x) & \text{ si }& x \in g_1^{n}(W_0)  n \geq q,\\
+x & \text{ si } & x \in X \setminus \cup_{i=0 }^\infty W_i
+\end{array}   \right.
+\end{align*}
+
+Finalmente, tenemos que $f_0=g_1h^{-1}g_1^{-1}h$.

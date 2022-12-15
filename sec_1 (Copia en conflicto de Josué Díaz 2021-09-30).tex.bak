@@ -1,0 +1,248 @@
+%Archivo para subfiles.
+%\documentclass{subfiles} 
+	
+\include{pre/pre-1}
+\include{pre/entornos}	
+
+\begin{document}
+	
+\chapter{Introducción}
+
+A lo largo de este texto utilizaremos términos correspondientes al tema de espacios topológicos y grupos por ello consideramos necesario convenir la notación de estos temas así como la bibliografia que se ha consultado. Vamos a introducir la notación  del texto comenzando por topología para continuar con la de grupos y concluiremos este capítulo introductorio con una ligera sección de grupos topológicos.
+
+\subsection*{Espacios topológicos}
+
+ Recomendamos los siguientes textos para desarrollar un estudio más detallado libros como. Vamos a usar la notación estándar de conjuntos, $\subset$ representa la contención de conjuntos, $\cup$ la unión, $\cap$ la intersección, dados dos conjuntos, $A$, $B$ entonces $A \setminus B$ representará el conjunto de los elementos que aestán en $A$ pero que no están en $B$ en particular al conjunto $X\setminus A$ le diremos el complemento de $A$ en $X$, finalmente $2^X$ representa el conjunto potencia de $X$. 
+
+\begin{df}
+Sea $X$ un conjunto y $\tau \subset 2^X$ una familia de subconjuntos de $X$. Decimos que $\tau$ es una \textbf{topología} para $X$ si cumple que;
+
+	\begin{enumerate}
+		\item $\emptyset$, $X$ son elementos de  $\tau.$
+		\item Para cada subfamilia finita de $\tau$, $\{A_i\}_{i=1}^n$ se tiene que $\bigcap_{i=1}^n A_i$ es un elemento de $\tau.$ 
+		\item Para cada subfamilia $\{A_i\}_{i \in J}$ donde $I$ es un familia de índices\footnote{no necesariamente finito} se tiene que $\bigcup_{i \in I} A_i$ es un elemento de $\tau$.
+	\end{enumerate}
+
+Por \textbf{espacio topológico} nos referimos a una pareja $(X,\tau)$ donde $X$ es un conjunto y $\tau$ es una topología para $X$.
+\end{df}
+
+\begin{ob}
+Para la primera condición, algunos autores recurren a uniones e intersecciones particulares de familias vacías. La segunda condición se conoce como \textbf{cerradura bajo intersecciones finitas} o que \textbf{familia es cerrada bajo intersecciones finitas.} La tercera condición se conoce como \textbf{cerradura bajo uniones arbitrarias} o que \textbf{la familia es cerrada bajo uniones arbitrarias.}
+\end{ob}
+
+\begin{cn}
+Cuando sea posible prescindir de la topología, simplemente diremos que $X$ es espacio topológico. 
+\end{cn}
+
+Espacios métricos y las variedades (espacios muy parecidos a un $\mathbb{R}^m$) serán mencionados pero no serán estudiados, sin embargo para ellos preferimos las definiciones de estos temas como en; ***. Para operadores topológicos utilizaremos la siguiente notación. 
+
+\begin{df}
+Sea $X$ un espacio topológico y $U$ subconjunto de $X$.
+
+\begin{itemize}
+	\item Diremos que $U$ es \textbf{vecindad} de un punto $x$ de $X$ si, $x \in U$ y $U$ es abierto en $X$. A la familia de  vecindades de un punto $x$ es llamado \textbf{sitema de vecindades de} $x$ y la denotaremos mediante $\mathcal{N}(x)$.
+ 
+ \item Al conjunto \textbf{interior} de $A$ en $X$ lo denotaremos por; 
+	\begin{align*}
+	Int_X(A):=\{x \in A: \text{existe } U(x) \text{ de manera que } U \subset A\}.
+	\end{align*} 
+
+ \item  Al conjunto  \textbf{clausura} de $A$ en $X$ lo denotaremos por; 
+   
+	\begin{align*}
+	Cl_X(A):=\{x \in A: \text{existe } U(x) \text{ de manera que } U \cap A \neq \emptyset\}.
+	\end{align*}
+ 
+ \item Denotaremos por $Fr_X(A)$ al conjunto $\overline{A^c} \cap \overline{A} $ a este conjunto le llamaremos la 
+  \textbf{frontera} de $A$ en $X$.
+ \end{itemize}
+ 
+\end{df}
+
+\begin{cn}
+Cuando sea posible prescindir del espacio topológico, simplemente denotaremos por $Int(A)$ al interior, $Cl(A)$ la clausura y  $Fr(A)$ a la frontera de $A$ en $X$.
+\end{cn}
+
+En esta parte de la topología nos interesa estudiar los espacios  mediante de las propiedades de $X$ o de $\tau$ (incluso ambas) y compararlas mediante las de otros espacios, esto es, poder demostrar que un espacio desconocido tenga propiedades de espacios ya conocidos, por lo que podemos clasificar por medio relaciones entre espacios y trabajar con un espacio ya conocido o mas estudiado. 
+
+\begin{df}
+Sean $X$, $Y$ espacios topológicos y $h:X \to Y$  una función.
+ 
+\begin{enumerate}
+
+	\item Dado $B \subset X$, $h|_B$ denotará la restricción $h:B \to h(B)$ de $h$ a $B$. 
+	
+	\item Decimos que $h$ es \textbf{continua} si para cada $V$ abierto de $Y$ se cumple que $h^{-1}(V)$ es abierto en $X$.
+	
+	\item Sea $h$ una función continua y biyectiva, decimos que $h$ es un \textbf{homeomorfismo} si su función inversa, $h^{-1}:X \to X$ es continua. 
+	
+\end{enumerate}
+\end{df}
+
+Ahora, un resultado que nos permitirá hablar de espacios topológicos en en subconjuntos, esto nos permitirá de hablar sin ambigüedades respecto a los ejemplos concretos que estudiaremos. 
+
+\begin{te}
+Sea $X$ un espacio topológico $Y \subset X$ entonces existe una topología $\tau_Y$ tal que $(Y,\tau_Y)$ es un espacio topológico. Por \textbf{subespacio} $Y$ de $X$ nos referimos al espacio $(Y, \tau_Y)$.
+\end{te}
+
+\begin{df}
+Sea $X$ un espacio topológico.
+\begin{enumerate}
+	\item  Decimos que $X$ es \textbf{compacto} si para toda cubierta abierta de $X$ existe una subcubierta finita que cubre a $X$. Decimos que $K \subset X$ es compacto si lo es como subespacio.
+	\item Decimos que $X$ es \textbf{disconexo} si existe abiertos $U$ y $V$ ajenos y no vacíos tales que $X = U \cup V$. Decimos que un espacio $X$ es \textbf{conexo} si no es disconexo. Un subconjunto $Y \subset X$ es conexo (o disconexo) si lo es como subespacio.
+	
+	\item Decimos que $X$ es un \textbf{continuo} si es un espacio métrico, compacto y conexo.
+\end{enumerate}
+\end{df}
+
+\subsection*{Grupos}
+En este texto estudiaremos nociones de álgebra moderna, para ello planteamos la notación necesaria para desarrollar dichos temas. Para el desarrollo de esto temas recomendamos la siguiente literatura donde nos hemos basado ***
+
+	\begin{df}
+Sea $G$ un conjunto no vacío. Por grupo nos referimos a una terna $(G, \circ, e)$ con $\circ:G \times G \to G$ una operación en $G$ y $e$ el elemento de $G$, tal que
+
+	\begin{enumerate}
+		\item La operación $\circ$ es asociativa.
+		\item para cada $g \in G$ existe $h \in G$ tal que $ \circ (g,h)= \circ(h ,g)=e$.
+		\item Para todo $g \in G$ se cumple que $\circ(g ,e) =  \circ(e,g) = g.$
+	\end{enumerate}
+	\end{df}
+
+	\begin{cn}
+A partir de ahora denotaremos simplemente por $gh$ a la operación $\circ(g,h)$, en otras palabras, hacemos el abuso de notación,  $\circ(g,h):=gh.$
+	\end{cn}
+	
+	Ahora estableceremos la notación para los subgrupos y clases laterales que nos permitirá desarrollar el resto de nuestro trabajo. 	
+	
+	\begin{df}
+	Sea $G$ un grupo y subconjuntos $H$, $K$ de $G$.
+	\begin{enumerate}
+		\item Decimos que $H$ es \textbf{subgrupo} de $G$ denotado por $H \leq G$, si la operación $\circ:H \times H \to G$ es una operación cerrada en $H$.
+		
+		\item El conjunto $KH$ se define como  $KH=\{kh: k \in K \text{ y } h \in H \}$. En particular cuando $K$ conste de un solo punto, $K=\{k\}$ denotaremos al conjunto $KH$ por $kH$.	
+		
+		\item Para todo $g \in G$ el conjunto $gH=\{gh:h \in H \}$ le llamaremos \textbf{clase lateral izquierda}; análogamente por \textbf{clase lateral derecha} nos referimos al conjunto $Hg=\{hg:h \in H\}$ . A la familia  $G/H_der=\{gH:g \in G\}$
+le llamaremos la familia de clases laterales derechas de $H$ y análogamente a $G/H_izq=\{Hg:g \in G\}$
+le llamaremos la familia de clases laterales derechas de $H$. 
+	\end{enumerate} 
+\end{df}	
+	
+	\begin{ob}
+	De la definición anterior tenemos unas observaciones interesantes. 
+	\begin{enumerate}
+	\item Las clases de un conjunto forma una partición de $G$ y por tanto las clases inducen una relación de equivalencia.
+	
+	\item Más aún existe una correspondencia entre clases laterales. 
+ Sea $\varphi:G/H_d \to G/H_i$ dada por $$\varphi(gH)=Hg^{-1}.$$
+ 
+  Esta función cambia una clase lateral derecha a una izquierda. Veamos que es una función biyectiva. La función es sobre, pues para $g \in G$ y para el elemento $Hg$ tenemos que $g^{-1}$ es tal que $\varphi(g^{-1}H)=Hg$. Resta ver que es inyectiva, sean $g_1H$ y $g_1H$ clases derechas y supongamos que
+	
+	 $$Hg_1^{-1}=\varphi(g_1H)=\varphi(g_2H)=Hg_2^{-1}$$ 
+	
+	Sea $g_1h_1 \in g_1H$ notemos que
+
+	\begin{align*}
+	g_1h_1(h_1^{-1}g_1^{-1})=e	
+	\end{align*}
+	
+	como $Hg_2^{-1}=Hg_1^{-1}$ existe $h_2$ tal que $h_2g_2^{-1}=h_1^{-1}g_1^{-1}$, así
+	
+	\begin{align*}
+	g_1h_1(h_2g_2^{-1})=e	
+	\end{align*} 
+	es decir, $g_1h_1=g_2h_2^{-1}$
+	en otras palabras se deduce que $g_1H=g_2H$. $\varphi$ es biyectiva. 
+	
+	Sin embargo, esta correspondencia no deja en claro que $gH=Hg$ un ejemplo de esto se puede encontrar en 111 imate.
+	
+	 \item Dado $g \in G$ y $h \in H$ si $ghg^{-1} \in H$ entonces existe $h_1 \in H$ tal que $ghg^{-1}=h_1$ es decir, $gh=h_1g$  que de acuerdo con la notación de clases, cada elemento de una clase izquierda es un elemento de una clase derecha, de manera precisa $gH=Hg$.
+	 \end{enumerate}
+	\end{ob}
+	
+	La situación anterior es sorprendente y no solo es una curiosidad matemática, esto nos da la estructura de como clasificar grupos. 
+	
+\begin{df}
+	Sea $G$ un grupo y $H$ subgrupo de $G$.
+\begin{enumerate}
+	\item  Decimos que $g$ \textbf{normaliza} a $H$ si $gHg^{-1} \subset H.$ Al conjunto $N_G(H)=\{g \in G: gH=Hg\}$ le llamamos el \textbf{normalizador } de $H$ en $G$.
+	\item Si $G=N_G(H)$ decimos que $H$ es \textbf{normal} en $G$ y denotaremos esto por $H \unlhd G.$
+		
+\end{enumerate}
+\end{df}
+	
+	Una manera de construir nuevos grupos por grupos establecidos es por medio de los cocientes. 	113 imate
+	
+	\begin{te}
+	Sea $H$ subrupo normal de  $G$ entones el conjunto $G/H$ es un grupo.
+	\end{te}
+	
+	También, es necesario establecer las funciones entre grupos que preservan estructura de grupo en si mismo.
+	
+	\begin{df}
+	Sea $G$ un grupo. 
+	\begin{enumerate}
+	\item Una función $\varphi:G \to G$ es un \textbf{morfismo} de grupos si $$\varphi(gh)=\varphi(g) \varphi(h).$$
+	\item Definimos al \textbf{Kernel} de $\varphi$ al conjunto $Ker(\varphi)=\{ g \in G: \varphi(g)=e\}$.
+	\item Diremos que un morfismo de grupos $\varphi$ es:
+	\begin{itemize}
+	\item \textbf{Monomorfismo:} si $\varphi$ es inyectiva.
+	\item \textbf{Epimorfismo:} si $\varphi$ es sobreyectiva
+	\item \textbf{Isomorfismo:} si $\varphi$ es biyectiva.
+	\end{itemize}
+	\end{enumerate}			
+	\end{df}
+	
+	Los siguientes términos son importantes, tanto desde la historia del estudio de los grupos, como para definir a las acciones sobre conjuntos.	
+	
+	\begin{df}
+	Sea $X$ un conjunto no vacío y $G$ un grupo.
+	\begin{enumerate}
+	\item A la familia $S_X=\{f:X \to X| f \text{ es biyectiva } \}$ le llamaremos el \textbf{grupo simétrico} de $X$. Si $X$ es finito de cardinalidad $n$ denotamos a $S_X$ por $S_n$.
+	\item Decimos que $G$ \textbf{actúa} sobre $X$ si existe un morfismo de grupos $\varphi:G \to S_X$.  Si $G$ actúa sobre $X$ entonces diremos que $X$ es un $G$-conjunto.
+	\end{enumerate}
+	
+	\end{df}
+	
+	\begin{nt}
+	$S_X$ es un grupo con la composición de funciones. 
+	\end{nt}	
+	El resultado siguiente es equivalente a la definición de acción, puede consultar esto en 
+	\begin{te}
+	Sea $X$ un $G$ conjunto, entonces existe una función $\alpha:G \times X \to X$ que satisface
+	\begin{enumerate}
+	\item $\alpha(e,x)=x$
+	\item $\alpha(g,\alpha(h,x))=\alpha(gh,x)$
+	\end{enumerate}
+	A dicha función le llamaremos una \textbf{acción} de $G$ sobre $X$.
+	\end{te}
+	
+	\begin{nt}
+	De manera recíproca al teorema, si existe una acción de $G$ sobre $X$ entonces existe un morfismo de grupos $\varphi:G \to S_X$.  
+	\end{nt}
+	
+\subsection{Grupos conmutadores}
+
+	
+	
+	
+	\subsection*{Grupos topológicos}
+		
+	\begin{df}
+	Sea $X$ un grupo decimos que $X$ es un \textbf{grupo topológico} si existe una topología en $X$ de manera que las funciones 
+	\begin{enumerate}
+	\item $(x,y) \mapsto xy$
+	\item $x \mapsto x^{-1}$
+	\end{enumerate}
+son continuas.	
+	\end{df}
+	
+	
+	\begin{cn} $Hom(X)$ denotará el grupo de homeomorfismos $h:X \to X$ e  $Id_X$ denotará el neutro de $Hom(X)$. Notemos que $Hom(X)$ es un grupo con la composición de funciones.
+	\end{cn}
+Finalizamos esta parte recordando que nuestra introducción no es auto contenida y es posible que no cubra resultados que vayamos a utilizar, sin embargo dejaremos la observación donde puede consultarse alguna demostración o un estudio profundo.
+	
+	
+	
+
+
+\end{document} 

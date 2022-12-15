@@ -1,0 +1,214 @@
+% Linea para usar la libreria subfiles.
+%\documentclass{subfiles} 
+
+% Préambulo	
+\include{pre/pre-1}
+	
+
+\begin{document}
+	
+
+
+\section*{Lemas y observaciones}
+	
+\begin{ob}
+	Sea $G$ un grupo topológico.
+	
+	\begin{enumerate}
+	\item Sea $Q(e)$ la componente conexa de la identidad. Como la función multiplicación es continua se sigue que, para toda $h \in G$ el conjunto $hQ(e)$ es conexo y contiene al elemento $h$.
+
+ \item $g \in Q(e)$ si y solo si $e \in Q(g).$ En particular $Q(g)=Q(e)$.
+ 
+ \item  Si $h \in Q(e)$ entonces $e \in Q(h^{-1})$. En particular $h \in Q(e)$ si y solo si $h^{-1}\in Q(e)$.
+	\end{enumerate}
+ \end{ob}	
+ 
+ \begin{proof}
+ Sea $g \in Q(e)$, notemos que $Q(e)$ es un conjunto conexo que tiene a $g$ por tanto $Q(e) \subset Q(g)$, en particular $e \in Q(g).$ El recíproco es idéntico y se omite. Para la otra parte, notemos que $h^{-1}Q(e)$ es un conjunto conexo que tiene a $h^{-1}$ por tanto $h^{-1}Q(e) \subset Q(h^{-1})$, como $h \in Q(e)$ se sigue que el elemento,
+
+$$h^{-1}h \in h^{-1}Q(e)$$
+
+y así $e \in Q(h^{-1})$.  
+\end{proof}
+
+\begin{lm}\label{lm:Q(e) es grupo}
+La componente conexa de la identidad es un grupo.
+\end{lm}
+
+
+\begin{proof}
+ Veremos que el conjunto $Q(e)$ es cerrado bajo la operación de $G$. Sean $g$, $h \in Q(e)$, por la observación previa resta ver que $e \in Q(gh)$. Tenemos que $ ghQ(e) \subset gQ(h) \subset Q(gh)$ por otro lado notemos que, 
+ \begin{align*}
+ gh(h^{-1}) \in  ghQ(e)
+ \end{align*}
+ y así $g \in ghQ(e)$, por tanto tenemos la contención $ghQ(e) \subset Q(g)=Q(e)$, concluimos que $gh \in Q(e).$
+ \end{proof}	
+	
+	
+	
+\begin{lm}\label{lm:gU_es_abierto}
+Sea $(X,\tau, \circ)$ grupo topológico y $U$ abierto en $X$, para todo $h \in X$ el conjunto $hU$ es abierto.
+\end{lm}
+
+\begin{proof}
+Sea $h$ en $X$, las siguientes funciones
+
+\begin{align*}
+\varphi_h:X \to X \\
+g \mapsto hg
+\end{align*}
+y 
+\begin{align*}
+\phi_h:X \to X \\
+g \mapsto h^{-1}g
+\end{align*}
+ son continuas e inversas una de otra. Resta notar que $\varphi_h(U)=hU$ y  la imagen directa de $\varphi$ es la imagen inversa de su función inversa  $\varphi_h(U)=\phi_h^{-1}(U)$ que por continuidad es un conjunto abierto.  Tenemos así que $hU$ es un conjunto abierto.
+
+\end{proof}
+
+% Una vecindad de la identidad genera un grupo conexo. 
+\begin{pr} \label{pr:vec_de_la_id_gen}
+Sea $(X, \tau, \circ)$ un grupo topológico conexo. Para toda $U(e)$ se cumple que $\langle U\rangle=X.$
+\end{pr}
+	
+\begin{proof}
+Sea $U \in \mathcal{N}(e)$, resta ver que $G \subset \langle U \rangle$. Para ello veremos que $\langle U \rangle$ es un conjunto abierto y cerrado en $X$ por la conexidad de $X$ se da la igualdad.
+
+ Sea $g \in \langle U \rangle$, por definición de subgrupo generado, para todo subgrupo $H$ de $X$ que contiene a $U$ se cumple  que 
+\begin{enumerate}
+	\item $g \in H$,
+	\item al ser cerrado como subgrupo tenemos que, para toda $u \in U$ el elemento $gu$ está en $H$, por tanto
+ 
+ $$gU \subset H,$$
+ 
+ \item Por el lema \ref{lm:gU_es_abierto} el conjunto $gU$ es abierto.
+\end{enumerate} 
+ 
+ 
+Más aún, $g=ge \in gU$, de esta manera se que tiene que  $gU(g)$ junto con la contención $gU \subset H$ de la definición de grupo generado tenemos que  $gU \subset \langle U(e) \rangle$ y por tanto $\langle U(e) \rangle$ es un conjunto abierto.
+
+Para ver que $\langle U \rangle$ es cerrado, sea $h \in \overline{\langle U \rangle}$ y consideremos al conjunto $hU$ que, por el lema \ref{lm:gU_es_abierto} es abierto y en particular es vecindad de $h$, $hU(h)$ y por definición del conjunto cerradura tenemos que, 
+
+$$hU \cap \langle U \rangle \neq \emptyset.$$
+
+ De esta manera, sea $g \in hU\cap \langle U \rangle$ ent particular, como $g \in hU$ existe $u \in U$ tal que $g=hu$ y consideremos lo siguiente, 
+
+\begin{align*}
+h=gu^{-1} \in  \langle U \rangle U =\langle U \rangle
+\end{align*} 
+ 
+ por tanto $\overline{\langle U \rangle} \subset \langle U \rangle.$ Tenemos que $\langle U(e) \rangle$ es un conjunto cerrado a abierto en un espacio conexo, entonces o $\langle U \rangle=\emptyset$ o $\langle U \rangle=X$ como $e \in \langle U \rangle$ concluimos que $\langle U(e) \rangle = X.$
+\end{proof}
+
+
+
+\begin{df}
+Sea $K \subset X$ y $h:X \to X$ un homeomorfismo. Decimos que $h$ está  \textbf{soportado} en $K$ si,
+\begin{enumerate}
+	\item $X \setminus K$ es no vacío y
+	\item $h|_{X \setminus K}=id|_{X \setminus K}$.
+\end{enumerate}	
+ Al conjunto $$Sup(h)=\overline{\{x \in X : h(x)\neq x \}},$$  le llamaremos el \textbf{soporte} de $h$. Al subgrupo de homeomorfismos, $g:X \to X$, para los cuales existe $U \in \tau$ tal que $g|_U=e|_U$ le denotaremos por $Hom_0(X)$.
+\end{df}
+
+\begin{ob} \label{ob:sop_fun_inversa}
+Si $g:X \to X$ un homeomorfismo que está soportado en $K$, para la función inversa $g^{-1}:X \to X$ tenemos que 
+
+$$id|_{X \setminus K}=g^{-1}|_{g(X \setminus K)}=g^{-1}|_{X \setminus K}.$$
+
+ Es decir, $g^{-1}$ está soportando en $g(K).$
+\end{ob}
+El siguiente lema será usado en las secciones posteriores, es importante para el desarrollo del trabajo de Anderson y Epstein en \textbf{referencia}
+
+\begin{lm}\label{lm:obs_a}
+ Sean $K \subset X$ y $g \in Hom_0(X)$ soportado en $K$.
+ 
+	\begin{enumerate}
+		\item Para cualquier $h \in Hom(X)$ se tiene que $h^{-1}gh$ está soportado en $h^{-1}(K)$.
+		\item Si $h^{-1}(K) \cap K = \emptyset$ entonces
+			\begin{enumerate}
+				\item $[h,g]$ está soportado en $h^{-1}(K) \cup K$,
+				\item $[h,g]|_K=g|_K$ y 
+				\item $[h,g]|_{h^{-1}(K)}=h^{-1}g^{-1}h|_{h^{-1}(K)}$
+			\end{enumerate}	
+	\end{enumerate}
+\end{lm}
+	
+\begin{proof}
+Para el primer inciso. Sea $x \in X \setminus h^{-1}(K)= h^{-1}( X \setminus K)$ de donde $h(x) \in X \setminus K$, como $K$  es el soporte de $g$ tenemos que,
+
+\begin{align*}
+g(h(x))=h(x)
+\end{align*}
+
+de esta manera al componer con la función $h^{-1}$ por la izquierda obtenemos lo siguiente,
+
+	\begin{align*}
+	h^{-1}gh(x)=x
+	\end{align*}
+
+tenemos que
+ $$h^{-1}gh(x)|_{X \setminus h^{-1}(K)}=id_{X \setminus h^{-1}(K)}$$ 
+ y por definición concluimos que $h^{-1}gh(x)$ está soportado en $h^{-1}(K).$
+
+Ahora veremos el segundo inciso. Supongamos que $h^{-1}(K) \cap K = \emptyset$. Sea $x \in (X \setminus h^{-1}(K)) \cap (X \setminus K)$, como como $g$ está soportando en $K$ tenemos que $$h(g(x))=h(x),$$  más aún como en el inciso anterior tenemos $h(x)\in X \setminus K$ junto con que $g^{-1}|_{X \setminus K}=id$ (observación \ref{ob:sop_fun_inversa}) se sigue que
+ 
+  $$g^{-1}(h(x))=h(x)$$ 
+  
+ finalmente componiendo con $h^{-1}$ por la izquierda tenemos que  $$ [h^{-1},g^{-1}](x)=h^{-1}g^{-1}hg(x)=x$$
+ 
+ es decir, 
+\begin{align*}
+ [h^{-1},g^{-1}]|_{(X \setminus h^{-1}(K)) \cap (X \setminus K) }=id,
+\end{align*}
+ por tanto $[h^{-1},g^{-1}]$ está soportado en $h^{-1}(K) \cup K.$ Finalmente, de la observación \ref{ob:sop_fun_inversa} el homeomorfismo $g^{-1}$ está soportado en $g(K)$ del primer inciso tenemos que $h^{-1}g^{-1}h$ está soportado en $h^{-1}(g(K))$ y de esta manera
+	\begin{align*}
+	h^{-1}g^{-1}h(h^{-1}(g(K)))=h^{-1}(K),
+	\end{align*}	  
+  de donde tenemos que
+   
+\begin{align*}
+  [h^{-1},g^{-1}]|_{h^{-1}(K)}=h^{-1}(K).
+\end{align*}  
+	 Además, notemos $h^{-1}g^{-1}h[g(K)]=id$ entonces  $$g(K) \subset sup(h^{-1}g^{-1}h)^c.$$
+\end{proof}
+
+
+
+\begin{ob}
+Cualquier conjugado del producto de conjugados de producto de $h$ y $h^{-1}$ tiene el mismo numero de conjugados de $h$ y $h^{-1}$.
+\end{ob}	 
+
+\begin{proof}
+Si $f=(g_1 h^{-1} g_1^{-1}) \cdots(g_n h g_n^{-1})$ entonces para cualquier $g$ en $Hom(X)$ se tiene que
+\begin{align*}
+g f g^{-1} & = g(g_1 h^{-1} g_1^{-1}) \cdots (g_n h g_n^{-1})g^{-1}\\
+&= (gg_1 h^{-1} g_1^{-1}g^{-1})\cdots(gg_n h g_n^{-1}g^{-1}).
+\end{align*} 
+\end{proof} 
+
+Finalizamos este capitulo recordando que nuestra introducción pudiera no abarcar todos los resultados que vamos a mencionar, sin embargo mencionamos los libros que hemos consultado donde pudiera  estar la demostración detallada  o bien un estudio profundo de dicho tema. \cite{Baz}
+
+\include{biblio.tex}
+
+%%%%% Fin del documento
+\end{document} 
+
+
+ \begin{ob}
+ \begin{enumerate}
+ \item  $f_1gf_1^{-1} \in K$ por la normalidad de $K$.
+ \item Como $g^{-1}(U)\cap U= \emptyset$, tenemos que $g(u) \not \in U.$ Por tanto $f^{-1}(g(u))=g(u)$ y así $g^{-1}f^{-1}g(u)=u$ y por tanto $g_1=f_1$ en puntos $u \in U.$
+ \end{enumerate}
+ \end{ob}
+
+ Luego, consideremos a $f_0=f_2ff_2^{-1}$, salvo homeomorfismo (por $f$ ) $f_0$ tiene soporte $W_0$, luego notemos que si $f_0 \in K$ se sigue que todo conjugado de $f_0$ está en $K$, por tanto $f \in K.$ Resta ver que $f_0 \in K$, consideremos a
+ \begin{align*}
+ h(x)=\left\lbrace \begin{array}{ccc}
+ f_0(x)& \text{ si } & x \in W_0 \\
+ g^{n}_1f_0g_1^{-n}(x) & \text{ si }& x \in g_1^{n}(W_0)  n \geq q,\\
+x & \text{ si } & x \in X \setminus \cup_{i=0 }^\infty W_i
+\end{array}   \right.
+\end{align*}
+
+Finalmente, tenemos que $f_0=g_1h^{-1}g_1^{-1}h$.

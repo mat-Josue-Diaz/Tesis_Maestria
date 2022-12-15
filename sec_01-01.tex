@@ -1,0 +1,378 @@
+% Linea para usar la libreria subfiles.
+%\documentclass{subfiles} 
+
+% Préambulo	
+\include{pre/pre-1}
+	
+
+\begin{document}
+	
+
+%%%%%% Espacios topológicos %%%%%%
+
+
+
+\chapter*{Teoría y definiciones}
+
+\section*{Introducción}
+
+A lo largo de este texto utilizaremos las nociones de espacios topológicos y de grupos. Nuestra primera parte consta de introducir notación y teoremas correspondientes a espacios topológicos, operadores topológicos y homemorfismos. De grupos, hablaremos de morfismos de grupos, grupos derivados y grupos simples. Nuestra bibliografía es estándar, esto es, libros de cursos o libros que son reconocidos como base para algunos cursos. 
+
+\section*{Espacios topológicos}
+ Vamos a usar la notación estándar de conjuntos. La pertenencia de un elemento $x$ a un conjunto $X$ se denota por $x \in X$. Dados dos conjuntos $A$ y $B$ denotaremos la contención del conjunto $A$ en el conjunto $B$ por $A \subset B$ y la igualdad de conjuntos $A=B$ representa que se dan las contenciones $A \subset B$ y $B \subset A$.
+
+La unión del conjunto $A$ con $B$ se representa por $A \cup B$, la intersección del conjunto $A$ con el conjunto $B$ se representa por $A \cap B$. $A \setminus B$ representa el conjunto de los elementos que están en $A$ pero que no están en $B$ en particular a $X\setminus B$ le diremos el complemento de $B$ en $X$,  finalmente $2^X$ representa el conjunto potencia de $X$, es decir, la familia $2^X=\{A: A \subset X\}$.  Sean $X$, $Y$ conjuntos y $f:X \to Y$ una función, para cualquier $A \subset X$ el conjunto,
+ 
+ \begin{align*}
+ f(A)=\{y \in Y : \text{ existe }x \in A \text{ de manera que } f(x)=y\}
+ \end{align*}
+
+será llamado imagen directa de $A$ bajo $f$. Por otro lado  dado $B \subset Y$ el conjunto 
+
+\begin{align*}
+f^{-1}(B)=\{x \in X :\text{ tal que } f(x) \in B \}
+\end{align*}
+
+será llamado la imagen inversa del conjunto $B$ bajo $f$. 
+
+\begin{ob}
+En general tomar la imagen inversa de una imagen directa o en orden alterno, no se obtiene como resultado el mismo conjunto. Pero se tiene que
+	
+	\begin{align*}
+	f(f^{-1}(B)) \subset B \\
+	A \subset f^{-1}(f(A)) .
+	\end{align*}
+
+La primera contención es igualdad si $f$ es sobreyectiva y la segunda contención es igualdad si $f$ es inyectiva, es claro que si $f$ es biyectiva tenemos las dos igualdades. 
+\end{ob}
+
+\begin{ej}
+Sea $f:\{1,2,3,4\} \to \{1,2,3,4\}$ dada por, $f(1)=f(3)=1$, $f(2)=f(4)=3$. Esta función no es inyectiva ni sobreyectiva. Consideremos a $\{1,4\}$, notemos que $f^{-1}(\{1,4\})=\{1,3\}$ pero $f(f^{-1}(\{1,4\}))=\{1\}$. Por otro lado, consideremos a $\{1,2\}$ y notemos que $f(\{1,2\})=\{1,3\}$  pero que $f^{-1}(\{1,3\})=\{1,2,3,4\}$.
+\end{ej}
+
+En la práctica es usual no indicarse el dominio e imagen de una función pues implícitamente se da a entender que el lector no tiene inconveniente.
+
+\begin{df}
+Sea $X$ un conjunto y $\tau \subset 2^X$ una familia de subconjuntos de $X$. Decimos que $\tau$ es una \textbf{topología} para $X$ si cumple que;
+
+	\begin{enumerate}
+		\item $\emptyset$, $X$ son elementos de  $\tau.$
+		\item Para cada subfamilia finita de $\tau$, $\{A_i\}_{i=1}^n$ se tiene que $\bigcap_{i=1}^n A_i$ es un elemento de $\tau.$ 
+		\item Para cada subfamilia $\{A_i\}_{i \in J}$ donde $I$ es un familia de índices arbitrario, se tiene que $\bigcup_{i \in I} A_i$ es un elemento de $\tau$.
+	\end{enumerate}
+
+Por \textbf{espacio topológico} nos referimos a un par $(X,\tau)$ donde $X$ es un conjunto y $\tau$ es una topología para $X$. Denotaremos al espacio $(X, \tau)$ por $X_{\tau}$. A los elementos $U$ de $\tau$  les llamaremos \textbf{conjuntos abiertos}. Un conjunto $V$ se dice \textbf{cerrado} si es complemento de un conjunto abierto es decir existe $U$ conjunto abierto tal que $V=X \setminus U$.  
+\end{df}
+
+\begin{nt}
+La segunda condición se conoce como \textbf{cerradura bajo intersecciones finitas} o que \textbf{familia es cerrada bajo intersecciones finitas.} La tercera condición se conoce como \textbf{cerradura bajo uniones arbitrarias} o que \textbf{la familia es cerrada bajo uniones arbitrarias.}
+\end{nt}
+
+\begin{ej}
+Sean $X$ un conjunto y la familia $2^X$, el par formado por $(X, 2^X)$ es un espacio topológico y es llamado \textbf{espacio discreto}. Por otro lado sea $\tau=\{\emptyset, X\}$, esta familia cumple la definición de topología, el espacio $(X, \tau)$ es llamado \textbf{espacio indiscreto}.
+\end{ej}
+
+Además, si $X$ contiene mas de un punto, las familias $2^X$ y $\tau$ del ejemplo anterior son distintas pero se da la contención  $\tau \subset 2^X$ notemos que en consecuencia un conjunto puede tener mas de una topología y entre ellas distintas. 
+
+La topología guarda información importante del conjunto $X$ que nos puede ayudar a distinguir propiedades de este conjunto. En el ejemplo, los espacios discreto e indiscreto no distinguen mucho sobre $X$, estas dos topologías en este aspecto son triviales.
+
+\begin{cn}
+Cuando el contexto sea claro sobre el espacio topológico vamos prescindir de la notación de la topología y simplemente diremos que $X$ es espacio topológico. 
+\end{cn}
+
+Ahora, un resultado que nos permitirá hablar de espacios topológicos en en subconjuntos, esto nos permitirá de hablar sin ambigüedades respecto a los ejemplos concretos que estudiaremos. 
+
+\begin{te}
+Sea $X$ un espacio topológico $Y \subset X$ entonces $\tau_Y =\{A \cap U: U \in \tau\}$ es una topología para $Y$. Por \textbf{subespacio} $Y$ de $X$ nos referimos al espacio $(Y, \tau_Y)$.
+\end{te}
+
+\begin{cn}
+El tema que no vamos a detallar es el de sistema de vecindades y bases. Para estos temas tenemos en la bibliografía \cite{top_prieto} capitulo 2, página 58 para bases de vecindades y capitulo 3, página 73 para bases para una topología.
+\end{cn}
+
+\begin{ej}
+Sea $X= \{(x,y) \in \mathbb{R}^2: y \geq 0 \}$. Definimos una familia de conjuntos mediante las siguientes condiciones; dado $(x,y) \in X$ y $r>0$ si $y > 0$ definimos el conjunto,
+
+\begin{align*}
+B_r((x,y),r)=\{(w,z) \in X : \parallel (x,y)-(w,z) \parallel < r \},
+\end{align*}
+
+donde indicamos que es la norma usual de $\mathbb{R}^2$ y $z \neq 0$. Por otro lado si $y=0$ tomamos el conjunto 
+
+\begin{align*}
+\beta((x,0))=B_r((x,r),r) \cup \{(x,0)\}.
+\end{align*}
+
+Hemos definido familias de conjuntos en torno a cada punto, esta familia de conjuntos es una base para una topología sobre $X$ y el espacio es conocido como \textbf{plano de Moore}.
+
+Notemos que en este espacio $\mathbb{R} \times \{0\} \subset X$, pero la restricción al subespacio $\mathbb{R} \times \{0\}$ nos da un conjunto discreto mientras que la restricción al plano $\{(x,y)\in X :y > 0 \}$ es el plano positivo en $\mathbb{R}^2.$
+\end{ej}
+
+
+Para operadores topológicos utilizaremos la siguiente notación. 
+
+\begin{df}
+Sea $X$ un espacio topológico y $U$ subconjunto de $X$.
+
+\begin{itemize}
+	\item Diremos que $U$ es \textbf{vecindad} de un punto $x$ denotado por $U(x)$ si, $x \in U$ y $U \in \tau$. A la familia de conjuntos $U(x)$ de vecindades de un punto $x$ la denotaremos mediante $\mathcal{N}(x)$.
+ 
+ \item Al conjunto \textbf{interior} de $A$ en $X$ lo denotaremos por 
+ 
+  $$Int_X(A):=\{x \in A: \text{existe } U(x) \text{ de manera que } U \subset A\}.$$
+  
+
+ \item  Al conjunto  \textbf{clausura} de $A$ en $X$ lo denotaremos por, 
+  
+$$Cl_X(A):=\{x \in A: \text{para toda } U(x) \text{ se cumple  que } U \cap A \neq \emptyset\}.$$
+ 
+ \item Denotaremos por  $Fr_X(A)$ al conjunto $\overline{A^c} \cap \overline{A} $ a este conjunto le llamaremos la 
+  \textbf{frontera} de $A$ en $X$.
+ \end{itemize}
+\end{df}
+
+\begin{cn}
+Cuando el contexto lo permita simplemente denotaremos por $Int(A)$ al interior, $Cl(A)$ la clausura y  $Fr(A)$ a la frontera de $A$ en $X$.
+\end{cn}
+
+
+En topología general nos interesa clasificar espacios mediante las propiedades de sus topologías la manera de hacerlos es por funciones llamadas homemorfismos. Esto nos permite pensar que un espacio es como uno similar usar las propiedades conocidas. Esto se suele hacer cuando un autor meciona frases como salvo homeomorfismo.
+
+\begin{df}
+Sea $X$ espacio topológico y una función $h:X \to X$. 
+\begin{enumerate}
+
+	\item Dado $B$ subconjunto de $X$, $h|_B$ denotará la restricción $h:B \to h(B)$ de $h$ a $B$. 
+	
+	\item  Decimos que $h$ es \textbf{continua} si para cada conjunto abierto $U$ se cumple que $h^{-1}(U)$ es un conjunto abierto.
+	
+	\item  Sea $h$ una función continua y biyectiva. Decimos que $h$ es un \textbf{homeomorfismo} si la función inversa de $h$, $h^{-1}:X \to X$ es continua. 	
+\end{enumerate}
+\end{df}
+
+
+\begin{ej}
+Sean $X$ un conjunto con mas de un punto y las topologías $2^X$ y $\tau=\{\emptyset, X\}$. Consideremos la función $$Id_X:X_{\tau} \to X_{2^X}$$ dada por $$Id_X(x)=x.$$
+Notemos que para cada $x \in X$ el conjunto $\{x\}$ es un conjunto abierto en $X_{2^X}$, pero $Id_X^{-1}(\{x\})= \{x\}$ no lo es en $X_\tau$. Sin embargo reescribiendo  la función anterior de la siguiente manera,  $$Id_X:X_{2^X} \to X_{\tau}$$ dada por $$Id_X(x)=x,$$
+si es continua pues $Id_X^{-1}(X)=X$ el cual es un conjunto abierto, el caso $\emptyset$ es trivial. En particular, una función continua y biyectiva no siempre tiene inversa continua. 
+\end{ej}
+
+\section*{Invariantes topológicos}
+
+Los invariantes topológicos, son propiedades que una topología tiene y que estas se preservan mediante homeomorfismos. Esto es sean $X$, $Y$ espacios y $\mathcal{P}$ una propiedad topológica tal que $X$ posee a $\mathcal{P}$ se dice que $\mathcal{P}$ es un \textbf{invariante topológico} si para todo homemorfismo $h:X \to Y$,  $Y$ tiene la propiedad $\mathcal{P}$.
+
+
+Además es importante mencionar el hecho de que un espacio pueda tener una propiedad $\mathcal{P}$ para una topología en particular y no poseer la propiedad con otra topología definida en el mismo conjunto. Veremos dos que son de las mas conocidas y de las mas importantes para el análisis moderno. 
+
+\subsection*{Compacidad}
+\begin{df}
+Sea $X$ un espacio topológico. Una familia de abiertos $\{U_i\}_{i \in I}$ se dice ser una \textbf{cubierta abierta} para un conjunto $A$ si 
+	
+\begin{align*}
+A \subset \bigcup_i U_i.
+\end{align*}
+
+Por \textbf{subcubierta abierta} nos referimos a una subfamilia $$\{U_{i_j}\}_{j \in J} \subset \{U_i\}_{i \in I}$$ tal que;
+
+$$ A \subset \bigcup_j U_{i_j}.$$
+
+Decimos que $X$ es \textbf{compacto} si para toda cubierta abierta de $X$ existe una subcubierta finita que cubre a $X$. Decimos que un subconjunto $A \subset X$ es compacto si lo es como subespacio.
+
+
+\end{df}
+
+Un teorema importante respecto a funciones continuas y conjuntos compactos es el siguiente.
+ 
+\begin{te}
+Sea $C$ un subconjunto compacto de $X$, para toda función continua $f:X \to X$ el conjunto $f(C)$ es un conjunto compacto.
+\end{te}
+
+Una demostración puede encontrarse en \cite{top_prieto} VIII.1.22 Teorema. En palabras simples, la imagen continua de un conjunto compacto es compacta. Otro resultado que es importante.
+
+Para el tema de funciones continuas Una demostración de este teorema se puede encontrar en capitulo 2, Teorema 2.5
+
+\begin{te}
+ Sean $f:A \subset \mathbb{R}^n \to \mathbb{R}^m$ y $K \subset A $. Si $f$ es una función continua y $K$ es un conjunto compacto entonces $f$ es uniformemente continua sobre $K$.
+
+\end{te}
+\subsection*{Conexidad}
+ Decimos que $X$ es \textbf{disconexo} si existe abiertos $U$ y $V$ ajenos y no vacíos tales que $X = U \cup V$. Decimos que un espacio $X$ es \textbf{conexo} si no es disconexo. Un subconjunto $Y \subset X$ es conexo (o disconexo) si lo es como subespacio.
+	
+
+teo 26.3 Willard.
+
+\begin{te}
+Sean $X$, $Y$ espacios topológicos y $f:X \to Y$ una función continua. Dado $C$ un subconjunto conexo de $X$ se tiene que $f(C)$ es un conjunto conexo.
+\end{te}
+
+
+\section*{Topología métrica}
+Un \textbf{espacio métrico} es un par $(X, d)$ donde $X$ es un conjunto y $d:X \times X \to [0, \infty)$ es una función que satisface las siguientes condiciones;
+
+\begin{enumerate}
+\item $d(x,y)=0$ si y sólo si $x=y$,
+\item $d(x,y)=d(y,x)$
+\item $d(x,y) \leq d(x,z)+d(y,z)$
+\end{enumerate}
+
+
+A la función $d$ le llamamos una \textbf{métrica} para $X$. Al par $(X,d)$ le denotaremos por $X_d$. 
+
+\begin{ob}
+La notación $X_d$ hacemos énfasis es que $X$ es el conjunto con métrica $d$, más adelante veremos que un espacio métrico es un espacio topológico por lo que $X_d$ es el equivalente a $X_\tau$ donde $\tau$ es la generada por la métrica salvo que ahora indicamos la cualidad métrica de esta topología.  
+\end{ob}
+
+\begin{ej}
+ Dados $\vec{a}$, $\vec{b} \in \mathbb{R}^{n}$, la norma euclidiana,
+$$d(\vec{a},\vec{b}):=\parallel \vec{a}-\vec{b} \parallel$$
+define una métrica en $\mathbb{R}^{n}$.
+\end{ej}
+
+\begin{ej}
+ Sean $X$ un conjunto no vacío y $d : X \times X \to\mathbb{R}$ definida mediante:
+$$d(a,b)=\left\{
+\begin{array}{lcc}
+1, & si & a \neq b; \\
+0, & si & a=b. \\
+\end{array}
+\right.$$
+
+$d$ es conocida como la \textbf{métrica discreta} y  $X_{d}$ como \textbf{espacio métrico discreto}.
+\end{ej}
+
+\begin{ej}\label{ejem:metrica-acotada}
+- Sea $X_{d}$ espacio métrico. Definimos,
+$$\bar{d}(a,b)=\left\{
+\begin{array}{lcc}
+1 & si & 1 < d(a,b);   \\
+d(a,b) & si & d(a,b)<1. \\
+\end{array}
+\right.
+$$
+$\bar{d}$ es una métrica para $X$ con $\bar{d}(a,b)\leq 1$ para cuales quiera $a$, $b \in X.$ 
+\end{ej}
+
+\label{def:top-espacios-metricos}
+\begin{df}
+Sean $\varepsilon > 0$ y $x\in X_d$. Definimos a la \textbf{bola abierta} de centro $x$ y radio $\varepsilon$  como
+
+$$B_{d}(x,\varepsilon)=\{ y \in X: d(x,y)< \varepsilon \}.$$
+
+De manera parecida definimos a la \textbf{bola cerrada} de centro $x$ y radio $\varepsilon$  como
+$$\overline{B}_{d}(x,\varepsilon)=\left\lbrace y \in X: d(x,y)\leq \varepsilon \right\rbrace.$$
+\end{df}
+
+Para diferenciar la métrica que $X$ pueda tener (y por tanto las bolas de $X$) denotaremos $B_{d}(x,\varepsilon)$ y diremos que es una \textbf{d-bola.} En caso de que no haya confusión simplemente denotaremos $B(x,\varepsilon)$. Tenemos los conceptos necesarios para definir una topología para un espacio métrico.
+
+\begin{pr}\label{prp:bolas-bse}
+Sea $X$ espacio métrico. La familia $\lbrace B_{d}(x,\varepsilon): x \in X, \varepsilon > 0\rbrace$ de todas las d-bolas es base para una topología sobre $X$.
+\end{pr}
+
+%\cite[sección 4.3 lema 1]{irri}
+
+\begin{te}
+Si $x$, $y \in X_{d}$ con $ x\neq y $ entonces existen vecindades $U(x)$ y $V(y)$ tales que $U \cap V=\emptyset$.
+\end{te}
+
+\begin{ob}\label{obs:espacios-metricos-son-hausdorff}
+El teorema anterior nos dice que los espacios métricos son espacios Hausdorff.
+\end{ob}
+
+Terminamos esta parte con la siguiente definición que es muy usada en los artículos de \cite{kras}, \cite{why} y \cite{moore}.
+
+\begin{df}
+Decimos que $X$ es un \textbf{continuo} si es un espacio métrico, compacto y conexo.
+\end{df}
+
+Al estudiar espacios métricos nos vemos en la opción de no estudiar los axiomas de separación, que es una parte muy importante de la topología general. De nuevo, recomendamos el siguiente texto donde se puede profundizar este tema. Es claro que no hablar de este tema nos deja un estudio sesgado, pero usaremos solo un axioma de separación hasta la parte de la topología del grupo de homeomorfismos de la circunferencia. Incluso, solo es necesario concordar el tercer axioma separación. Un espacio topológico es regular si dados un punto y un conjunto cerrado existen dos abierts ajenos cada uno conteniendo al punto y al cerrado, un espacio es $T_3$ si es regular y es $T_0$ o espacio de Kolmogorov. 
+
+
+\section*{Topología conciente}
+
+En topología se estudia distintas maneras de obtener espacios topológicos una manera es el subespacio, otras mas complejas son las topologías generadas por funciones o familia de funciones, en sí es obtener un espacio topológico donde una función o una familia de funciones son continuas. El texto \cite{top_salicrup}, se explica de manera adecuada este tema, desde el capitulo 3 hasta el 5. Sin embargo tomaremos las definiciones de \cite{top_prieto} para mayor facilidad. 
+
+\begin{df}
+Sean $X$ un espacio topológico, $Y$ un conjunto y $f:X \to Y$ una función sobreyectiva. La topología mas fina en $Y$ para la cual $f$ es continua se llama \textbf{topología de identificación} inducida por $f$. A $f$ se le llama \textbf{identificación}.
+\end{df}
+
+
+
+Dado $X$ un espacio y $A \subset X$, consideremos a $Y=(X\setminus A) \cup \{A\}$, el subespacio $A$ ha sido colapsado a un punto $\{A\}$; sea
+
+\begin{align*}
+q(x)= \begin{cases}
+x \text{ si } x \in X\setminus A \\
+A \text{ si } x \in A.
+\end{cases}
+\end{align*}
+
+la topología final inducida por $q$ es llamada la \textbf{topología identificación}; el espacio resultante se llama \textbf{espacio de identificación} y a $q$ se le llama \textbf{identificación}. 
+
+\begin{ej}
+Consideremos a $\mathbb{Z}$ como subespacio de $\mathbb{R}$ y al cociente $\mathbb{R}/\mathbb{Z}$, este espacio cociente tiene un subespacio homeomorfo a $S^1$ por cada intervalo $[n,n+1]$ colapsando los números enteros a un punto. A este espacio se le conoce como \textbf{ariete hawaiano}.
+\end{ej}
+
+Los resultados sobre la topología de identificación se pueden consultar en \cite{top_prieto} página 87. Nos iremos ahora al tema es espacio cociente. Veamos ahora los espacios cocientes.
+
+Sean $X$ espacio topológico y $\sim$ una relación de equivalencia en $X$. Recordemos que una relación de equivalencia induce una partición de un conjunto en subconjuntos ajenos que son las clases de equivalencia, las cuales se definen por $[x]=\{y \in X : x \sim y\}$. La familia de las clases de equivalencia es denotado por $X/ \sim$ ie, $$X/ \sim=\{[x]: x \in X\},$$  
+
+tenemos una función sobreyectiva,
+
+\begin{align*}
+f:X \to X / \sim
+\end{align*}
+
+dada por
+
+\begin{align*}
+f(x)=[x].
+\end{align*}
+
+\begin{df}
+Con la topología de identificación inducida por $f$ $X/ \sim$ se llama espacio cociente de $X$ bajo la relación $\sim$. 
+\end{df}
+
+\begin{ej}
+Sea $f: \mathbb{R} \to S^1$ la función exponencial, $f(s)=e^{2\pi i s}$ es una identificación talque $f(s)=f(t)$ si y solo si $t-s \in \mathbb{Z}$.
+\end{ej}
+
+El siguiente teorema se encuentra en \cite{top_prieto} como teorema IV.2.16.
+
+\begin{te} 
+Sea $f:X \to Y$ una identificación. Si se define una relación tal que $x \sim y$ si y solo si $f(x)=f(y),$ entonces $f$ determina un homeomorfismo $\tilde{f}:X/ \sim \to Y.$
+\end{te}
+
+
+\begin{ej}\label{ej:Cir_un_coc}
+Nuevamente, consideremos a $\mathbb{Z}$ como subespacio de $\mathbb{R}$ y la relación; $x \sim y$ si $x-y \in \mathbb{Z}$. Esta relación es de equivalencia. En efecto, 
+
+\begin{enumerate}
+	\item $x-x=0 $ para todo $x \in \mathbb{R}$.
+	\item Supongamos que $x-y \in \mathbb{Z}$, entonces claramente $y-x=-(x-y) \in \mathbb{Z}$ y por tanto $y \sim x$.
+	\item Si $x-y \in \mathbb{Z}$ y $y-z \in \mathbb{Z}$ resta notar que $$x-z=x-y+y-z$$
+el cual es un numero entero. Por tanto $x \sim z$.
+	\end{enumerate}
+
+
+Del teorema anterior y de la función exponencial se tiene que $(\mathbb{R}/\sim) \cong S^1.$ La función  $\pi: \mathbb{R} \to \mathbb{R}/ \sim$ dada por $\pi (x)=[x]$ está bien definida y es una función cociente. Definimos a $Hom(\mathbb{R})$ los homeomorfismos monótonos crecientes de la recta que cumplen la propiedad, 
+
+$$\tilde{f}(x+1)= \tilde{f}(x)+1.$$
+
+Este homeomorfismo induce un homeomorfismo de 
+$$f:\mathbb{R}/ \sim \to  \mathbb{R}/ \sim$$
+
+dado por 
+ 
+$$f=\pi(\tilde{f}).$$
+
+% Esta composición está bien definida. Dada $y \in [x]$ tenemos que existe $r \in \mathbb{Z}$ tal que $y=x+r$, luego consideremos que 
+% $$f([y])=\pi(\tilde{f}(y))=\pi(\tilde{f}(x+r))=\pi(\tilde{f}(x)+r)=[\tilde{f}(x)+r]=[\tilde{f}(x)]=\pi(\tilde{f}(x))$$
+
+ Notemos que de esto se induce un homeomorfismo de la circunferencia en la circunferencia $f:S^1 \to S^1$.
+\end{ej}
+
+Concluimos esta sección con toda la notación referente a topología que vamos a usar o se usan en los artículos consultados. 
+\bibliography{biblio.bib}
+\bibliographystyle{plain}
+%%%%% Fin del documento
+\end{document} 

@@ -1,0 +1,4 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {0.1}Espacios topológicos}{2}{section.0.1}%
+\contentsline {section}{\numberline {0.36}Grupos}{12}{section.0.36}%
+\contentsline {section}{\numberline {0.67}Lemas y observaciones}{24}{section.0.67}%

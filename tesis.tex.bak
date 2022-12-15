@@ -1,0 +1,25 @@
+\include{pre/pre-1}
+
+\begin{document}
+
+	
+	%\maketitle
+	
+	%This is a empty comment
+	\subfile{sec_1}
+	%\subfile{ej_2}
+	\subfile{sec_3}
+	%\subfile{ej_4}	
+	%\subfile{ej_1}
+	%\subfile{ej_2}
+	%\subfile{ej_3}
+	%\subfile{ej_4}
+	
+	
+\addcontentsline{toc}{chapter}{Bibliografía}
+
+\bibliographystyle{plain}
+
+\bibliography{biblio}
+
+\end{document}
