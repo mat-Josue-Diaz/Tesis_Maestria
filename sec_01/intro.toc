@@ -1,5 +1,5 @@
 \babel@toc {spanish}{}\relax 
 \contentsline {chapter}{\numberline {1}Teoría y definiciones}{2}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Espacios topológicos}{2}{section.1.1}%
-\contentsline {section}{\numberline {1.36}Grupos}{11}{section.1.36}%
-\contentsline {section}{\numberline {1.67}Lemas y observaciones}{24}{section.1.67}%
+\contentsline {section}{\numberline {1.36}Grupos}{12}{section.1.36}%
+\contentsline {section}{\numberline {1.67}Lemas y observaciones}{25}{section.1.67}%

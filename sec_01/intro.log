@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.13)  16 DEC 2022 00:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.12.13)  16 DEC 2022 14:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -934,109 +934,114 @@ Cap\'{\i }tulo 1.
 [2
 
 ]
-LaTeX Info: Redefining \. on input line 68.
-LaTeX Info: Redefining \% on input line 68.
- [3]
+! Undefined control sequence.
+l.63 Sea $X$ un conjunto y $\tau \subset \matcal
+                                                {P}(X)$ una familia de subco...
 
-LaTeX Warning: Citation `top_prieto' on page 4 undefined on input line 89.
+? 
+LaTeX Info: Redefining \. on input line 75.
+LaTeX Info: Redefining \% on input line 75.
+[3]
 
-LaTeX Info: Redefining \. on input line 103.
-LaTeX Info: Redefining \% on input line 103.
+LaTeX Warning: Citation `top_prieto' on page 4 undefined on input line 111.
+
+LaTeX Info: Redefining \. on input line 115.
+LaTeX Info: Redefining \% on input line 115.
 [4]
-LaTeX Info: Redefining \. on input line 149.
-LaTeX Info: Redefining \% on input line 149.
+LaTeX Info: Redefining \. on input line 174.
+LaTeX Info: Redefining \% on input line 174.
  [5]
-LaTeX Info: Redefining \. on input line 177.
-LaTeX Info: Redefining \% on input line 177.
+LaTeX Info: Redefining \. on input line 202.
+LaTeX Info: Redefining \% on input line 202.
  [6]
 
-LaTeX Warning: Citation `top_willd' on page 7 undefined on input line 181.
+LaTeX Warning: Citation `top_willd' on page 7 undefined on input line 220.
 
 
-LaTeX Warning: Citation `top_willd' on page 7 undefined on input line 188.
+LaTeX Warning: Citation `top_willd' on page 7 undefined on input line 227.
 
 
-LaTeX Warning: Citation `top_prieto' on page 7 undefined on input line 200.
+LaTeX Warning: Citation `top_prieto' on page 7 undefined on input line 239.
 
-
-LaTeX Warning: Citation `top_willd' on page 7 undefined on input line 210.
-
-LaTeX Info: Redefining \. on input line 221.
-LaTeX Info: Redefining \% on input line 221.
+LaTeX Info: Redefining \. on input line 243.
+LaTeX Info: Redefining \% on input line 243.
 [7]
-LaTeX Info: Redefining \. on input line 274.
-LaTeX Info: Redefining \% on input line 274.
- [8]
 
-LaTeX Warning: Citation `kras' on page 9 undefined on input line 289.
+LaTeX Warning: Citation `top_willd' on page 8 undefined on input line 249.
 
+LaTeX Info: Redefining \. on input line 285.
+LaTeX Info: Redefining \% on input line 285.
+[8]
 
-LaTeX Warning: Citation `why' on page 9 undefined on input line 289.
-
-
-LaTeX Warning: Citation `moore' on page 9 undefined on input line 289.
+LaTeX Warning: Citation `kras' on page 9 undefined on input line 328.
 
 
-LaTeX Warning: Citation `top_salicrup' on page 9 undefined on input line 300.
+LaTeX Warning: Citation `why' on page 9 undefined on input line 328.
 
 
-LaTeX Warning: Citation `top_prieto' on page 9 undefined on input line 300.
+LaTeX Warning: Citation `moore' on page 9 undefined on input line 328.
 
-
-LaTeX Warning: Citation `top_juan' on page 9 undefined on input line 300.
-
-LaTeX Info: Redefining \. on input line 308.
-LaTeX Info: Redefining \% on input line 308.
+LaTeX Info: Redefining \. on input line 335.
+LaTeX Info: Redefining \% on input line 335.
 [9]
 
-LaTeX Warning: Citation `top_prieto' on page 10 undefined on input line 321.
+LaTeX Warning: Citation `top_salicrup' on page 10 undefined on input line 339.
 
 
-LaTeX Warning: Citation `top_prieto' on page 10 undefined on input line 345.
+LaTeX Warning: Citation `top_prieto' on page 10 undefined on input line 339.
 
-LaTeX Info: Redefining \. on input line 354.
-LaTeX Info: Redefining \% on input line 354.
+
+LaTeX Warning: Citation `top_juan' on page 10 undefined on input line 339.
+
+
+LaTeX Warning: Citation `top_prieto' on page 10 undefined on input line 360.
+
+LaTeX Info: Redefining \. on input line 362.
+LaTeX Info: Redefining \% on input line 362.
 [10]
 
-LaTeX Warning: Citation `alg_grove' on page 11 undefined on input line 381.
+LaTeX Warning: Citation `top_prieto' on page 11 undefined on input line 384.
 
-
-LaTeX Warning: Citation `alg_ii' on page 11 undefined on input line 381.
-
-LaTeX Info: Redefining \. on input line 385.
-LaTeX Info: Redefining \% on input line 385.
+LaTeX Info: Redefining \. on input line 408.
+LaTeX Info: Redefining \% on input line 408.
 [11]
 
-LaTeX Warning: Citation `alg_grove' on page 12 undefined on input line 394.
+LaTeX Warning: Citation `alg_grove' on page 12 undefined on input line 420.
 
 
-LaTeX Warning: Citation `alg_i' on page 12 undefined on input line 405.
+LaTeX Warning: Citation `alg_ii' on page 12 undefined on input line 420.
 
-LaTeX Info: Redefining \. on input line 426.
-LaTeX Info: Redefining \% on input line 426.
+
+LaTeX Warning: Citation `alg_grove' on page 12 undefined on input line 433.
+
+LaTeX Info: Redefining \. on input line 438.
+LaTeX Info: Redefining \% on input line 438.
 [12]
-LaTeX Info: Redefining \. on input line 466.
-LaTeX Info: Redefining \% on input line 466.
- [13]
-LaTeX Info: Redefining \. on input line 505.
-LaTeX Info: Redefining \% on input line 505.
+
+LaTeX Warning: Citation `alg_i' on page 13 undefined on input line 444.
+
+LaTeX Info: Redefining \. on input line 481.
+LaTeX Info: Redefining \% on input line 481.
+[13]
+LaTeX Info: Redefining \. on input line 515.
+LaTeX Info: Redefining \% on input line 515.
  [14]
-LaTeX Info: Redefining \. on input line 542.
-LaTeX Info: Redefining \% on input line 542.
+LaTeX Info: Redefining \. on input line 556.
+LaTeX Info: Redefining \% on input line 556.
  [15]
-LaTeX Info: Redefining \. on input line 579.
-LaTeX Info: Redefining \% on input line 579.
+LaTeX Info: Redefining \. on input line 596.
+LaTeX Info: Redefining \% on input line 596.
  [16]
-LaTeX Info: Redefining \. on input line 617.
-LaTeX Info: Redefining \% on input line 617.
+LaTeX Info: Redefining \. on input line 632.
+LaTeX Info: Redefining \% on input line 632.
  [17]
-LaTeX Info: Redefining \. on input line 663.
-LaTeX Info: Redefining \% on input line 663.
+LaTeX Info: Redefining \. on input line 676.
+LaTeX Info: Redefining \% on input line 676.
  [18]
-LaTeX Info: Redefining \. on input line 700.
-LaTeX Info: Redefining \% on input line 700.
+LaTeX Info: Redefining \. on input line 714.
+LaTeX Info: Redefining \% on input line 714.
  [19]
-Overfull \hbox (3.7777pt too wide) in paragraph at lines 703--704
+Overfull \hbox (3.7777pt too wide) in paragraph at lines 742--743
 \OT1/cmr/m/n/10 en ca-so de que $\OML/cmm/m/it/10 A \OT1/cmr/m/n/10 = \OMS/cmsy
 /m/n/10 f\OML/cmm/m/it/10 a\OMS/cmsy/m/n/10 g$ \OT1/cmr/m/n/10 de-no-ta-mos sim
 -ple-men-te por $\OMS/cmsy/m/n/10 U\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a; B\OT1/c
@@ -1046,78 +1051,84 @@ m/it/10 Y[]\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
  []
 
 
-LaTeX Warning: Citation `top_juan' on page 20 undefined on input line 707.
+LaTeX Warning: Citation `top_juan' on page 20 undefined on input line 746.
 
-
-LaTeX Warning: Citation `top_munk' on page 20 undefined on input line 742.
-
-
-LaTeX Warning: Citation `top_willd' on page 20 undefined on input line 742.
-
-LaTeX Info: Redefining \. on input line 743.
-LaTeX Info: Redefining \% on input line 743.
+LaTeX Info: Redefining \. on input line 750.
+LaTeX Info: Redefining \% on input line 750.
 [20]
-LaTeX Info: Redefining \. on input line 782.
-LaTeX Info: Redefining \% on input line 782.
- [21]
-LaTeX Info: Redefining \. on input line 821.
-LaTeX Info: Redefining \% on input line 821.
+
+LaTeX Warning: Citation `top_munk' on page 21 undefined on input line 781.
+
+
+LaTeX Warning: Citation `top_willd' on page 21 undefined on input line 781.
+
+LaTeX Info: Redefining \. on input line 791.
+LaTeX Info: Redefining \% on input line 791.
+[21]
+LaTeX Info: Redefining \. on input line 839.
+LaTeX Info: Redefining \% on input line 839.
  [22]
-LaTeX Info: Redefining \. on input line 853.
-LaTeX Info: Redefining \% on input line 853.
+LaTeX Info: Redefining \. on input line 871.
+LaTeX Info: Redefining \% on input line 871.
  [23]
-LaTeX Info: Redefining \. on input line 901.
-LaTeX Info: Redefining \% on input line 901.
+LaTeX Info: Redefining \. on input line 911.
+LaTeX Info: Redefining \% on input line 911.
  [24]
-LaTeX Info: Redefining \. on input line 945.
-LaTeX Info: Redefining \% on input line 945.
+LaTeX Info: Redefining \. on input line 955.
+LaTeX Info: Redefining \% on input line 955.
  [25]
-LaTeX Info: Redefining \. on input line 986.
-LaTeX Info: Redefining \% on input line 986.
+LaTeX Info: Redefining \. on input line 990.
+LaTeX Info: Redefining \% on input line 990.
  [26]
-LaTeX Info: Redefining \. on input line 1019.
-LaTeX Info: Redefining \% on input line 1019.
+LaTeX Info: Redefining \. on input line 1033.
+LaTeX Info: Redefining \% on input line 1033.
  [27]
+LaTeX Info: Redefining \. on input line 1064.
+LaTeX Info: Redefining \% on input line 1064.
+ [28]
 
-LaTeX Warning: Citation `ander' on page 28 undefined on input line 1043.
-
-
-LaTeX Warning: Citation `ander' on page 28 undefined on input line 1043.
-
-
-LaTeX Warning: Citation `epst' on page 28 undefined on input line 1043.
+LaTeX Warning: Citation `ander' on page 29 undefined on input line 1082.
 
 
-LaTeX Warning: Citation `ander' on page 28 undefined on input line 1043.
+LaTeX Warning: Citation `ander' on page 29 undefined on input line 1082.
 
-LaTeX Info: Redefining \. on input line 1054.
-LaTeX Info: Redefining \% on input line 1054.
-[28]
-Overfull \hbox (0.94398pt too wide) in paragraph at lines 1077--1078
+
+LaTeX Warning: Citation `epst' on page 29 undefined on input line 1082.
+
+
+LaTeX Warning: Citation `ander' on page 29 undefined on input line 1082.
+
+LaTeX Info: Redefining \. on input line 1107.
+LaTeX Info: Redefining \% on input line 1107.
+[29]
+Overfull \hbox (0.94398pt too wide) in paragraph at lines 1116--1117
 []\OT1/cmr/m/n/10 Ahora ve-re-mos el se-gun-do in-ci-so. De la pri-me-ra par-te
  te-ne-mos que $\OML/cmm/m/it/10 h[]g[]h$
  []
 
-LaTeX Info: Redefining \. on input line 1128.
-LaTeX Info: Redefining \% on input line 1128.
-[29] (./intro.aux
+LaTeX Info: Redefining \. on input line 1167.
+LaTeX Info: Redefining \% on input line 1167.
+[30] (./intro.aux
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 )
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `intro.out' has not changed.
 (rerunfilecheck)             Checksum: DCAD29F889EF51E4B9F5CD15961936E7;568.
  ) 
 Here is how much of TeX's memory you used:
- 25882 strings out of 478287
- 457687 string characters out of 5849288
- 790416 words of memory out of 5000000
- 43416 multiletter control sequences out of 15000+600000
+ 25886 strings out of 478287
+ 457716 string characters out of 5849288
+ 793417 words of memory out of 5000000
+ 43417 multiletter control sequences out of 15000+600000
  482725 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 91i,16n,94p,3237b,678s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 91i,16n,94p,3237b,599s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
@@ -1136,10 +1147,10 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on intro.pdf (29 pages, 298532 bytes).
+Output written on intro.pdf (30 pages, 300009 bytes).
 PDF statistics:
- 429 PDF objects out of 1000 (max. 8388607)
- 356 compressed objects within 4 object streams
- 172 named destinations out of 1000 (max. 500000)
+ 436 PDF objects out of 1000 (max. 8388607)
+ 362 compressed objects within 4 object streams
+ 175 named destinations out of 1000 (max. 500000)
  45 words of extra memory for PDF output out of 10000 (max. 10000000)
 

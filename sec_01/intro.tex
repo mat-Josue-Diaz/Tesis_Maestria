@@ -13,27 +13,33 @@
 \chapter{Teoría y definiciones}
 
 \section*{Introducción}
+% Vamos a explicar el panorama y las intenciones del por que de este capitulo. 
+A lo largo de este texto utilizaremos las nociones de topología general y teoria de grupos. Nuestra primera meta consta de introducir notación y teoremas correspondientes a espacios topológicos, operadores topológicos, homemorfismos y finalmente llegar a espacios generados. De teoría de grupos, hablaremos de morfismos de grupos, grupos derivados para terminar en grupos simples. 
 
-A lo largo de este texto utilizaremos las nociones de espacios topológicos y de grupos. Nuestra primera parte consta de introducir notación y teoremas correspondientes a espacios topológicos, operadores topológicos y homemorfismos. De grupos, hablaremos de morfismos de grupos, grupos derivados y grupos simples. Nuestra bibliografía es estándar, esto es, libros de cursos o libros que son reconocidos como base para algunos cursos. 
+Nuestra meta para este capítulo, consta de poder hablar brevemente de grupos topológicos, hablaremos de un ejemplo concreto de un espacio de funciones donde el reto es demostrar mediante la topología la continuidad de las operaciones de grupo. La bibliografía en que nos basamos es estándar, esto es, libros de cursos o libros de las editoriales de la UNAM. 
 
 \section{Espacios topológicos}
- Vamos a usar la notación estándar de conjuntos. La pertenencia de un elemento $x$ a un conjunto $X$ se denota por $x \in X$. Dados dos conjuntos $A$ y $B$ denotaremos la contención del conjunto $A$ en el conjunto $B$ por $A \subset B$ y la igualdad de conjuntos $A=B$ representa que se dan las contenciones $A \subset B$ y $B \subset A$.
+% Definición de las operaciones conjuntistas
+Vamos a usar la notación estándar de conjuntos. La pertenencia de un elemento $x$ a un conjunto $X$ se denota por $x \in X$. Dados dos conjuntos $A$ y $B$ denotaremos la contención del conjunto $A$ en el conjunto $B$ por $A \subset B$ y la igualdad de conjuntos $A=B$ representa que se dan las contenciones $A \subset B$ y $B \subset A$.
 
 La unión del conjunto $A$ con $B$ se representa por $A \cup B$, la intersección del conjunto $A$ con el conjunto $B$ se representa por $A \cap B$. $A \setminus B$ representa el conjunto de los elementos que están en $A$ pero que no están en $B$ en particular a $X\setminus B$ le diremos el complemento de $B$ en $X$,  finalmente $\mathcal{P}X$ representa el conjunto potencia de $X$, es decir, la familia $\mathcal{P}(X)=\{A: A \subset X\}$.  Sean $X$, $Y$ conjuntos y $f:X \to Y$ una función, para cualquier $A \subset X$ el conjunto,
  
  \begin{align*}
+ % Iamgen directa
  f(A)=\{y \in Y : \text{ existe }x \in A \text{ y } f(x)=y\}
  \end{align*}
 
 será llamado imagen directa de $A$ bajo $f$. Por otro lado  dado $B \subset Y$ el conjunto 
 
 \begin{align*}
+% Imagen inversa
 f^{-1}(B)=\{x \in X :  f(x) \in B \}
 \end{align*}
 
 será llamado la imagen inversa del conjunto $B$ bajo $f$. 
 
 \begin{ob}
+% nota sobre tomar imagenes inversas o directas
 En general tomar la imagen inversa de una imagen directa o en orden alterno, no se obtiene como resultado el mismo conjunto. Pero se tiene que
 
 	
@@ -46,91 +52,124 @@ La primera contención es igualdad si $f$ es sobreyectiva y la segunda contenci�
 \end{ob}
 
 \begin{ej}
+% Ejemplo concreto, quizas se vaya a eliminar. 
 Sea $f:\{1,2,3,4\} \to \{1,2,3,4\}$ dada por, $f(1)=f(3)=1$, $f(2)=f(4)=3$. Esta función no es inyectiva ni sobreyectiva. Consideremos a $\{1,4\}$, notemos que $f^{-1}(\{1,4\})=\{1,3\}$ pero $f(f^{-1}(\{1,4\}))=\{1\}$. Por otro lado, consideremos a $\{1,2\}$ y notemos que $f(\{1,2\})=\{1,3\}$  pero que $f^{-1}(\{1,3\})=\{1,2,3,4\}$.
 \end{ej}
 
 En la práctica es usual no indicarse el dominio e imagen de una función pues implícitamente se da a entender que el lector no tiene inconveniente.
 
 \begin{df}
-Sea $X$ un conjunto y $\tau \subset 2^X$ una familia de subconjuntos de $X$. Decimos que $\tau$ es una \textbf{topología} para $X$ si cumple que;
+% Definición de topología. 
+Sea $X$ un conjunto y $\tau \subset \mathcal{P}(X)$ una familia de subconjuntos de $X$. Decimos que $\tau$ es una \textbf{topología} para $X$ si $\tau$ cumple que;
 
 	\begin{enumerate}
-		\item $\emptyset$, $X$ son elementos de  $\tau.$
-		\item Para cada subfamilia finita de $\tau$, $\{A_i\}_{i=1}^n$ se tiene que $\bigcap_{i=1}^n A_i$ es un elemento de $\tau.$ 
-		\item Para cada subfamilia $\{A_i\}_{i \in J}$ donde $I$ es un familia de índices arbitrario, se tiene que $\bigcup_{i \in I} A_i$ es un elemento de $\tau$.
+	\item $\emptyset$, $X$ son elementos de  $\tau.$
+	
+	\item Para cada subfamilia finita de $\tau$, $\{A_i\}_{i=1}^n$ se tiene que $\bigcap_{i=1}^n A_i$ es un elemento de $\tau.$ 
+	
+	\item Para cada subfamilia $\{A_i\}_{i \in J}$ donde $I$ es un familia de índices arbitrario, se tiene que $\bigcup_{i \in I} A_i$ es un elemento de $\tau$.
 	\end{enumerate}
 
 Por \textbf{espacio topológico} nos referimos a un par $(X,\tau)$ donde $X$ es un conjunto y $\tau$ es una topología para $X$. Denotaremos al espacio $(X, \tau)$ por $X_{\tau}$. A los elementos $U$ de $\tau$  les llamaremos \textbf{conjuntos abiertos}. Un conjunto $V$ se dice \textbf{cerrado} si es complemento de un conjunto abierto es decir existe $U$ conjunto abierto tal que $V=X \setminus U$.  
+% Final de la definición
 \end{df}
 
+
 \begin{nt}
+% Nota sobre como vamos a llamar a la numerabilidad 
 La segunda condición se conoce como \textbf{cerradura bajo intersecciones finitas} o que \textbf{familia es cerrada bajo intersecciones finitas.} La tercera condición se conoce como \textbf{cerradura bajo uniones arbitrarias} o que \textbf{la familia es cerrada bajo uniones arbitrarias.}
+% Fin de nota
 \end{nt}
 
+
 \begin{ej}
+% Espacios discreto e indiscreto
 Sean $X$ un conjunto y la familia $2^X$, el par formado por $(X, 2^X)$ es un espacio topológico y es llamado \textbf{espacio discreto}. Por otro lado sea $\tau=\{\emptyset, X\}$, esta familia cumple la definición de topología, el espacio $(X, \tau)$ es llamado \textbf{espacio indiscreto}.
+%fin ejemplo
 \end{ej}
 
 Además, si $X$ contiene más de un punto, las familias $2^X$ y $\tau$ del ejemplo anterior son distintas pero se da la contención  $\tau \subset 2^X$ notemos que en consecuencia un conjunto puede tener mas de una topología y entre ellas distintas. 
 
-La topología guarda información importante del conjunto $X$ que nos puede ayudar a distinguir propiedades de este conjunto. En el ejemplo, los espacios discreto e indiscreto no distinguen mucho sobre $X$, estas dos topologías en este aspecto son triviales.
+La topología guarda información importante del conjunto $X$ que nos puede ayudar a distinguir propiedades. En el ejemplo, los espacios discreto e indiscreto no distinguen mucho sobre $X$, estas dos topologías en este aspecto son triviales.
 
 \begin{cn}
+% Presindir de la notación de topología cuando no sea necesario
 Cuando el contexto sea claro sobre el espacio topológico vamos prescindir de la notación de la topología y simplemente diremos que $X$ es espacio topológico. 
+%Fin de convencion
 \end{cn}
 
 Ahora, un resultado que nos permitirá hablar de espacios topológicos en en subconjuntos, esto nos permitirá de hablar sin ambigüedades respecto a los ejemplos concretos que estudiaremos. 
 
 \begin{te}
+% Topología del subespacio
 Sea $X$ un espacio topológico $Y \subset X$ entonces $\tau_Y =\{A \cap U: U \in \tau\}$ es una topología para $Y$. Por \textbf{subespacio} $Y$ de $X$ nos referimos al espacio $(Y, \tau_Y)$.
+% Fin de teorema
 \end{te}
 
 \begin{cn}
-El tema que no vamos a detallar es el de sistema de vecindades y bases. Para estos temas tenemos en la bibliografía \cite{top_prieto} capitulo 2, página 58 para bases de vecindades y capitulo 3, página 73 para bases para una topología.
+% Adevertencia de no detallar las bases y los sistemas de vencindades
+El tema que no vamos a estudiar los temas de bases y sistema de vecindades. Para estos temas tenemos en la bibliografía \cite{top_prieto} capitulo 2, página 58 para bases de vecindades y capitulo 3, página 73 para bases para una topología.
 \end{cn}
 
+La familia de conjuntos que acontinuación vamos a detallar, nos da una manera de obtener espacios topológicos mediante un sustema de vecindades. Este ejemplo es muy rico en propiedades y en ocaciones un fuerte contraejemplo. 
+
+
 \begin{ej}
-Sea $X= \{(x,y) \in \mathbb{R}^2: y \geq 0 \}$. Definimos una familia de conjuntos mediante las siguientes condiciones; dado $(x,y) \in X$ y $r>0$ si $y > 0$ definimos el conjunto,
+% Inicio del ejemplo de  Moore
+Sea $X= \{(x,y) \in \mathbb{R}^2: y \geq 0 \}$. Definimos una familia de conjuntos mediante las siguientes condiciones; 
 
-\begin{align*}
-B_r((x,y),r)=\{(w,z) \in X : \| (x,y)-(w,z) \| < r \},
-\end{align*}
+\begin{enumerate}
+	\item dado $(x,y) \in X$ y $r>0$ si $y > 0$ definimos el conjunto,
 
-donde indicamos que es la norma usual de $\mathbb{R}^2$ y $z \neq 0$. Por otro lado si $y=0$ tomamos el conjunto 
+	\begin{align*}
+	B_r((x,y),r)=\{(w,z) \in X : \| (x,y)-(w,z) \| < r \},	
+	\end{align*}
 
-\begin{align*}
-\beta((x,0))=B_r((x,r),r) \cup \{(x,0)\}.
-\end{align*}
+donde hacemos enfasis que es la norma usual de $\mathbb{R}^2$ y $z \neq 0$. 
 
-Hemos definido familias de conjuntos en torno a cada punto, esta familia de conjuntos es una base para una topología sobre $X$ y el espacio es conocido como \textbf{plano de Moore}.
+	\item Si $y=0$ tomamos el conjunto ;
+
+	\begin{align*}
+	\beta((x,0))=B_r((x,r),r) \cup \{(x,0)\}.
+	\end{align*}
+\end{enumerate}
+
+Hemos definido una familia de conjuntos sobre los puntos de $X$, esta familia de conjuntos induce una base para una topología sobre $X$ y este espacio es conocido como \textbf{plano de Moore}.
 
 Notemos que en este espacio $\mathbb{R} \times \{0\} \subset X$, pero la restricción al subespacio $\mathbb{R} \times \{0\}$ nos da un conjunto discreto mientras que la restricción al plano $\{(x,y)\in X :y > 0 \}$ es el plano positivo en $\mathbb{R}^2.$
+% Final del ejemplo de Moore.
 \end{ej}
 
+AXIOMAS DE SEPARACION ACÁ
 
 Para operadores topológicos utilizaremos la siguiente notación. 
 
 \begin{df}
+% Vecindades de puntos y Operadores; intererior, clausura y frontera.
 Sea $X$ un espacio topológico y $U$ subconjunto de $X$.
 
 \begin{itemize}
+	% Vecindad
 	\item Diremos que $U$ es \textbf{vecindad} de un punto $x$ a si, $x \in U$ y $U \in \tau$. A la familia de vecindades de un punto $x$ la denotaremos mediante $\mathcal{N}(x)$.
- 
- \item Al conjunto \textbf{interior} de $A$ en $X$ lo denotaremos por 
+ 	% Interior
+	\item Al conjunto \textbf{interior} de $A$ en $X$ lo denotaremos por 
  
   $$\mathrm{Int}(A)=\{x \in A: \text{ existe } U \in \mathcal{N}(x) \text{ tal que } U \subset A\}.$$
   
-
- \item  Al conjunto  \textbf{clausura} de $A$ en $X$ lo denotaremos por, 
+	% Clausura
+	\item  Al conjunto  \textbf{clausura} de $A$ en $X$ lo denotaremos por, 
   
 $$\mathrm{Cl}(A)=\{x \in A: \text{para toda } U \in \mathcal{N}(x) \text{ se cumple  que } U \cap A \neq \emptyset\}.$$
- 
- \item Denotaremos por  $\mathrm{Fr}_X$ al conjunto $\mathrm{Cl}(A^c) \cap \mathrm{Cl}(A) $ a este conjunto le llamaremos la 
+	
+	% Frontera 
+	\item Denotaremos por  $\mathrm{Fr}_X$ al conjunto $\mathrm{Cl}(A^c) \cap \mathrm{Cl}(A) $ a este conjunto le llamaremos la 
   \textbf{frontera} de $A$ en $X$.
  \end{itemize}
+% Fin definición
 \end{df}
 
 \begin{cn}
+% Los operadores presinden de la topología. 
 Cuando el contexto lo permita simplemente denotaremos por $\mathrm{Int}(A)$ al interior, $\mathrm{CL}(A)$ la clausura y  $\partial(A)$ a la frontera de $A$ en $X$.
 \end{cn}
 
