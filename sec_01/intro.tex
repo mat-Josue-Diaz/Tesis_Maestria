@@ -19,7 +19,7 @@ A lo largo de este texto utilizaremos las nociones de espacios topológicos y de
 \section{Espacios topológicos}
  Vamos a usar la notación estándar de conjuntos. La pertenencia de un elemento $x$ a un conjunto $X$ se denota por $x \in X$. Dados dos conjuntos $A$ y $B$ denotaremos la contención del conjunto $A$ en el conjunto $B$ por $A \subset B$ y la igualdad de conjuntos $A=B$ representa que se dan las contenciones $A \subset B$ y $B \subset A$.
 
-La unión del conjunto $A$ con $B$ se representa por $A \cup B$, la intersección del conjunto $A$ con el conjunto $B$ se representa por $A \cap B$. $A \setminus B$ representa el conjunto de los elementos que están en $A$ pero que no están en $B$ en particular a $X\setminus B$ le diremos el complemento de $B$ en $X$,  finalmente $\mathcal{P}X$ representa el conjunto potencia de $X$, es decir, la familia $2^X=\{A: A \subset X\}$.  Sean $X$, $Y$ conjuntos y $f:X \to Y$ una función, para cualquier $A \subset X$ el conjunto,
+La unión del conjunto $A$ con $B$ se representa por $A \cup B$, la intersección del conjunto $A$ con el conjunto $B$ se representa por $A \cap B$. $A \setminus B$ representa el conjunto de los elementos que están en $A$ pero que no están en $B$ en particular a $X\setminus B$ le diremos el complemento de $B$ en $X$,  finalmente $\mathcal{P}X$ representa el conjunto potencia de $X$, es decir, la familia $\mathcal{P}(X)=\{A: A \subset X\}$.  Sean $X$, $Y$ conjuntos y $f:X \to Y$ una función, para cualquier $A \subset X$ el conjunto,
  
  \begin{align*}
  f(A)=\{y \in Y : \text{ existe }x \in A \text{ y } f(x)=y\}
@@ -114,18 +114,18 @@ Para operadores topológicos utilizaremos la siguiente notación.
 Sea $X$ un espacio topológico y $U$ subconjunto de $X$.
 
 \begin{itemize}
-	\item Diremos que $U$ es \textbf{vecindad} de un punto $x$ a si, $x \in U$ y $U \in \tau$. A la familia de conjuntos $U(x)$ de vecindades de un punto $x$ la denotaremos mediante $\mathcal{N}(x)$.
+	\item Diremos que $U$ es \textbf{vecindad} de un punto $x$ a si, $x \in U$ y $U \in \tau$. A la familia de vecindades de un punto $x$ la denotaremos mediante $\mathcal{N}(x)$.
  
  \item Al conjunto \textbf{interior} de $A$ en $X$ lo denotaremos por 
  
-  $$\mathrm{Int}(A):=\{x \in A: \text{existe } U(x) \text{ de manera que } U \subset A\}.$$
+  $$\mathrm{Int}(A)=\{x \in A: \text{ existe } U \in \mathcal{N}(x) \text{ tal que } U \subset A\}.$$
   
 
  \item  Al conjunto  \textbf{clausura} de $A$ en $X$ lo denotaremos por, 
   
-$$\mathrm{Cl}(A):=\{x \in A: \text{para toda } U(x) \text{ se cumple  que } U \cap A \neq \emptyset\}.$$
+$$\mathrm{Cl}(A)=\{x \in A: \text{para toda } U \in \mathcal{N}(x) \text{ se cumple  que } U \cap A \neq \emptyset\}.$$
  
- \item Denotaremos por  $\partial(A)_X$ al conjunto $\mathrm{Cl}(A^c) \cap \mathrm{Cl}(A) $ a este conjunto le llamaremos la 
+ \item Denotaremos por  $\mathrm{Fr}_X$ al conjunto $\mathrm{Cl}(A^c) \cap \mathrm{Cl}(A) $ a este conjunto le llamaremos la 
   \textbf{frontera} de $A$ en $X$.
  \end{itemize}
 \end{df}
@@ -135,7 +135,7 @@ Cuando el contexto lo permita simplemente denotaremos por $\mathrm{Int}(A)$ al i
 \end{cn}
 
 
-En topología general nos interesa clasificar espacios mediante las propiedades de sus topologías la manera de hacerlos es por funciones llamadas homemorfismos. Esto nos permite pensar que un espacio es como uno similar usar las propiedades conocidas. Esto se suele hacer cuando un autor menciona frases como salvo homeomorfismo.
+En esta parte de la topología nos interesa estudiar los espacios mediante de las propiedades de $X$ o de $\tau$ (incluso ambas) y compararlas mediante las de otros espacios, esto es, poder demostrar que un espacio desconocido tenga propiedades de espacios ya conocidos, por lo que podemos clasificar por medio relaciones entre espacios y trabajar con un espacio ya conocido o mas estudiado.
 
 \begin{df}
 Sea $X$ espacio topológico y una función $h:X \to X$. 
