@@ -1,0 +1,60 @@
+%Tipo de documento 
+	\documentclass[a5paper,oneside]{book}
+		
+%idioma y compilación
+
+	\usepackage[utf8]{inputenc}
+	\usepackage[spanish]{babel}
+	\usepackage{graphicx}
+	\usepackage{tikz}
+	\usepackage{enumerate}
+	\usepackage[all]{xy}
+	
+%Estilos matematicos de la ams
+
+	\usepackage{amsmath,amsfonts,amssymb,amsthm,mathrsfs}
+	
+%Figuras
+
+	\usepackage{graphicx}
+	
+%Resaltar amarillo
+
+	\usepackage{pdfpages}
+	\usepackage{soul}
+	
+%Referencias	
+
+	\usepackage{hyperref,enumerate,color}
+	
+%Notas finales
+
+	\usepackage{endnotes}
+	\renewcommand{\notesname}{Notas}
+	
+%Tamaño de la hoja
+	\usepackage[tmargin=20mm,bmargin=20mm,lmargin=15mm,rmargin=15mm]{geometry}
+	
+%Compilar desde otros archivos.
+
+	\usepackage{subfiles}
+	
+%Entornos
+	\theoremstyle{definition}
+	\newtheorem{df}[section]{Definición}
+
+%	\newtheorem{df}[section]{}
+	\newtheorem{pr}[section]{Proposición}
+	\newtheorem{te}[section]{Teorema}
+	\newtheorem{ob}[section]{Observación}
+	\newtheorem{op}[section]{Anotación}
+	\newtheorem{lm}[section]{Lema}
+	\newtheorem{co}[section]{Corolario}
+	\newtheorem{nc}[section]{Notación}
+	\newtheorem{ej}[section]{Ejemplo}
+	\numberwithin{equation}{section}
+	\newtheorem{nt}[section]{Nota}
+	\newtheorem{rs}[section]{Resumen}
+	\newtheorem{ex}[section]{Ejercicio}
+	\newtheorem{cn}[section]{Convenio}
+	
