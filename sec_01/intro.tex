@@ -150,33 +150,36 @@ Sea $X$ un espacio topológico y $U$ subconjunto de $X$.
 
 \begin{itemize}
 	% Vecindad
-	\item Diremos que $U$ es \textbf{vecindad} de un punto $x$ a si, $x \in U$ y $U \in \tau$. A la familia de vecindades de un punto $x$ la denotaremos mediante $\mathcal{N}(x)$.
+	\item Diremos que $U$ es \textbf{vecindad abierta} de un punto $x$ a, si $x \in U$ y $U \in \tau$. A la familia de vecindades de un punto $x$ la denotaremos mediante $\mathcal{N}_x$.
  	% Interior
 	\item Al conjunto \textbf{interior} de $A$ en $X$ lo denotaremos por 
  
-  $$\mathrm{Int}(A)=\{x \in A: \text{ existe } U \in \mathcal{N}(x) \text{ tal que } U \subset A\}.$$
+  $$\mathrm{Int}(A)=\{x \in A: \text{ existe } U \in \mathcal{N}_x \text{ tal que } U \subset A\}.$$
   
 	% Clausura
 	\item  Al conjunto  \textbf{clausura} de $A$ en $X$ lo denotaremos por, 
   
-$$\mathrm{Cl}(A)=\{x \in A: \text{para toda } U \in \mathcal{N}(x) \text{ se cumple  que } U \cap A \neq \emptyset\}.$$
+$$\mathrm{Cl}(A)=\{x \in A: \text{para toda } U \in \mathcal{N}_x \text{ se cumple  que } U \cap A \neq \emptyset\}.$$
 	
 	% Frontera 
-	\item Denotaremos por  $\mathrm{Fr}_X$ al conjunto $\mathrm{Cl}(A^c) \cap \mathrm{Cl}(A) $ a este conjunto le llamaremos la 
+	\item Denotaremos por  $\mathrm{Fr}_X(A)$ al conjunto $\mathrm{Cl}(A^c) \cap \mathrm{Cl}(A) $ a este conjunto le llamaremos la 
   \textbf{frontera} de $A$ en $X$.
  \end{itemize}
 % Fin definición
 \end{df}
 
+
 \begin{cn}
 % Los operadores presinden de la topología. 
-Cuando el contexto lo permita simplemente denotaremos por $\mathrm{Int}(A)$ al interior, $\mathrm{CL}(A)$ la clausura y  $\partial(A)$ a la frontera de $A$ en $X$.
+Cuando el contexto lo permita simplemente denotaremos por $\mathrm{Int}(A)$ al interior, $\mathrm{CL}(A)$ la clausura y  $\mathrm{Fr}(A)$ a la frontera de $A$ en $X$.
+%Fin del convenio de presindir de la topología.
 \end{cn}
 
 
-En esta parte de la topología nos interesa estudiar los espacios mediante de las propiedades de $X$ o de $\tau$ (incluso ambas) y compararlas mediante las de otros espacios, esto es, poder demostrar que un espacio desconocido tenga propiedades de espacios ya conocidos, por lo que podemos clasificar por medio relaciones entre espacios y trabajar con un espacio ya conocido o mas estudiado.
+En esta parte de la topología nos interesa estudiar los espacios mediante de las propiedades de $X$ o de $\tau$ (incluso ambas) y compararlas mediante las de otros espacios, esto es, poder demostrar que un espacio desconocido tenga propiedades de espacios ya conocidos, por lo que podemos clasificar por medio relaciones entre espacios y trabajar con un espacio ya conocido o mas estudiado. Esta noción coloquialmente conocida como trabajar salvo homeomorfismo. 
 
 \begin{df}
+% Continuidad, Homeomorfismos
 Sea $X$ espacio topológico y una función $h:X \to X$. 
 \begin{enumerate}
 
@@ -186,6 +189,7 @@ Sea $X$ espacio topológico y una función $h:X \to X$.
 	
 	\item  Sea $h$ una función continua y biyectiva. Decimos que $h$ es un \textbf{homeomorfismo} si la función inversa de $h$, $h^{-1}:X \to X$ es continua. 	
 \end{enumerate}
+% Fin definición Continuidad, Homeomorfismos
 \end{df}
 
 
@@ -200,6 +204,9 @@ El siguiente resultado es conocido como el \textbf{lema de pegadura}
 \begin{pr}
 Sean $\mathcal{U}= \{A_\alpha :\alpha \in A\}$ una familia de abiertos tales que $\bigcup \mathcal{U} = X$ y $f:X \to Y$ una función. Si $f_\alpha=f|_{A_\alpha}$ es continua para todo $\alpha \in A$ entonces $f$ es continua.  
 \end{pr}
+
+
+EJEMPLO DE QUE UNA CURVA CERRADA SIMPLE ES UN CIRCULO. QUIZAS EL EJERCICIO DE CARLOS PRIETO.
 
 \section*{Invariantes topológicos}
 
@@ -270,25 +277,30 @@ La notación $X_d$ hacemos énfasis es que $X$ es el conjunto con métrica $d$, 
 \end{ob}
 
 \begin{ej}
+% Ejemplo de que Rn es un espacio métrico.
  Dados $\vec{a}$, $\vec{b} \in \mathbb{R}^{n}$, la norma euclidiana,
-$$d(\vec{a},\vec{b}):=\parallel \vec{a}-\vec{b} \parallel$$
+$$d(\vec{a},\vec{b}):=\| \vec{a}-\vec{b} \|$$
 define una métrica en $\mathbb{R}^{n}$.
 \end{ej}
 
+En general espacios normados son espacios métricos. 
+ 
 \begin{ej}
- Sean $X$ un conjunto no vacío y $d : X \times X \to\mathbb{R}$ definida mediante:
+% Toda métrica es equivalente a una métrica acotada.
+Sean $X$ un conjunto no vacío y $d : X \times X \to\mathbb{R}$ definida mediante:
 $$d(a,b)=\left\{
 \begin{array}{lcc}
-1, & si & a \neq b; \\
-0, & si & a=b. \\
+1, & \text{si} & a \neq b; \\
+0, & \text{si} & a=b. \\
 \end{array}
 \right.$$
 
 $d$ es conocida como la \textbf{métrica discreta} y  $X_{d}$ como \textbf{espacio métrico discreto}.
 \end{ej}
 
+
 \begin{ej}\label{ejem:metrica-acotada}
-- Sea $X_{d}$ espacio métrico. Definimos,
+Sea $X_{d}$ espacio métrico. Definimos,
 $$\bar{d}(a,b)=\left\{
 \begin{array}{lcc}
 1 & si & 1 < d(a,b);   \\
@@ -299,8 +311,13 @@ $$
 $\bar{d}$ es una métrica para $X$ con $\bar{d}(a,b)\leq 1$ para cuales quiera $a$, $b \in X.$ 
 \end{ej}
 
+
+En general tenemos que una métrica es equivalente a una métrica acotada. Esto es un paso interesante, puesto que en $\mathbb{R}^n$ un espacio es compacto si y solo si es cerrado y acotado. El conocido teorema de Heine-Borel. En espacios métricos podemos construir un espacio discreto, cerrado y acotado y no compacto. 
+
+
 \label{def:top-espacios-metricos}
 \begin{df}
+% Definición de bolas.
 Sean $\varepsilon > 0$ y $x\in X_d$. Definimos a la \textbf{bola abierta} de centro $x$ y radio $\varepsilon$  como
 
 $$B_{d}(x,\varepsilon)=\{ y \in X: d(x,y)< \varepsilon \}.$$
@@ -309,10 +326,12 @@ De manera parecida definimos a la \textbf{bola cerrada} de centro $x$ y radio $\
 $$\overline{B}_{d}(x,\varepsilon)=\left\lbrace y \in X: d(x,y)\leq \varepsilon \right\rbrace.$$
 \end{df}
 
-Para diferenciar la métrica que $X$ pueda tener (y por tanto las bolas de $X$) denotaremos $B_{d}(x,\varepsilon)$ y diremos que es una \textbf{d-bola.} En caso de que no haya confusión simplemente denotaremos $B(x,\varepsilon)$. Tenemos los conceptos necesarios para definir una topología para un espacio métrico.
+Para diferenciar las métricas que $X$ pueda tener (y por tanto las bolas de $X$) denotaremos $B_{d}(x,\varepsilon)$ y diremos que es una d-\textbf{bola.} En caso de que no haya confusión simplemente denotaremos $B(x,\varepsilon)$. Tenemos los conceptos necesarios para definir una topología para un espacio métrico.
 
 \begin{pr}\label{prp:bolas-bse}
+% Las bolas inducen una base para una topología.
 Sea $X$ espacio métrico. La familia $\lbrace B_{d}(x,\varepsilon): x \in X, \varepsilon > 0\rbrace$ de todas las d-bolas es base para una topología sobre $X$.
+% Fin de topología métrica.
 \end{pr}
 
 %\cite[sección 4.3 lema 1]{irri}
@@ -334,9 +353,9 @@ Decimos que $X$ es un \textbf{continuo} si es un espacio métrico, compacto y co
 Al estudiar espacios métricos nos vemos en la opción de no estudiar los axiomas de separación, que es una parte muy importante de la topología general. De nuevo, recomendamos el siguiente texto donde se puede profundizar este tema. Es claro que no hablar de este tema nos deja un estudio sesgado, pero usaremos solo un axioma de separación hasta la parte de la topología del grupo de homeomorfismos de la circunferencia. Incluso, solo es necesario concordar el tercer axioma separación. 
 
 
-\section*{Topología conciente}
+\section*{Topología cociente}
 
-En topología se estudia distintas maneras de obtener espacios topológicos como el subespacio, los productos pero otra mas compleja es la topología generada por funciones o familia de funciones, en sí es obtener un espacio topológico donde una función o una familia de funciones son continuas. En \cite{top_salicrup}, se explica de manera adecuada este tema, desde el capitulo 3 hasta el 5. Sin embargo tomaremos las definiciones de \cite{top_prieto} y de \cite{top_juan} puesto que el primero es un libro de actual circulación y el otro es un recurso en linea y su acceso no es limitado. 
+En topología se estudia distintas maneras de obtener espacios topológicos como el subespacio, los productos pero otra mas compleja es la topología generada por funciones o familia de funciones, en sí es obtener un espacio topológico donde una función o una familia de funciones son continuas. En \cite{top_salicrup}, se explica de manera completa este tema, desde el capitulo 3 hasta el 5. Sin embargo tomaremos las definiciones de \cite{top_prieto} y de \cite{top_juan} pues son mas extensos en detalles y de lectura mas cómoda. 
 
 \begin{df}
 Sean $X$ un espacio topológico, $Y$ un conjunto y $f:X \to Y$ una función sobreyectiva. La topología mas fina en $Y$ para la cual $f$ es continua se llama \textbf{topología de identificación} inducida por $f$. A $f$ se le llama \textbf{identificación}.
@@ -399,7 +418,7 @@ el cual es un numero entero. Por tanto $x \sim z$.
 	\end{enumerate}
 
 
-Del teorema anterior y de la función exponencial se tiene que $(\mathbb{R}/\sim) \cong S^1.$ La función  $\pi: \mathbb{R} \to \mathbb{R}/ \sim$ dada por $\pi (x)=[x]$ está bien definida y es una función cociente. Definimos a $Hom(\mathbb{R})$ los homeomorfismos monótonos crecientes de la recta que cumplen la propiedad, 
+Del teorema anterior y de la función exponencial se tiene que $(\mathbb{R}/\sim) \cong S^1.$ La función  $\pi: \mathbb{R} \to \mathbb{R}/ \sim$ dada por $\pi (x)=[x]$ está bien definida y es una función cociente. Definimos a $Homeo(\mathbb{R})$ los homeomorfismos monótonos crecientes de la recta que cumplen la propiedad, 
 
 $$\tilde{f}(x+1)= \tilde{f}(x)+1.$$
 
@@ -414,87 +433,115 @@ dado por $f=\pi(\tilde{f}).$ Notemos que de esto se induce un homeomorfismo de l
 
 Concluimos esta sección con toda la notación referente a topología que vamos a usar o se usan en los artículos consultados. En caso dado se use otro resultado será tratado en la respectiva sección. 
 
-%%%%%%%% Grupos
+%%%				Grupos				%%%%% 
 
 \section{Grupos}
-En este texto estudiaremos nociones de álgebra moderna, para ello planteamos la notación necesaria para desarrollar dichos temas. Para el desarrollo de esto temas recomendamos la siguiente literatura donde nos hemos basado en la estructura de \cite{alg_grove} y contenido de \cite{alg_ii}.
+% Introducir lo importante que es la teoria de grupos para la exposición del tema. 
+En este texto estudiaremos resultados de teoría de grupos, para ello planteamos la notación necesaria para desarrollar dichos temas. Se recomienda al lector para el desarrollo de este tema las siguientes referencias bibliograficas, para la secuencia del desarrollo de los temas usamos a \cite{alg_grove} y la notación de \cite{alg_ii}.
 
-	\begin{df}
-Sea $G$ un conjunto no vacío. Por grupo nos referimos a una terna $(G, \circ, e)$ con $\circ:G \times G \to G$ una operación en $G$ y $e$ un elemento de $G$ tales que
+\begin{df}
+% Definición de grupo
+Sea $G$ un conjunto no vacío. Por grupo nos referimos a una terna $(G, \circ, e)$ donde $\circ:G \times G \to G$ una operación en $G$ y $e$ un elemento distinguido de $G$ tales que;
 
-	\begin{enumerate}
-		\item La operación $\circ$ es asociativa.
-		\item para cada $g \in G$ existe $h \in G$ tal que $ \circ (g,h)= \circ(h ,g)=e$. A $h$ se le llamara un inverso de $g$. 
-		\item Para todo $g \in G$ se cumple que $\circ(g ,e) =  \circ(e,g) = g.$
-	\end{enumerate}
-	\end{df}
-
-	\begin{cn}
-Para evitar entrar en resultados interesantes que no usaremos de manera explícita recurrimos a completar el tema con los teoremas que hablan de la unicidad de los elementos $e$ y $g$ como en \cite{alg_grove}. A partir de ahora denotaremos simplemente por $gh$ a la operación $\circ(g,h)$, en otras palabras, hacemos el abuso de notación,  $\circ(g,h):=gh.$
-	\end{cn}
+\begin{enumerate}
+	\item La operación $\circ$ es asociativa.
 	
-	\begin{df}
-	Sea $G$ un grupo y subconjunto $H$ de $G$. Decimos que $H$ es \textbf{subgrupo} de $G$ denotado por $H \leq G$, si la operación $\circ:H \times H \to G$ es una operación cerrada en $H$.	
-		\end{df}
+	\item para cada $g \in G$ existe $h \in G$ tal que $ \circ (g,h)= \circ(h ,g)=e$. A $h$ se le llamara un inverso de $g$. 
+	
+	\item Para todo $g \in G$ se cumple que $\circ(g ,e) =  \circ(e,g) = g.$
+\end{enumerate}
+% Fin, definición de grupo
+\end{df}
+
+\begin{cn}
+% Evitar lo básico de grupos
+Para evitar entrar en resultados introductorios de grupos como con los teoremas de la unicidad de los elementos $e$ y los inversos recurrimos a \cite{alg_grove} y además  denotaremos simplemente por $gh$ a la operación $\circ(g,h)$, en otras palabras, hacemos el abuso de notación,  $\circ(g,h):=gh.$
+%Fin de evitar lo básico de grupos
+\end{cn}
+
+Una cuestión muy sencilla es que si tomamos un conjunto con un solo elemento $G=\{g\}$ de manera simple podemos definir, $\circ(g,g)=g$ por lo que es $g$ es el elemento identidad y $g$ es su propio inverso bajo $\circ$ y $\{g\}$ es un grupo. 
+
+Pero, si $G$ es un grupo con mas de un elemento, no es necesario que bajo la operación de $G$ se tenga que $gg=g$. Aunque si pasa cuando $g=e$, por lo que tenemos una clase de no vacía de grupos contenidos en un grupo. Lo anterior muestra la necesidad de los inversos y del elemento $e$ en los posibles grupos contenidos (como conjuntos) en un grupo arbitario $G$.
+
+\begin{df}
+% Definición de subgrupo.
+Sea $G$ un grupo y subconjunto $H$ de $G$. Decimos que $H$ es \textbf{subgrupo} de $G$ denotado por $H \leq G$, si la operación $\circ:H \times H \to G$ es una operación de grupo en $H$.	
+% Fin de definición de subgrupo. 
+\end{df}
+
+En otras palabras, $H$ es por si mismo un grupo. Sea $e_H$ la idendidad bajo $H$ entonces para $e_G$ la identidad de $G$ se tiene por definición que $e_H e_G=e_H$ en $G$ y tambien en $H$, por la unicidad de la identidad, $e_G$ es la identidad en $H$ y ahora sin ambigedad, $e_H=e_G$ para todo subgrupo de $G$, por simplicidad diremos a $e$ para refererirnos a $e_G$. Sea $h \in H$ y $h_H^{-1}$ su inverso en $H$, notemos que $h_G^{-1}h=e=h_H^{-1}h$. Finalmente note que $\{e\}$ es un subgrupo contenido en todo subgrupo de $G$. 
 		
-\begin{ob}	
-Sea $X \subset G$ denotemos por $\langle X \rangle$ a la intersección de subgrupos de $G$ que contiene a $X$. $\langle X \rangle$ es un subgrupo de $G$ que contiene a $X$. Dicho grupo es llamado el \textbf{grupo generado por $X$}. Si $X$ es finito, $X=\{ a_1, \cdots , a_n\}$ entonces $\langle X \rangle$ es denotado por $\langle a_1, \cdots, a_n \rangle$. Más aún si $X=\emptyset$ notemos que $\langle X \rangle=\{e_G\}$ el grupo trivial.
+\begin{ob}
+% La intersección de grupos es grupo. Grupo generado por un conjunto.
+Sea $X \subset G$ denotemos por $\langle X \rangle$ a la intersección de los subgrupos de $G$ que contiene a $X$. $\langle X \rangle$ es un subgrupo de $G$ que contiene a $X$. Dicho grupo es llamado el \textbf{grupo generado por} $X$. Si $X$ es finito, $X=\{ a_1, \cdots , a_n\}$ entonces $\langle X \rangle$ es denotado por $\langle a_1, \cdots, a_n \rangle$. Más aún si $X=\emptyset$ notemos que $\langle X \rangle=\{e_G\}$ el grupo trivial.
 \end{ob}
 
 El siguiente resultado es tomado de \cite{alg_i} como proposición 3.3.1.
 
 \begin{pr}
+% Propiedad mininal del grupo generado.
 Si $H$ es un subgrupo que contiene a $X$ entonces $\langle X \rangle \subset H$.
+% Fin de la propiedad minimal.
 \end{pr}
-La proposición anterior nos da una propiedad minimal respecto a la contención de $X$. En otras palabras	$\langle X \rangle$ es el minimo subgrupo que contiene a $X$.
+
+La proposición anterior nos da una propiedad minimal respecto a la contención de $X$. En otras palabras $\langle X \rangle$ es el minimo subgrupo que contiene a $X$.
 
 \begin{df}
-Sea $G$ un  grupo y $X \subset G$ no vacío. Una palabra en $X$ es un elemento $w \in G$ de la forma
+% Definición de palabra.
+Sea $G$ un  grupo y $X \subset G$ no vacío. Una \textbf{palabra} en $X$ es un elemento $w \in G$ de la forma
 \begin{align*}
 w=x_1^{a_i} \cdots x_n^{a_n},
 \end{align*}
 donde $n \in \mathbb{Z}^+$, $x_i \in X$ y $a_i \in \mathbb{Z}$ para toda i. Denotamos por $\mathbf{W}(X)$ el conjunto de todas la palabras de  $X$. Observemos que $X \subset \mathbf{W}(X)$ además nos es conveniente definir a $\mathbf{W}(\emptyset) :=\{e_G\}$.
+% Fin de la definición de palabra.
 \end{df}
-El siguiente resultado puede encontrarse en %imate pág 85 3.3.4
+
+El siguiente resultado puede encontrarse en imate pág 85 3.3.4
 
 \begin{te}
+% El grupo generado coincide con el grupo de palabras de un conjunto.
 Sea $X \subset G$ se tiene que $\langle X \rangle= \mathbf{W}(X)$.
+% Fin de teorema
 \end{te}
+
 De esta manera tenemos una descripción de los elementos de $\langle X \rangle$ es decir, para cada $w \in \langle X \rangle$ se tiene una representación mediante, 
 
 \begin{align*}
-w=x_1^{a_i} \cdots x_n^{a_n}
+w=x_1^{a_i} \cdots x_n^{a_n},
 \end{align*}
+
 incluso se puede tomar a los elementos $a_i \in \{-1,1\}$ en algunos caso es importante tener la simetría de $X$, el conjunto $X^-=\{x^{-1}| x \in X \}$ pero dependerá de la utilidad de la descripción. Ahora estableceremos la notación para clases laterales que nos permitirá desarrollar el resto de nuestro trabajo. 	
 	
 \begin{df}
+% Definición de clases laterales.
 Sea $G$ un grupo y subconjuntos $H$, $K$ de $G$.
+
 \begin{enumerate}
 		
-		\item El conjunto $KH$ se define como  $KH=\{kh: k \in K \text{ y } h \in H \}$. En particular cuando $K$ conste de un solo punto, $K=\{k\}$ denotaremos al conjunto $KH$ por $kH$.	
-		
-		
-		
-		\item Para todo $g \in G$ el conjunto $gH=\{gh:h \in H \}$ le llamaremos \textbf{clase lateral izquierda}; análogamente por \textbf{clase lateral derecha} nos referimos al conjunto $Hg=\{hg:h \in H\}$ . A la familia  $G/H_{der}=\{gH:g \in G\}$
-le llamaremos la familia de clases laterales derechas de $H$ y análogamente a $G/H_{izq}=\{Hg:g \in G\}$
+	\item El conjunto $KH$ se define como  $KH=\{kh: k \in K \text{ y } h \in H \}$. En particular cuando $K$ conste de un solo elemento, $K=\{k\}$ denotaremos al conjunto $KH$ por $kH$.	
+
+	\item Para todo $g \in G$ el conjunto $gH=\{gh:h \in H \}$ le llamaremos \textbf{clase lateral izquierda}; análogamente por \textbf{clase lateral derecha} nos referimos al conjunto $Hg=\{hg:h \in H\}$ . A la familia  $G \setminus H_{der}=\{gH:g \in G\}$
+le llamaremos la familia de clases laterales derechas de $H$ y análogamente a $G\setminus H_{izq}=\{Hg:g \in G\}$
 le llamaremos la familia de clases laterales derechas de $H$. 
-	\end{enumerate} 
+\end{enumerate} 
+% Fin definición de clases laterales
 \end{df}	
 
 \begin{ob}
-De la definición anterior tenemos unas observaciones interesantes. 
+% Las clases laterales no coinciden. 
+De la definición anterior tenemos unas observaciones. 
 
-	\begin{enumerate}
+\begin{enumerate}
 	\item Las clases de un conjunto forma una partición de $G$ y por tanto las clases inducen una relación de equivalencia.
-	\item Más aún existe una correspondencia entre clases laterales.
 	
- Sea 
-    \begin{align*}
-    \varphi:G/H_d & \to G/H_i \\
-    gH & \mapsto Hg^{-1}
-    \end{align*} 
+	\item Más aún existe una correspondencia entre clases laterales. Sea 
+	
+ 	\begin{align*}
+	\varphi:G/H_d & \to G/H_i \\
+	gH & \mapsto Hg^{-1}
+	\end{align*} 
  
-  esta función cambia una clase lateral derecha a una izquierda. Veamos que es una función biyectiva. La función es sobre, pues para $g \in G$ y para el elemento $Hg$ tenemos que $g^{-1}$ es tal que $\varphi(g^{-1}H)=Hg$. Resta ver que es inyectiva, sean $g_1H$ y $g_1H$ clases derechas y supongamos que
+esta es una función cambia una clase lateral derecha a una izquierda. Veamos que es una función biyectiva. La función es sobre, pues para $Hg$ y para el elemento $g \in G$ tenemos que $g^{-1}$ es tal que $\varphi(g^{-1}H)=Hg$. Resta ver que es inyectiva, sean $g_1H$ y $g_1H$ clases derechas y supongamos que
 	
 	 $$Hg_1^{-1}=\varphi(g_1H)=\varphi(g_2H)=Hg_2^{-1}$$ 
 	
@@ -520,16 +567,29 @@ De la definición anterior tenemos unas observaciones interesantes.
 La situación anterior es sorprendente y no solo es una curiosidad matemática, esto nos da la estructura de como clasificar grupos. 
 	
 \begin{df}
-	Sea $G$ un grupo y $H$ subgrupo de $G$.
+% Conjugados, grupo normal. 
+Sea $G$ un grupo y $H$ subgrupo de $G$.
 	
 \begin{enumerate}
-    \item Dados $g$, $h \in G$ al elemento $hgh^ {-1}$ le llamaremos el conjugado de $g$ por $h$ y vamos a denotarlo por $g^{[h]}$. 
-	\item  Decimos que $g$ \textbf{normaliza} a $H$ si $gHg^{-1} \subset H.$ Al conjunto $N_G(H)=\{g \in G: gH=Hg\}$ le llamamos el \textbf{normalizador } de $H$ en $G$.
+    \item Dados $g \in G$, denotaremos a $gHg^{-1}$ por $H^g$, en particular cuando $H=\{h\}$ a $gHg^{-1}$ lo denotaremos simplemente por  $h^g$ al elemento $h^{g}$ le llamaremos el \textbf{conjugado} de $h$ por $g$. 
+	\item  Decimos que $g$ \textbf{normaliza} a $H$ si $H^{g} \subset H.$ Al conjunto $N_G(H)=\{g \in G: gH=Hg\}$ le llamamos el \textbf{normalizador} de $H$ en $G$.
 	\item Si $G=N_G(H)$ decimos que $H$ es \textbf{normal} en $G$ y denotaremos esto por $H \unlhd G.$
 		
 \end{enumerate}
+% Fin de conjugados, grupo normal.
 \end{df}
 	
+\begin{ob}
+Sean $g_1,$ $g_2 $ y $H$ conjunto. Notemos que
+
+\begin{align*}
+H^{g_1g_2} &=g_1g_2H(g_1g_2)^{-1}=g_1g_2Hg_2^{-1}g_1^{-1}\\
+&=(g_2Hg_2^{-1})^{g_1} \\
+& = (H^{g_2})^{g_1}
+\end{align*}
+
+Donde $H^{g_1g_2}$ no necesariamente es $(H^{g_1})^{g_2}$.
+\end{ob}
 	Una manera de construir nuevos grupos por grupos establecidos es por medio de los cocientes. 	113 imate
 	
 	\begin{te}
